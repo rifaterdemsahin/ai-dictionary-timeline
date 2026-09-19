@@ -17,9 +17,8 @@ NAV_GROUPS = [
     {
         "id": "research",
         "title": "🔬 Research",
-        "badge": "Analysis & Exams",
+        "badge": "Analysis & Economics",
         "items": [
-            {"file": "index.html", "name": "📖 Terms Dictionary", "desc": "24 certified curriculum terms"},
             {"file": "flashcards.html", "name": "⚡ Exam Flashcards", "desc": "Interactive flip-card study deck"},
             {"file": "youtube-vs-adwords.html", "name": "📊 Shorts vs AdWords", "desc": "Empirical CAC & traffic analysis"},
             {"file": "production-cost.html", "name": "💰 Production Cost", "desc": "Granular $0.63 unit economics"},
@@ -30,25 +29,33 @@ NAV_GROUPS = [
     {
         "id": "script",
         "title": "✍️ Script",
-        "badge": "Narrative & Audio",
+        "badge": "Curriculum & Prompts",
         "items": [
-            {"file": "tell-show-do-apply.html", "name": "🎧 Tell-Show-Do-Apply", "desc": "Pedagogical video timing & SFX"},
+            {"file": "index.html", "name": "📖 Terms Dictionary", "desc": "24 certified curriculum terms"},
+            {"file": "json-viewer.html", "name": "🔍 JSON Viewer", "desc": "Live schema explorer & DOM inspector"},
             {"file": "voice-selection.html", "name": "🎙️ Voice Selection", "desc": "ElevenLabs Brian (112Hz / 165 WPM)"},
-            {"file": "specs.html", "name": "📋 Production Spec", "desc": "Anchor Video #01 master spec"},
             {"file": "execution-logic.html", "name": "🚀 Execution Logic", "desc": "Two-stage calibration calendar"},
-            {"file": "prompts.html", "name": "📜 Prompts Log", "desc": "21 prompt session creation history"}
+            {"file": "prompts.html", "name": "📜 Prompts Log", "desc": "22 prompt session creation history"}
         ]
     },
     {
         "id": "design",
         "title": "🎨 Design",
-        "badge": "Architecture & Code",
+        "badge": "Architecture & Parameters",
         "items": [
-            {"file": "slideshow.html", "name": "🎬 Keyframe Slideshow", "desc": "Seedream 4.0 9:16 visual gallery"},
             {"file": "architecture.html", "name": "🏛️ System Architecture", "desc": "5 UML diagrams with Excalidraw pan/zoom"},
             {"file": "parameters.html", "name": "⚙️ System Parameters", "desc": "38 engine parameters & sandbox"},
-            {"file": "json-viewer.html", "name": "🔍 JSON Viewer", "desc": "Live schema explorer & DOM inspector"},
             {"file": "generated-code.html", "name": "💻 Generated Code", "desc": "Full repository filesystem explorer"}
+        ]
+    },
+    {
+        "id": "previz",
+        "title": "🎬 Previz",
+        "badge": "Storyboard & Pre-visualization",
+        "items": [
+            {"file": "slideshow.html", "name": "🎬 Keyframe Slideshow", "desc": "Seedream 4.0 9:16 visual gallery"},
+            {"file": "tell-show-do-apply.html", "name": "🎧 Tell-Show-Do-Apply", "desc": "4-phase audio-visual storyboard & SFX"},
+            {"file": "specs.html", "name": "📋 Production Spec", "desc": "Anchor Video #01 master executable spec"}
         ]
     }
 ]
@@ -306,32 +313,33 @@ def generate_footer_html(is_root=False):
         </div>
       </div>
 
-      <!-- Col 2: Research & Analysis -->
+      <!-- Col 2: Research & Script -->
       <div>
-        <div class="footer-heading">🔬 Research &amp; Study</div>
+        <div class="footer-heading">🔬 Research &amp; ✍️ Script</div>
         <ul class="footer-links-list">
           <li><a href="{root_link}">📖 Terms Dictionary</a></li>
+          <li><a href="{prefix}json-viewer.html">🔍 Interactive JSON Viewer</a></li>
           <li><a href="{prefix}flashcards.html">⚡ Exam Flashcards</a></li>
-          <li><a href="{prefix}youtube-vs-adwords.html">📊 Shorts vs AdWords</a></li>
+          <li><a href="{prefix}voice-selection.html">🎙️ Voice Selection</a></li>
           <li><a href="{prefix}production-cost.html">💰 Production Cost Model</a></li>
           <li><a href="{prefix}model-selection.html">🧠 Model Selection</a></li>
-          <li><a href="{prefix}sanity-check.html">🩺 Sanity Check Audit</a></li>
+          <li><a href="{prefix}execution-logic.html">🚀 Execution Logic</a></li>
+          <li><a href="{prefix}prompts.html">📜 Prompt History Log</a></li>
         </ul>
       </div>
 
-      <!-- Col 3: Script & Design -->
+      <!-- Col 3: Design & Previz -->
       <div>
-        <div class="footer-heading">✍️ Script &amp; 🎨 Design</div>
+        <div class="footer-heading">🎨 Design &amp; 🎬 Previz</div>
         <ul class="footer-links-list">
+          <li><a href="{prefix}slideshow.html">🎬 Keyframe Slideshow</a></li>
           <li><a href="{prefix}tell-show-do-apply.html">🎧 Tell-Show-Do-Apply</a></li>
-          <li><a href="{prefix}voice-selection.html">🎙️ ElevenLabs Voice Architecture</a></li>
           <li><a href="{prefix}specs.html">📋 Production Video Spec</a></li>
           <li><a href="{prefix}architecture.html">🏛️ System Architecture &amp; UML</a></li>
           <li><a href="{prefix}parameters.html">⚙️ System Parameters</a></li>
-          <li><a href="{prefix}json-viewer.html">🔍 Interactive JSON Viewer</a></li>
-          <li><a href="{prefix}execution-logic.html">🚀 Two-Stage Execution Logic</a></li>
+          <li><a href="{prefix}youtube-vs-adwords.html">📊 Shorts vs AdWords</a></li>
           <li><a href="{prefix}generated-code.html">💻 Generated Codebase</a></li>
-          <li><a href="{prefix}prompts.html">📜 Prompt History Log</a></li>
+          <li><a href="{prefix}sanity-check.html">🩺 Sanity Check Audit</a></li>
         </ul>
       </div>
 
