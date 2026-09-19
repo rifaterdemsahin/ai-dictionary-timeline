@@ -44,7 +44,58 @@ export interface ClaudeTermEntry {
   codeOrSyntaxSnippet?: string;    // JSON, XML, or API parameter snippet
   video16sBlueprint: VideoScript16s; // Ready for Remotion / fal.ai pipeline
   keyframeVisualSpec: KeyframeVisualSpec; // Initial & End frame image generation prompts
+  pinnedComment?: string;          // Ready-to-paste YouTube pinned comment with Skool CTA
+  pinnedCommentHookTopic?: string; // Concept anchor hook
+  tellShowDoApply?: TellShowDoApplySpec; // 4-stage micro-learning framework
+  soundAndTransitions?: SoundAndTransitionsSpec; // Remotion audio foley & visual transition cues
   relatedTermIds: string[];        // Graph connections
+}
+
+export interface PedagogicalPhase {
+  phase: "TELL" | "SHOW" | "DO" | "APPLY";
+  timecode: string;
+  title: string;
+  content: string;
+  pedagogyObjective: string;
+}
+
+export interface TellShowDoApplySpec {
+  framework: string;
+  tell: PedagogicalPhase;
+  show: PedagogicalPhase;
+  do: PedagogicalPhase;
+  apply: PedagogicalPhase;
+}
+
+export interface SfxCue {
+  timecode: string;
+  phase: "TELL" | "SHOW" | "DO" | "APPLY";
+  sfxName: string;
+  category: string;
+  targetVolumeDb: number;
+  duckingRule: string;
+}
+
+export interface TransitionCue {
+  timecode: string;
+  phase: "TELL" | "SHOW" | "DO" | "APPLY";
+  transitionType: string;
+  cameraDirective: string;
+}
+
+export interface RemotionAudioMixConfig {
+  sampleRate: number;
+  voiceoverGainDb: number;
+  sfxMasterGainDb: number;
+  musicBedGainDb: number;
+  autoDuckingDb: number;
+  crossfadeDurationMs: number;
+}
+
+export interface SoundAndTransitionsSpec {
+  sfxTimeline: SfxCue[];
+  transitionsTimeline: TransitionCue[];
+  remotionAudioMixConfig: RemotionAudioMixConfig;
 }
 
 export interface ClaudeAssociateDictionaryDataset {

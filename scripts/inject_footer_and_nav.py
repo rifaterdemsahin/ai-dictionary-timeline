@@ -22,6 +22,7 @@ PAGE_CONFIG = [
     {"file": "execution-logic.html", "name": "🚀 Execution Logic"},
     {"file": "tell-show-do-apply.html", "name": "🎧 Tell-Show-Do-Apply"},
     {"file": "sanity-check.html", "name": "🩺 Sanity Check"},
+    {"file": "generated-code.html", "name": "💻 Generated Code"},
 ]
 
 FOOTER_CSS = """
@@ -152,6 +153,7 @@ FOOTER_HTML = """  <!-- Global Footer -->
           <li><a href="./youtube-vs-adwords.html">📊 Shorts vs AdWords CAC</a></li>
           <li><a href="./execution-logic.html">🚀 Two-Stage Execution Logic</a></li>
           <li><a href="./sanity-check.html">🩺 Sanity Check Audit</a></li>
+          <li><a href="./generated-code.html">💻 Generated Codebase</a></li>
           <li><a href="./prompts.html">📜 Prompt History Log</a></li>
         </ul>
       </div>
@@ -186,6 +188,7 @@ def generate_nav_html(active_file):
         f'<a href="./execution-logic.html" class="nav-link{" active" if active_file == "execution-logic.html" else ""}">🚀 Execution Logic</a>',
         f'<a href="./tell-show-do-apply.html" class="nav-link{" active" if active_file == "tell-show-do-apply.html" else ""}">🎧 Tell-Show-Do-Apply</a>',
         f'<a href="./sanity-check.html" class="nav-link{" active" if active_file == "sanity-check.html" else ""}">🩺 Sanity Check</a>',
+        f'<a href="./generated-code.html" class="nav-link{" active" if active_file == "generated-code.html" else ""}">💻 Generated Code</a>',
         '<a href="../data/claude-associate-terms.json" target="_blank" class="nav-link">🔗 Terms JSON</a>'
     ]
     return '\n        '.join(links)

@@ -29,6 +29,7 @@ PAGES = [
     "pages/execution-logic.html",
     "pages/tell-show-do-apply.html",
     "pages/sanity-check.html",
+    "pages/generated-code.html",
 ]
 
 DATA_FILES = [
