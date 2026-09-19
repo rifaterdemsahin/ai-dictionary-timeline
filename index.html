@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Dictionary Timeline & Video Pipeline</title>
+  <title>Claude Associate Certification Dictionary & Video Pipeline</title>
   <style>
     :root {
       --bg: #09090b;
@@ -13,6 +13,9 @@
       --accent: #cc785c;
       --accent-glow: rgba(204, 120, 92, 0.35);
       --border: #27272a;
+      --critical: #ef4444;
+      --gap: #f59e0b;
+      --tag-bg: #27272a;
     }
     * {
       box-sizing: border-box;
@@ -27,7 +30,7 @@
       padding: 40px 20px;
     }
     .container {
-      max-width: 960px;
+      max-width: 1040px;
       margin: 0 auto;
     }
     header {
@@ -48,6 +51,17 @@
       margin-bottom: 12px;
       box-shadow: 0 0 15px var(--accent-glow);
     }
+    .gap-badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--gap);
+      color: #fbbf24;
+      font-weight: 600;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+    }
     h1 {
       font-size: 32px;
       font-weight: 800;
@@ -57,66 +71,131 @@
       color: var(--muted);
       font-size: 16px;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    .stats-bar {
+      display: flex;
+      gap: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 16px 24px;
+      border-radius: 12px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      flex: 1;
+      min-width: 140px;
+    }
+    .stat-number {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .search-box {
+      width: 100%;
+      padding: 14px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+    .search-box:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+    .terms-list {
+      display: flex;
+      flex-direction: column;
       gap: 20px;
       margin-bottom: 40px;
     }
-    .card {
+    .term-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 24px;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
-    .card:hover {
-      transform: translateY(-2px);
+    .term-card:hover {
       border-color: var(--accent);
     }
-    .card h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
-      color: #fafafa;
-    }
-    .card p {
-      font-size: 14px;
-      color: var(--muted);
-    }
-    .timeline-spec {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 32px;
-    }
-    .timeline-spec h2 {
-      font-size: 22px;
-      margin-bottom: 16px;
-      color: #fafafa;
-    }
-    .step {
+    .term-header {
       display: flex;
-      gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
     }
-    .step:last-child {
-      border-bottom: none;
+    .term-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fafafa;
     }
-    .step-time {
-      font-family: monospace;
+    .term-domain {
+      font-size: 12px;
+      color: var(--accent);
+      background: rgba(204, 120, 92, 0.1);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .term-def {
+      font-size: 15px;
+      color: #e4e4e7;
+      margin-bottom: 16px;
+    }
+    .trap-box {
+      background: rgba(0, 0, 0, 0.3);
+      border-left: 3px solid var(--accent);
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+    .trap-box strong {
+      color: var(--accent);
+    }
+    .video-blueprint {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 13px;
+    }
+    .video-blueprint h5 {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .vb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .vb-segment {
+      background: rgba(0,0,0,0.2);
+      padding: 8px 12px;
+      border-radius: 6px;
+    }
+    .vb-time {
+      font-size: 11px;
       font-weight: 700;
       color: var(--accent);
-      min-width: 110px;
     }
-    .step-content h4 {
-      font-size: 16px;
-      margin-bottom: 4px;
-    }
-    .step-content p {
-      font-size: 14px;
+    .vb-text {
+      font-size: 12px;
       color: var(--muted);
+      margin-top: 4px;
     }
     footer {
       border-top: 1px solid var(--border);
@@ -130,61 +209,117 @@
 <body>
   <div class="container">
     <header>
-      <span class="badge">Claude Associate Pipeline</span>
-      <h1>AI Dictionary Timeline & Video Automation</h1>
-      <p class="subtitle">Programmatic 16-Second Short Generation Architecture powered by fal.ai, MCP, and Remotion.</p>
+      <span class="badge">Claude Associate Exam Dictionary</span>
+      <h1>AI Terms Data Structure & Video Blueprint</h1>
+      <p class="subtitle">Complete curriculum dataset mapping 24 core terms to 16-second programmatic video scripts, exam traps, and gap analysis.</p>
     </header>
 
-    <div class="grid">
-      <div class="card">
-        <h3>1. Model Control & Generation</h3>
-        <p>Seedream on fal.ai generates starting and ending keyframes with visual consistency, interpolated seamlessly via Kling Frame-to-Frame.</p>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-number" id="stat-total">24</div>
+        <div class="stat-label">Curriculum Terms</div>
       </div>
-      <div class="card">
-        <h3>2. MCP Orchestration</h3>
-        <p>Model Context Protocol servers enable LLM agents to execute automated asset generation, keyframe staging, and timeline manifest compilation.</p>
+      <div class="stat-item">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Exam Domains</div>
       </div>
-      <div class="card">
-        <h3>3. Remotion Composition</h3>
-        <p>React/TypeScript compositions stitch 9:16 vertical clips, render kinetic captions, and synchronize ElevenLabs voiceovers.</p>
+      <div class="stat-item">
+        <div class="stat-number" style="color: #fbbf24;">3</div>
+        <div class="stat-label">Confirmed 0% Gaps</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">30085</div>
+        <div class="stat-label">Dedicated Server Port</div>
       </div>
     </div>
 
-    <div class="timeline-spec">
-      <h2>16-Second Video Breakdown (480 Frames @ 30 FPS)</h2>
-      <div class="step">
-        <div class="step-time">00:00 - 00:03</div>
-        <div class="step-content">
-          <h4>Hook & Core Problem</h4>
-          <p>High-impact question or visual metaphor defining the Claude concept.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-time">00:03 - 00:08</div>
-        <div class="step-content">
-          <h4>Core Concept Part 1</h4>
-          <p>Fundamental mechanics (e.g. Context Window, System Prompts, Tool Use).</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-time">00:08 - 00:13</div>
-        <div class="step-content">
-          <h4>Core Concept Part 2 / Applied Example</h4>
-          <p>Applied scenario or architectural diagram motion.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-time">00:13 - 00:16</div>
-        <div class="step-content">
-          <h4>CTA & Exam Tip</h4>
-          <p>Key takeaway for the Claude Associate Certification Exam.</p>
-        </div>
-      </div>
+    <input type="text" id="searchInput" class="search-box" placeholder="Search terms, concepts, or exam domains (e.g., Artifacts, MCP, Context Window)..." />
+
+    <div class="terms-list" id="termsContainer">
+      <!-- Injected via JavaScript from data/claude-associate-terms.json -->
     </div>
 
     <footer>
-      Running on dedicated local server port 30085 &bull; AI Dictionary Timeline Project
+      Running on dedicated local server port 30085 &bull; Schema: <code>types/claude-dictionary.ts</code> &bull; Data: <code>data/claude-associate-terms.json</code>
     </footer>
   </div>
+
+  <script>
+    let termsData = [];
+
+    async function loadTerms() {
+      try {
+        const response = await fetch('./data/claude-associate-terms.json');
+        const data = await response.json();
+        termsData = data.terms;
+        renderTerms(termsData);
+      } catch (err) {
+        console.error('Failed to load terms json:', err);
+      }
+    }
+
+    function renderTerms(terms) {
+      const container = document.getElementById('termsContainer');
+      if (terms.length === 0) {
+        container.innerHTML = '<div style="color: var(--muted); text-align: center; padding: 40px;">No matching terms found.</div>';
+        return;
+      }
+
+      container.innerHTML = terms.map(term => `
+        <div class="term-card">
+          <div class="term-header">
+            <div class="term-title">
+              ${term.term} ${term.acronym ? '(' + term.acronym + ')' : ''}
+              ${term.confirmedCurriculumGap ? '<span class="gap-badge">⚠️ 0% Baseline Gap</span>' : ''}
+            </div>
+            <span class="term-domain">${term.domain}</span>
+          </div>
+          <div class="term-def">${term.shortDefinition}</div>
+
+          <div class="trap-box">
+            <div><strong>Exam Trap Myth:</strong> ${term.keyExamTrap.myth}</div>
+            <div style="margin-top: 4px;"><strong>Reality:</strong> ${term.keyExamTrap.reality}</div>
+            <div style="margin-top: 4px; color: var(--muted);"><strong>Exam Clue:</strong> ${term.keyExamTrap.examClue}</div>
+          </div>
+
+          <div class="video-blueprint">
+            <h5>16-Second Short Video Blueprint</h5>
+            <div class="vb-grid">
+              <div class="vb-segment">
+                <div class="vb-time">00:00 - 00:03 (Hook)</div>
+                <div class="vb-text">${term.video16sBlueprint.hook}</div>
+              </div>
+              <div class="vb-segment">
+                <div class="vb-time">00:03 - 00:08 (Mechanism)</div>
+                <div class="vb-text">${term.video16sBlueprint.conceptPart1}</div>
+              </div>
+              <div class="vb-segment">
+                <div class="vb-time">00:08 - 00:13 (Example)</div>
+                <div class="vb-text">${term.video16sBlueprint.conceptPart2}</div>
+              </div>
+              <div class="vb-segment">
+                <div class="vb-time">00:13 - 00:16 (CTA / Tip)</div>
+                <div class="vb-text">${term.video16sBlueprint.ctaExamTip}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      const filtered = termsData.filter(t => 
+        t.term.toLowerCase().includes(q) ||
+        (t.acronym && t.acronym.toLowerCase().includes(q)) ||
+        t.domain.toLowerCase().includes(q) ||
+        t.shortDefinition.toLowerCase().includes(q) ||
+        t.keyExamTrap.myth.toLowerCase().includes(q)
+      );
+      renderTerms(filtered);
+    });
+
+    loadTerms();
+  </script>
 </body>
 </html>

@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ClaudeAssociateDictionarySchema",
+  "type": "object",
+  "required": ["version", "exam", "totalTerms", "domains", "terms"],
+  "properties": {
+    "version": { "type": "string" },
+    "lastUpdated": { "type": "string" },
+    "exam": { "type": "string" },
+    "totalTerms": { "type": "integer" },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "description", "weightPercentage"],
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "weightPercentage": { "type": "number" }
+        }
+      }
+    },
+    "terms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "term",
+          "domain",
+          "tier",
+          "shortDefinition",
+          "officialExamTopic",
+          "examImportance",
+          "confirmedCurriculumGap",
+          "keyExamTrap",
+          "video16sBlueprint",
+          "relatedTermIds"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "term": { "type": "string" },
+          "acronym": { "type": "string" },
+          "domain": { "type": "string" },
+          "tier": { "type": "string", "enum": ["Associate", "Architect-Foundational"] },
+          "shortDefinition": { "type": "string" },
+          "officialExamTopic": { "type": "string" },
+          "examImportance": { "type": "string", "enum": ["Critical", "High", "Medium"] },
+          "confirmedCurriculumGap": { "type": "boolean" },
+          "keyExamTrap": {
+            "type": "object",
+            "required": ["myth", "reality", "examClue"],
+            "properties": {
+              "myth": { "type": "string" },
+              "reality": { "type": "string" },
+              "examClue": { "type": "string" }
+            }
+          },
+          "codeOrSyntaxSnippet": { "type": "string" },
+          "video16sBlueprint": {
+            "type": "object",
+            "required": ["hook", "conceptPart1", "conceptPart2", "ctaExamTip"],
+            "properties": {
+              "hook": { "type": "string" },
+              "conceptPart1": { "type": "string" },
+              "conceptPart2": { "type": "string" },
+              "ctaExamTip": { "type": "string" }
+            }
+          },
+          "relatedTermIds": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,579 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-09-19",
+  "exam": "Anthropic Claude Certified Associate",
+  "totalTerms": 24,
+  "domains": [
+    {
+      "name": "Output Formats & Feature Selection",
+      "description": "Selection criteria between Artifacts vs Inline Markdown, code vs text, and UI features (Projects, Artifacts, Research Mode).",
+      "weightPercentage": 22
+    },
+    {
+      "name": "Prompting & Task Decomposition",
+      "description": "System prompts, XML tagging, chain-of-thought, few-shot conditioning, and multi-step decomposition.",
+      "weightPercentage": 20
+    },
+    {
+      "name": "Model Selection & Context Management",
+      "description": "Haiku vs Sonnet vs Opus trade-offs, 200k context window dynamics, prompt caching, and memory reset strategies.",
+      "weightPercentage": 18
+    },
+    {
+      "name": "Evaluation, Fact-Checking & Safety",
+      "description": "Hallucination mitigation, human-in-the-loop triggers, verification checks, and bias auditing.",
+      "weightPercentage": 15
+    },
+    {
+      "name": "Projects & Knowledge Management",
+      "description": "Custom project instructions, vector and file grounding, connectors (Google Drive, Gmail), and context curation.",
+      "weightPercentage": 10
+    },
+    {
+      "name": "API Mechanics & Tool Use",
+      "description": "JSON schema definition, stop_reason='tool_use', multi-turn tool loops, and client error handling.",
+      "weightPercentage": 15
+    }
+  ],
+  "terms": [
+    {
+      "id": "artifacts",
+      "term": "Artifacts",
+      "domain": "Output Formats & Feature Selection",
+      "tier": "Associate",
+      "shortDefinition": "A dedicated secondary UI pane rendered when Claude generates substantial (>15 lines), self-contained content intended to be modified, shared, or executed independently of the chat thread.",
+      "officialExamTopic": "Organize and curate information for optimal outputs; select appropriate output formats (artifacts for code/documents, inline for conversational responses)",
+      "examImportance": "Critical",
+      "confirmedCurriculumGap": true,
+      "keyExamTrap": {
+        "myth": "Artifacts should be triggered for any short code snippet or explanatory text block.",
+        "reality": "Artifacts are reserved for self-contained, high-value assets (>15 lines) meant for standalone reuse (e.g., SVG, React code, complete docs). Short snippets stay inline.",
+        "examClue": "Look for questions asking where a 3-line terminal command vs a 200-line React component should render."
+      },
+      "codeOrSyntaxSnippet": "<antArtifact identifier=\"dashboard-component\" type=\"application/vnd.ant.react\" title=\"Analytics Dashboard\">",
+      "video16sBlueprint": {
+        "hook": "Why does Claude put some code in a side window and some directly in chat?",
+        "conceptPart1": "That side window is an Artifact! Reserved for standalone, reusable code, SVGs, or documents over 15 lines long.",
+        "conceptPart2": "Conversational replies and quick 3-line snippets always stay inline to avoid cluttering your workspace.",
+        "ctaExamTip": "Exam Tip: Candidates failed this at 0%! Remember: standalone and reusable equals Artifact, quick explanation equals inline!"
+      },
+      "relatedTermIds": ["inline-markdown", "claude-projects", "output-formatting"]
+    },
+    {
+      "id": "inline-markdown",
+      "term": "Inline Markdown",
+      "domain": "Output Formats & Feature Selection",
+      "tier": "Associate",
+      "shortDefinition": "The default output format rendered directly within the conversational message stream for immediate reading, short code snippets, explanations, and dialogue.",
+      "officialExamTopic": "Organize and curate information for optimal outputs; select appropriate output formats",
+      "examImportance": "Critical",
+      "confirmedCurriculumGap": true,
+      "keyExamTrap": {
+        "myth": "All structured markdown tables require an Artifact window.",
+        "reality": "Tables, bullet points, and brief code snippets belong inline unless explicitly intended for standalone export or iterative drafting.",
+        "examClue": "Questions emphasizing rapid back-and-forth iteration without standalone document extraction."
+      },
+      "video16sBlueprint": {
+        "hook": "Should Claude generate an Artifact or stay inline in the chat?",
+        "conceptPart1": "Inline Markdown is for conversational continuity: explanations, quick terminal commands, and reading flow.",
+        "conceptPart2": "Creating an Artifact for a short response interrupts the user's flow and wastes layout real estate.",
+        "ctaExamTip": "Associate Exam Rule: If the user doesn't need to export, compile, or iterate on the code as a file, keep it inline!"
+      },
+      "relatedTermIds": ["artifacts", "output-formatting"]
+    },
+    {
+      "id": "task-decomposition",
+      "term": "Task Decomposition",
+      "domain": "Prompting & Task Decomposition",
+      "tier": "Associate",
+      "shortDefinition": "The prompting method of breaking down a large, multifaceted problem into sequential sub-tasks, minimizing cognitive overload and intermediate error propagation.",
+      "officialExamTopic": "Apply task decomposition techniques to structure complex requests",
+      "examImportance": "Critical",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Providing a single mega-prompt with 10 complex requirements is faster and equally accurate.",
+        "reality": "Decomposed prompts allow Claude to verify intermediate outputs, dramatically reducing compounding hallucinations.",
+        "examClue": "Scenarios involving multi-step audits, legal contract comparisons, or multi-tier code refactoring."
+      },
+      "codeOrSyntaxSnippet": "Step 1: Extract entities.\nStep 2: Compare against compliance checklist.\nStep 3: Output final discrepancy table.",
+      "video16sBlueprint": {
+        "hook": "Why does Claude hallucinate when you ask it to do three complex jobs at once?",
+        "conceptPart1": "LLMs suffer from cognitive overload when solving chained logic in a single shot without intermediate tokens.",
+        "conceptPart2": "Task decomposition forces Claude to execute Step 1, verify the intermediate state, then proceed to Step 2.",
+        "ctaExamTip": "Exam Tip: For multi-step enterprise workflows, always decompose complex instructions into numbered sequential stages!"
+      },
+      "relatedTermIds": ["chain-of-thought", "xml-tagging", "system-prompts"]
+    },
+    {
+      "id": "xml-tagging",
+      "term": "XML Tagging in Prompts",
+      "domain": "Prompting & Task Decomposition",
+      "tier": "Associate",
+      "shortDefinition": "Anthropic's recommended structural syntax for delineating instructions, context documents, examples, and output constraints within prompts using clean semantic tags.",
+      "officialExamTopic": "Create effective prompts for business and technical tasks",
+      "examImportance": "Critical",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Markdown headers (# or ##) provide the same parsing precision to Claude as XML tags.",
+        "reality": "Claude is fine-tuned specifically on XML tags (<context>, <instructions>, <rules>), eliminating ambiguity between data and instructions.",
+        "examClue": "Prompts containing user-supplied untrusted input that could cause prompt injection."
+      },
+      "codeOrSyntaxSnippet": "<instructions>\nSummarize the text in <source_document>.\n</instructions>\n<source_document>\n{{DOCUMENT_TEXT}}\n</source_document>",
+      "video16sBlueprint": {
+        "hook": "What is Anthropic's secret weapon for structuring complex prompts?",
+        "conceptPart1": "XML tags! Wrapping sections in tags like <context> and <instructions> gives Claude mathematical clarity on where data ends and commands begin.",
+        "conceptPart2": "This prevents prompt injection and stops Claude from confusing your example data with actual user instructions.",
+        "ctaExamTip": "Anthropic Associate Exam Gold: Always use semantic XML tags to wrap input documents and reference criteria!"
+      },
+      "relatedTermIds": ["system-prompts", "task-decomposition", "few-shot-prompting"]
+    },
+    {
+      "id": "system-prompts",
+      "term": "System Prompts",
+      "domain": "Prompting & Task Decomposition",
+      "tier": "Associate",
+      "shortDefinition": "A dedicated high-priority instruction channel placed outside the normal user conversation turn that establishes Claude's role, behavioral boundaries, and tone.",
+      "officialExamTopic": "Create effective prompts for business and technical tasks",
+      "examImportance": "High",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "System prompts are just normal user messages prepended to the chat history.",
+        "reality": "In Anthropic's API, system is a top-level parameter with higher behavioral adherence and persistent role conditioning.",
+        "examClue": "Architecture questions asking where to define persistent guardrails across a 50-turn conversation."
+      },
+      "codeOrSyntaxSnippet": "client.messages.create(\n  model=\"claude-3-5-sonnet-20241022\",\n  system=\"You are a senior compliance auditor. Never output PII.\",\n  messages=[{\"role\": \"user\", \"content\": \"Analyze this claim.\"}]\n)",
+      "video16sBlueprint": {
+        "hook": "Where should you lock in Claude's persona so it never forgets its instructions?",
+        "conceptPart1": "In the System Prompt parameter! Not in the first user message. It sets the overarching role, security guardrails, and tone.",
+        "conceptPart2": "Even across 50 multi-turn conversation exchanges, the system prompt retains maximum steering priority.",
+        "ctaExamTip": "Exam Tip: Use the top-level 'system' parameter for persistent role definitions and security boundaries!"
+      },
+      "relatedTermIds": ["xml-tagging", "temperature", "guardrails"]
+    },
+    {
+      "id": "model-tier-tradeoffs",
+      "term": "Claude Model Family (Haiku vs Sonnet vs Opus)",
+      "domain": "Model Selection & Context Management",
+      "tier": "Associate",
+      "shortDefinition": "Anthropic's three-tier model hierarchy balancing speed, cost, and reasoning depth: Haiku (fast/low-cost), Sonnet (balanced enterprise workhorse), Opus (deep complex reasoning).",
+      "officialExamTopic": "Differentiate between Claude model types (Haiku, Sonnet, Opus) and align model selection with task requirements",
+      "examImportance": "Critical",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Opus is always the recommended model for production applications because it is the largest.",
+        "reality": "Sonnet 3.5 frequently outperforms older Opus on coding and tool use at 1/5th the cost and significantly higher velocity.",
+        "examClue": "High-volume classification vs real-time coding vs edge low-latency batch processing."
+      },
+      "video16sBlueprint": {
+        "hook": "Haiku, Sonnet, or Opus: Which Claude model should you deploy in production?",
+        "conceptPart1": "Haiku delivers near-instant speed at minimal cost for classification and routing.",
+        "conceptPart2": "Sonnet 3.5 is the enterprise workhorse with frontier coding and vision, while Opus tackles the deepest multi-step research.",
+        "ctaExamTip": "Exam Question Alert: Never default to the largest model! Always match volume, latency SLA, and token cost to the tier!"
+      },
+      "relatedTermIds": ["context-window", "prompt-caching", "token-budgeting"]
+    },
+    {
+      "id": "context-window",
+      "term": "200k Context Window Management",
+      "domain": "Model Selection & Context Management",
+      "tier": "Associate",
+      "shortDefinition": "Claude's capacity to process up to 200,000 tokens (~150,000 words) in a single request, requiring deliberate memory hygiene to avoid latency inflation and attention dispersion.",
+      "officialExamTopic": "Understand and manage context limitations/memory: when to restart, summarize, or persist",
+      "examImportance": "Critical",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Because the window is 200k tokens, you should leave entire conversation threads running indefinitely.",
+        "reality": "Degraded latency, higher per-turn cost, and 'needle-in-a-haystack' retrieval noise make resetting or summarizing sessions necessary.",
+        "examClue": "When to clear context, summarize previous turns, or spin up a new session."
+      },
+      "video16sBlueprint": {
+        "hook": "Claude can handle 200,000 tokens—so should you ever reset the chat?",
+        "conceptPart1": "Yes! Just because Claude can read 500 pages doesn't mean your budget and latency want to pay for 500 pages on every turn.",
+        "conceptPart2": "Long contexts increase time-to-first-token and cost. Pruning and summarizing keeps responses sharp.",
+        "ctaExamTip": "Associate Exam Rule: When a conversation shifts topics, restart or summarize rather than dragging the entire historical context!"
+      },
+      "relatedTermIds": ["prompt-caching", "model-tier-tradeoffs", "token-budgeting"]
+    },
+    {
+      "id": "prompt-caching",
+      "term": "Prompt Caching",
+      "domain": "Model Selection & Context Management",
+      "tier": "Associate",
+      "shortDefinition": "An Anthropic API feature allowing developers to cache large static prompt prefixes (codebases, documentation, system prompts) for up to 5 minutes, slashing cost by 90% and latency by 85%.",
+      "officialExamTopic": "Optimize token usage, latency, and cost-performance trade-offs",
+      "examImportance": "Critical",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Prompt caching is automatically applied to any message sent to the API.",
+        "reality": "Developers must explicitly declare cache breakpoints using the 'cache_control': {'type': 'ephemeral'} parameter on content blocks over 1,024 tokens.",
+        "examClue": "Scenarios involving large book analyses, customer service agent repos, or recurring system rules."
+      },
+      "codeOrSyntaxSnippet": "{\n  \"type\": \"text\",\n  \"text\": largeDocumentationText,\n  \"cache_control\": {\"type\": \"ephemeral\"}\n}",
+      "video16sBlueprint": {
+        "hook": "How do you slash your Claude API costs by 90% in large context applications?",
+        "conceptPart1": "Prompt Caching! Set an ephemeral cache breakpoint on your static documents or huge system prompts.",
+        "conceptPart2": "Subsequent API calls read from memory instead of recalculating, reducing latency by up to 85%.",
+        "ctaExamTip": "Exam Tip: Minimum cacheable prompt size is 1,024 tokens. Look for 'cache_control: ephemeral' on the exam!"
+      },
+      "relatedTermIds": ["context-window", "model-tier-tradeoffs", "tool-use-stop-reason"]
+    },
+    {
+      "id": "tool-use-stop-reason",
+      "term": "Tool Use & Stop Reason ('tool_use')",
+      "domain": "API Mechanics & Tool Use",
+      "tier": "Associate",
+      "shortDefinition": "The API return state when Claude decides that answering the user's prompt requires executing an external function, returning structured JSON arguments and stop_reason='tool_use'.",
+      "officialExamTopic": "Select appropriate Claude product features and understand programmatic tool execution",
+      "examImportance": "Critical",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Claude directly invokes your internal database or executes code on your server.",
+        "reality": "Claude never executes client-side code; it outputs the JSON arguments and pauses with stop_reason='tool_use', waiting for the client to run the tool and return the result.",
+        "examClue": "Who executes the code when tool_use is invoked, and what does the client pass back?"
+      },
+      "codeOrSyntaxSnippet": "{\n  \"stop_reason\": \"tool_use\",\n  \"content\": [\n    {\n      \"type\": \"tool_use\",\n      \"id\": \"toolu_01A09q90\",\n      \"name\": \"get_weather\",\n      \"input\": {\"location\": \"San Francisco, CA\"}\n    }\n  ]\n}",
+      "video16sBlueprint": {
+        "hook": "Does Claude actually run the tools you give it in the API?",
+        "conceptPart1": "No! Claude does NOT execute code on your server. It returns a stop_reason called 'tool_use' with structured JSON parameters.",
+        "conceptPart2": "Your client application executes the database query or API, then feeds the result back to Claude.",
+        "ctaExamTip": "Certification Golden Rule: Claude decides WHEN to call and outputs parameters; your client application does the actual execution!"
+      },
+      "relatedTermIds": ["mcp-protocol", "json-schema-tools", "task-decomposition"]
+    },
+    {
+      "id": "mcp-protocol",
+      "term": "Model Context Protocol (MCP)",
+      "domain": "API Mechanics & Tool Use",
+      "tier": "Associate",
+      "shortDefinition": "Anthropic's open standard for securely connecting AI assistants to local or remote data sources, enterprise tools, and execution environments via standardized client-host-server architectures.",
+      "officialExamTopic": "Evaluate connection protocols and select the appropriate integration mechanism",
+      "examImportance": "High",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "MCP is a proprietary proprietary closed API for Claude Desktop only.",
+        "reality": "MCP is an open protocol with open-source SDKs (TypeScript, Python) allowing any agent to connect to standardized resource and tool servers.",
+        "examClue": "Standardized tool integration across multiple tools without bespoke point-to-point wrappers."
+      },
+      "video16sBlueprint": {
+        "hook": "What is Anthropic's Model Context Protocol, and why does every developer need it?",
+        "conceptPart1": "MCP is an open standard that connects AI models to local files, databases, and enterprise tools.",
+        "conceptPart2": "Instead of writing bespoke API glue for every tool, MCP provides universal client-server connectors.",
+        "ctaExamTip": "Exam Tip: Think of MCP like USB-C for AI—one standard protocol for data resources, prompts, and tools!"
+      },
+      "relatedTermIds": ["tool-use-stop-reason", "json-schema-tools"]
+    },
+    {
+      "id": "claude-projects",
+      "term": "Claude Projects",
+      "domain": "Projects & Knowledge Management",
+      "tier": "Associate",
+      "shortDefinition": "A workspace feature within Claude.ai that bundles dedicated project instructions, curated reference documents, and chat histories for persistent team collaboration.",
+      "officialExamTopic": "Configure Claude Projects with instructions and knowledge sources; manage uploaded knowledge and connectors",
+      "examImportance": "High",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Claude Projects fine-tunes the base model on your uploaded company documents.",
+        "reality": "Projects uses in-context retrieval and custom instructions; it does not train weights or permanently alter the foundational model.",
+        "examClue": "Questions regarding team workspace setup, persistent instructions, and document grounding without API development."
+      },
+      "video16sBlueprint": {
+        "hook": "Does uploading PDF files into Claude Projects fine-tune the model?",
+        "conceptPart1": "No! Claude Projects does NOT fine-tune model weights. It provides persistent in-context grounding and custom instructions.",
+        "conceptPart2": "Your uploaded style guides and code repos are dynamically retrieved to frame answers in team chats.",
+        "ctaExamTip": "Exam Question Alert: Projects provide in-context reference and team workspaces, never fine-tuning or weight modification!"
+      },
+      "relatedTermIds": ["artifacts", "context-window", "hallucination-mitigation"]
+    },
+    {
+      "id": "chain-of-thought",
+      "term": "Chain-of-Thought (CoT) Prompting",
+      "domain": "Prompting & Task Decomposition",
+      "tier": "Associate",
+      "shortDefinition": "Instructing Claude to 'think step-by-step' or articulate reasoning inside thinking tags (<thinking>...</thinking>) prior to generating the final answer.",
+      "officialExamTopic": "Apply prompt engineering techniques (zero-shot, few-shot, chain-of-thought)",
+      "examImportance": "High",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "CoT is just stylistic verbosity and does not affect mathematical or logic accuracy.",
+        "reality": "Generating intermediate reasoning tokens fundamentally changes the auto-regressive probability distribution, dramatically reducing logic errors.",
+        "examClue": "Math problems, policy interpretations, or complex entity matching tasks."
+      },
+      "codeOrSyntaxSnippet": "<instructions>\nBefore answering, reason through each constraint step-by-step inside <thinking> tags.\n</instructions>",
+      "video16sBlueprint": {
+        "hook": "Why do thinking tags make Claude dramatically smarter at logic problems?",
+        "conceptPart1": "Chain-of-Thought prompts give the model token workspace to compute intermediate states before committing to a final answer.",
+        "conceptPart2": "Asking Claude to think inside <thinking> tags decouples internal scratchpad reasoning from the polished output.",
+        "ctaExamTip": "Certification Tip: Use Chain-of-Thought whenever tasks require multi-step math, policy verification, or complex deduction!"
+      },
+      "relatedTermIds": ["task-decomposition", "xml-tagging", "hallucination-mitigation"]
+    },
+    {
+      "id": "few-shot-prompting",
+      "term": "Few-Shot Prompting",
+      "domain": "Prompting & Task Decomposition",
+      "tier": "Associate",
+      "shortDefinition": "The practice of including 2 to 5 canonical input-output examples directly inside the prompt to anchor the expected schema, tone, and nuance without fine-tuning.",
+      "officialExamTopic": "Create effective prompts for business and technical tasks; adapt prompting strategies based on task type",
+      "examImportance": "High",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Detailed paragraphs of textual instructions are always superior to concrete input-output examples.",
+        "reality": "Few-shot examples anchor edge-case handling and esoteric format specifications far more reliably than descriptive prose.",
+        "examClue": "Tasks requiring unusual formatting or complex edge-case classification."
+      },
+      "codeOrSyntaxSnippet": "<example>\n<input>Invoice #402 missing VAT</input>\n<output>{\"status\": \"REJECTED\", \"code\": \"ERR_NO_VAT\"}</output>\n</example>",
+      "video16sBlueprint": {
+        "hook": "Tired of writing 5-paragraph prompts that Claude still misinterprets?",
+        "conceptPart1": "Switch to Few-Shot Prompting! Show, don't just tell. Providing 2 to 3 pristine input-output examples anchors output format instantly.",
+        "conceptPart2": "Claude mirrors the syntax, tone, and edge-case decisions demonstrated in your examples.",
+        "ctaExamTip": "Exam Strategy: When zero-shot instructions fail on schema edge cases, few-shot examples are the proven fix!"
+      },
+      "relatedTermIds": ["xml-tagging", "task-decomposition", "chain-of-thought"]
+    },
+    {
+      "id": "hallucination-mitigation",
+      "term": "Hallucination Mitigation & Grounding",
+      "domain": "Evaluation, Fact-Checking & Safety",
+      "tier": "Associate",
+      "shortDefinition": "Techniques for anchoring responses strictly to provided source material, instructing Claude to explicitly cite quotes and state 'I cannot find this in the text' when info is absent.",
+      "officialExamTopic": "Identify hallucinations, inconsistencies, and biases in responses; apply fact-checking and validation techniques",
+      "examImportance": "Critical",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Setting temperature to 0 guarantees that Claude will never hallucinate facts.",
+        "reality": "Temperature 0 makes outputs deterministic, not factual. Factual grounding requires explicit negative constraints and citation instructions.",
+        "examClue": "Scenario: Claude confidently invents a policy clause when asked about an unmentioned benefit."
+      },
+      "codeOrSyntaxSnippet": "<instruction>\nAnswer strictly using <context>. If the answer is not explicitly stated, reply exactly: 'Information not available in source'. Cite direct quotes.\n</instruction>",
+      "video16sBlueprint": {
+        "hook": "Does setting temperature to 0 stop Claude from hallucinating?",
+        "conceptPart1": "No! Temperature 0 makes responses deterministic, but the model can still confidently generate false facts.",
+        "conceptPart2": "Real grounding requires negative constraints: instruct Claude to quote source documents directly and say 'I don't know' if missing.",
+        "ctaExamTip": "Exam Rule: Always give Claude an explicit 'escape hatch' instruction to state when context does not contain the answer!"
+      },
+      "relatedTermIds": ["human-in-the-loop", "temperature", "xml-tagging"]
+    },
+    {
+      "id": "human-in-the-loop",
+      "term": "Human-in-the-Loop (HITL) Verification",
+      "domain": "Evaluation, Fact-Checking & Safety",
+      "tier": "Associate",
+      "shortDefinition": "System designs where high-risk actions (financial transactions, external emails, medical advice) require explicit human approval before execution.",
+      "officialExamTopic": "Determine when human review or additional verification is required",
+      "examImportance": "High",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "A completely autonomous AI agent pipeline is always the target architecture for all business processes.",
+        "reality": "High-stakes, high-liability, and compliance-sensitive decision paths mandate Human-in-the-Loop approval gates.",
+        "examClue": "Scenarios where Claude processes insurance claims, medical records, or contractual signatures."
+      },
+      "video16sBlueprint": {
+        "hook": "When should you NEVER let an AI agent act fully autonomously?",
+        "conceptPart1": "Whenever financial transfers, contract signing, or high-liability decisions are at stake.",
+        "conceptPart2": "Human-in-the-loop architectures allow Claude to draft and analyze, but require human confirmation before triggering final actions.",
+        "ctaExamTip": "Associate Exam Tip: In high-stakes regulatory environments, always place human review between AI proposals and live execution!"
+      },
+      "relatedTermIds": ["hallucination-mitigation", "tool-use-stop-reason"]
+    },
+    {
+      "id": "temperature",
+      "term": "Temperature & Top_p Parameters",
+      "domain": "Model Selection & Context Management",
+      "tier": "Associate",
+      "shortDefinition": "Hyperparameters governing randomness in token generation. Lower temperature (0.0 - 0.2) enforces deterministic, focused responses; higher temperature (0.7 - 1.0) fosters creative divergence.",
+      "officialExamTopic": "Align model selection and generation parameters with task requirements",
+      "examImportance": "Medium",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Temperature should be left at 1.0 for technical coding and data extraction tasks.",
+        "reality": "Data extraction, code generation, and factual Q&A perform best at low temperature (0.0 to 0.3) for consistency.",
+        "examClue": "Choosing parameters for structured JSON extraction vs creative brainstorming."
+      },
+      "video16sBlueprint": {
+        "hook": "What happens when you set Claude's temperature to 0 versus 1?",
+        "conceptPart1": "Temperature controls randomness. Low temperature makes Claude focused and analytical—ideal for code and extraction.",
+        "conceptPart2": "High temperature introduces creative diversity, perfect for brainstorming and narrative generation.",
+        "ctaExamTip": "Exam Takeaway: For JSON schemas, math, and data extraction, always configure temperature close to 0!"
+      },
+      "relatedTermIds": ["model-tier-tradeoffs", "hallucination-mitigation"]
+    },
+    {
+      "id": "json-schema-tools",
+      "term": "JSON Schema Tool Definitions",
+      "domain": "API Mechanics & Tool Use",
+      "tier": "Associate",
+      "shortDefinition": "The JSON Schema standard utilized within Anthropic's tools parameter to describe function names, input properties, types, and descriptions so Claude can reliably trigger them.",
+      "officialExamTopic": "Select appropriate Claude product features and understand programmatic tool execution",
+      "examImportance": "High",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Parameter descriptions in the tool schema are optional cosmetic text.",
+        "reality": "The 'description' field in each schema property is Claude's primary guide on what values to extract and format.",
+        "examClue": "Claude passing invalid date formats or missing required arguments in tool calls."
+      },
+      "codeOrSyntaxSnippet": "{\n  \"name\": \"lookup_customer\",\n  \"description\": \"Fetch customer record by UUID\",\n  \"input_schema\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"customerId\": {\"type\": \"string\", \"description\": \"UUID v4 string\"}\n    },\n    \"required\": [\"customerId\"]\n  }\n}",
+      "video16sBlueprint": {
+        "hook": "Why did Claude pass the wrong parameter format to your API tool?",
+        "conceptPart1": "Because your JSON Schema description was vague! Claude uses property descriptions to understand exact formatting requirements.",
+        "conceptPart2": "Always specify types, required fields, and clear format guidance inside your tool's input_schema.",
+        "ctaExamTip": "Associate Exam Tip: Rich parameter descriptions and strict 'required' arrays prevent faulty tool calls!"
+      },
+      "relatedTermIds": ["tool-use-stop-reason", "mcp-protocol"]
+    },
+    {
+      "id": "research-mode",
+      "term": "Research Mode & Web Connectors",
+      "domain": "Projects & Knowledge Management",
+      "tier": "Associate",
+      "shortDefinition": "Capabilities in Claude interfaces to ingest external live information or connected services (e.g., Google Drive) to supplement internal training knowledge.",
+      "officialExamTopic": "Select appropriate Claude product features (projects, research mode, chat, artifacts)",
+      "examImportance": "Medium",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Claude has native real-time internet browsing across every single user message automatically.",
+        "reality": "Claude relies on cut-off knowledge unless connected to live external tools, search integrations, or explicit knowledge uploads.",
+        "examClue": "When to recommend web search tool integration vs standard chat."
+      },
+      "video16sBlueprint": {
+        "hook": "Does Claude know what happened in the tech world yesterday?",
+        "conceptPart1": "Not unless you provide external research connectors or tools! Claude's base model knowledge is frozen at its training cut-off.",
+        "conceptPart2": "To fetch live pricing or news, integrate external search tools or knowledge connectors.",
+        "ctaExamTip": "Exam Alert: Distinguish between the frozen base model knowledge and live retrieval through tools and connectors!"
+      },
+      "relatedTermIds": ["claude-projects", "tool-use-stop-reason"]
+    },
+    {
+      "id": "prompt-iteration",
+      "term": "Prompt Iteration Cycle",
+      "domain": "Prompting & Task Decomposition",
+      "tier": "Associate",
+      "shortDefinition": "The empirical engineering practice of drafting a baseline prompt, testing against diverse inputs, isolating failure modes, and incrementally refining constraints.",
+      "officialExamTopic": "Iterate prompts to improve output quality; adapt prompting strategies based on task type",
+      "examImportance": "High",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Prompt engineering is a one-time creative guess where you write one prompt and leave it unchanged.",
+        "reality": "Production prompting is an empirical discipline: benchmark test sets, track failure edge cases, and refine prompts methodically.",
+        "examClue": "How to handle recurring prompt failures on edge case customer inquiries."
+      },
+      "video16sBlueprint": {
+        "hook": "How do elite AI engineers write production-ready prompts?",
+        "conceptPart1": "They don't guess—they iterate! They test baseline prompts against diverse edge-case test sets.",
+        "conceptPart2": "When Claude fails on an edge case, they inspect the failure mode and add explicit negative constraints or examples.",
+        "ctaExamTip": "Exam Tip: Prompt development is an empirical testing cycle, not a one-off writing exercise!"
+      },
+      "relatedTermIds": ["task-decomposition", "few-shot-prompting", "evaluation-metrics"]
+    },
+    {
+      "id": "evaluation-metrics",
+      "term": "Evaluation & LLM Benchmark Metrics",
+      "domain": "Evaluation, Fact-Checking & Safety",
+      "tier": "Associate",
+      "shortDefinition": "Quantitative and qualitative rubrics (accuracy, hallucination rate, latency, token consumption) used to measure model output quality across representative evaluation datasets.",
+      "officialExamTopic": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "examImportance": "High",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Checking 3 responses manually in the chat UI is sufficient verification before deploying to production.",
+        "reality": "Enterprise deployment requires systematic evaluation sets of 50-100+ cases evaluated programmatically or via golden answer keys.",
+        "examClue": "Questions on how to validate prompt updates before promoting to production."
+      },
+      "video16sBlueprint": {
+        "hook": "How do you know if your prompt change actually made Claude better or worse?",
+        "conceptPart1": "By testing against an evaluation dataset! Never promote a prompt change based on just 2 manual chats.",
+        "conceptPart2": "Run systematic test suites measuring accuracy, latency, and format compliance against golden answer benchmarks.",
+        "ctaExamTip": "Associate Exam Rule: Always validate system changes against structured eval datasets before production rollout!"
+      },
+      "relatedTermIds": ["hallucination-mitigation", "human-in-the-loop"]
+    },
+    {
+      "id": "stakeholder-value-communication",
+      "term": "Communicating AI Value & Limitations",
+      "domain": "Business Workflow Integration",
+      "tier": "Associate",
+      "shortDefinition": "The practitioner skill of articulating realistic AI capabilities, token pricing, latency constraints, and deterministic vs non-deterministic boundaries to non-technical stakeholders.",
+      "officialExamTopic": "Communicate Claude's value and limitations to stakeholders",
+      "examImportance": "Medium",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Promising stakeholders 100% accuracy with zero human oversight on critical financial calculations.",
+        "reality": "LLMs are probabilistic engines; stakeholder alignment requires setting transparent accuracy SLAs and error mitigation policies.",
+        "examClue": "Managing leadership expectations regarding AI operational risk and SLA guarantees."
+      },
+      "video16sBlueprint": {
+        "hook": "What is the biggest mistake engineers make when pitching AI to executives?",
+        "conceptPart1": "Promising 100% perfection! Claude is a probabilistic model, not a deterministic rule engine.",
+        "conceptPart2": "Set realistic stakeholder expectations: highlight immense speed and scale, but establish clear review guardrails for high-risk data.",
+        "ctaExamTip": "Exam Tip: Always pair AI capability demonstrations with honest communication of latency, probabilistic variance, and safety boundaries!"
+      },
+      "relatedTermIds": ["human-in-the-loop", "hallucination-mitigation"]
+    },
+    {
+      "id": "task-alignment-model-fit",
+      "term": "Task-to-Model Alignment Matrix",
+      "domain": "Model Selection & Context Management",
+      "tier": "Associate",
+      "shortDefinition": "A decision framework for mapping incoming task complexity (simple regex vs creative copy vs code refactor) to the optimal Claude model tier to balance budget and latency.",
+      "officialExamTopic": "Align model selection with task requirements (cost, speed, quality)",
+      "examImportance": "High",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Using Sonnet 3.5 for simple JSON routing and classification across millions of requests.",
+        "reality": "Haiku 3.5 handles high-velocity classification at a fraction of the cost, reserving Sonnet for advanced reasoning and code.",
+        "examClue": "Optimizing cloud architectural cost across a multi-tier agent router."
+      },
+      "video16sBlueprint": {
+        "hook": "Are you wasting 80% of your AI budget on the wrong model tier?",
+        "conceptPart1": "Simple tasks like routing, filtering, and short extractions belong on Haiku for maximum speed and lowest cost.",
+        "conceptPart2": "Reserve Sonnet 3.5 for complex code generation and multi-step reasoning.",
+        "ctaExamTip": "Certification Golden Rule: Multi-agent architectures should always route cheap classification to Haiku and heavy logic to Sonnet!"
+      },
+      "relatedTermIds": ["model-tier-tradeoffs", "token-budgeting"]
+    },
+    {
+      "id": "token-budgeting",
+      "term": "Token Budgeting & Rate Limit Management",
+      "domain": "Model Selection & Context Management",
+      "tier": "Associate",
+      "shortDefinition": "Strategies for calculating input/output token costs, managing TPM (Tokens Per Minute) and RPM (Requests Per Minute) quotas, and implementing exponential backoff.",
+      "officialExamTopic": "Optimize token usage, latency, and cost-performance trade-offs",
+      "examImportance": "Medium",
+      "confirmedCurriculumGap": false,
+      "keyExamTrap": {
+        "myth": "Hitting an HTTP 429 rate limit means you should immediately retry the exact same request in a tight loop.",
+        "reality": "Immediate retry floods the gateway; applications must implement exponential backoff with jitter.",
+        "examClue": "Handling API rate limit errors (HTTP 429) gracefully in client applications."
+      },
+      "video16sBlueprint": {
+        "hook": "What should your application do when Claude returns an HTTP 429 error?",
+        "conceptPart1": "HTTP 429 means Rate Limit Exceeded! Never hammer the API with an immediate loop retry.",
+        "conceptPart2": "Implement exponential backoff with jitter to pause and retry progressively without overwhelming the gateway.",
+        "ctaExamTip": "Associate Exam Alert: Handle 429 rate limits using exponential backoff, prompt caching, and token budgeting!"
+      },
+      "relatedTermIds": ["prompt-caching", "model-tier-tradeoffs"]
+    },
+    {
+      "id": "output-formatting",
+      "term": "Output Format Curation (JSON, Markdown, CSV)",
+      "domain": "Output Formats & Feature Selection",
+      "tier": "Associate",
+      "shortDefinition": "Techniques for constraining Claude to output parseable formats (strict JSON, Markdown tables, or CSV) using system prompts, few-shot schemas, and prefill tags.",
+      "officialExamTopic": "Organize and curate information for optimal outputs; select appropriate output formats",
+      "examImportance": "Critical",
+      "confirmedCurriculumGap": true,
+      "keyExamTrap": {
+        "myth": "Prompting 'give me JSON' is enough to guarantee valid JSON with no conversational filler.",
+        "reality": "Claude might add 'Here is your JSON:' unless you specify JSON mode, use prefilling ('{'), or provide a strict schema constraint.",
+        "examClue": "Ensuring pure machine-readable output with zero markdown backticks or pleasantries."
+      },
+      "codeOrSyntaxSnippet": "Assistant prefill: {\n// Forces Claude to continue strictly as raw JSON",
+      "video16sBlueprint": {
+        "hook": "How do you stop Claude from saying 'Here is your JSON' before the code?",
+        "conceptPart1": "Prefill the assistant response! In the API, ending the assistant turn with an opening brace '{' forces Claude to output pure JSON.",
+        "conceptPart2": "Pair this with an exact JSON schema in your prompt to prevent parse errors in your code.",
+        "ctaExamTip": "Curriculum Gap Alert: Master output curation—prefilling and strict schemas ensure pure machine-parseable data!"
+      },
+      "relatedTermIds": ["artifacts", "inline-markdown", "json-schema-tools"]
+    }
+  ]
+}
