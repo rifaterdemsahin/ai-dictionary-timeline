@@ -659,7 +659,6 @@
         <a href="./tell-show-do-apply.html" class="nav-link">🎧 Tell-Show-Do-Apply</a>
         <a href="./sanity-check.html" class="nav-link">🩺 Sanity Check</a>
         <a href="./generated-code.html" class="nav-link">💻 Generated Code</a>
-        <a href="../data/claude-associate-terms.json" target="_blank" class="nav-link">🔗 Terms JSON</a>
       </div>
     </div>
   </nav>
@@ -677,17 +676,24 @@
       </p>
     </div>
 
-    <!-- Active Endpoint Status Banner -->
+    <!-- Active Endpoint Status Banner & Dataset Switcher -->
     <div class="endpoint-card">
       <div class="endpoint-left">
         <span class="http-badge">GET 200 OK</span>
-        <span class="endpoint-url" id="endpointUrlDisplay">http://localhost:30085/data/claude-associate-terms.json</span>
+        <div>
+          <div style="font-size: 11px; text-transform: uppercase; color: var(--muted); letter-spacing: 0.5px; margin-bottom: 2px;">Target JSON Payload:</div>
+          <span class="endpoint-url" id="endpointUrlDisplay">http://localhost:30085/data/claude-associate-terms.json</span>
+        </div>
       </div>
       <div class="endpoint-stats">
-        <div class="stat-pill">Terms: <strong id="statTerms">24</strong></div>
-        <div class="stat-pill">Domains: <strong id="statDomains">6</strong></div>
-        <div class="stat-pill">Size: <strong id="statSize">190.6 KB</strong></div>
-        <div class="stat-pill">Nodes: <strong id="statNodes">3,281</strong></div>
+        <select id="datasetSelector" class="select-dropdown" onchange="switchDataset(this.value)" style="background: #18181b; border: 1px solid var(--accent); color: #fafafa;">
+          <option value="claude-associate-terms.json" selected>📜 Terms JSON (http://localhost:30085/data/claude-associate-terms.json)</option>
+          <option value="video-01-artifacts-spec.json">🎬 Video 01 Spec (http://localhost:30085/data/video-01-artifacts-spec.json)</option>
+          <option value="claude-flashcards.json">⚡ Flashcards (http://localhost:30085/data/claude-flashcards.json)</option>
+          <option value="sanity-check-results.json">🩺 Sanity Check (http://localhost:30085/data/sanity-check-results.json)</option>
+        </select>
+        <button class="btn" onclick="copyEndpointUrl()" title="Copy active JSON URL">📋 Copy URL</button>
+        <a id="directRawLink" href="../data/claude-associate-terms.json" target="_blank" class="btn" style="text-decoration: none;" title="Open raw JSON directly">↗ Raw File</a>
       </div>
     </div>
 
@@ -787,6 +793,7 @@
   <!-- Global Footer -->
   <!-- Global Footer -->
   <!-- Global Footer -->
+  <!-- Global Footer -->
   <footer class="global-footer">
     <div class="footer-inner">
       <!-- Col 1: Brand & Overview -->
@@ -857,15 +864,15 @@
 
   <script>
     let jsonData = null;
-    let selectedTermId = "artifacts";
-    let activeFilterDomain = "all";
+    let currentFilename = "claude-associate-terms.json";
 
     // Primary JSON fetch with localhost:30085 and fallback to relative path
-    async function loadJson() {
+    async function loadJson(filename = "claude-associate-terms.json") {
+      currentFilename = filename;
       const pathsToTry = [
-        "../data/claude-associate-terms.json",
-        "http://localhost:30085/data/claude-associate-terms.json",
-        "/data/claude-associate-terms.json"
+        `../data/${filename}`,
+        `http://localhost:30085/data/${filename}`,
+        `/data/${filename}`
       ];
 
       for (const p of pathsToTry) {
@@ -873,7 +880,9 @@
           const res = await fetch(p);
           if (res.ok) {
             jsonData = await res.json();
-            document.getElementById('endpointUrlDisplay').textContent = (p.startsWith('http') ? p : (window.location.origin + window.location.pathname.replace('/pages/json-viewer.html', '') + '/data/claude-associate-terms.json'));
+            const fullUrl = `http://localhost:30085/data/${filename}`;
+            document.getElementById('endpointUrlDisplay').textContent = fullUrl;
+            document.getElementById('directRawLink').href = `../data/${filename}`;
             initViewer();
             return;
           }
@@ -882,6 +891,18 @@
         }
       }
       document.getElementById('treePane').innerHTML = `<div style="color: var(--red); padding: 20px;">Failed to load JSON data from server. Please ensure port 30085 is running.</div>`;
+    }
+
+    function switchDataset(filename) {
+      loadJson(filename);
+      showToast(`✓ Switched payload to http://localhost:30085/data/${filename}`);
+    }
+
+    function copyEndpointUrl() {
+      const url = `http://localhost:30085/data/${currentFilename}`;
+      navigator.clipboard.writeText(url).then(() => {
+        showToast("✓ Active JSON URL copied to clipboard!");
+      });
     }
 
     function initViewer() {

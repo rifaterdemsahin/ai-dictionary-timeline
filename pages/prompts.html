@@ -311,7 +311,6 @@
         <a href="./tell-show-do-apply.html" class="nav-link">🎧 Tell-Show-Do-Apply</a>
         <a href="./sanity-check.html" class="nav-link">🩺 Sanity Check</a>
         <a href="./generated-code.html" class="nav-link">💻 Generated Code</a>
-        <a href="../data/claude-associate-terms.json" target="_blank" class="nav-link">🔗 Terms JSON</a>
       </div>
     </div>
   </nav>
@@ -601,9 +600,27 @@ Design a production-ready, step-by-step technical blueprint and architecture for
         </div>
       </div>
 
+      <!-- Prompt 21 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <span class="prompt-num">Prompt 21 &bull; Navigation Cleanup &amp; JSON Viewer Integration</span>
+          <span class="prompt-outcome">Status: Complete &amp; Deployed</span>
+        </div>
+        <div class="prompt-content">use a json viewer and have a top menut http://localhost:30085/data/claude-associate-terms.json not this direct link on the menu</div>
+        <div class="prompt-summary-box">
+          <strong>Built / Delivered:</strong>
+          <ul style="margin: 6px 0 0 18px; line-height: 1.6;">
+            <li><strong>Top Menu Sanitization:</strong> Removed the direct raw JSON file link (<code>data/claude-associate-terms.json</code>) from the top navigation bar across all pages and <code>index.html</code>, preventing unformatted raw text dumps in the browser.</li>
+            <li><strong>Integrated JSON Viewer Route:</strong> Routed all JSON exploration in the top menu directly to <code>pages/json-viewer.html</code> (<code>🔍 JSON Viewer</code>), which loads, formats, and interactively explores <code>http://localhost:30085/data/claude-associate-terms.json</code>.</li>
+            <li><strong>Dynamic Dataset Switcher:</strong> Equipped <code>pages/json-viewer.html</code> with an active payload switcher allowing 1-click toggling between <code>claude-associate-terms.json</code> (24 terms), <code>video-01-artifacts-spec.json</code> (Anchor Spec), <code>claude-flashcards.json</code>, and <code>sanity-check-results.json</code>, alongside 1-click "Copy URL" and "Raw File" download options.</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
 
     <!-- Global Footer -->
+  <!-- Global Footer -->
   <!-- Global Footer -->
   <!-- Global Footer -->
   <!-- Global Footer -->

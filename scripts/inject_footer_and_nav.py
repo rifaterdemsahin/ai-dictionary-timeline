@@ -209,8 +209,7 @@ def generate_nav_html(active_file):
         f'<a href="./execution-logic.html" class="nav-link{" active" if active_file == "execution-logic.html" else ""}">🚀 Execution Logic</a>',
         f'<a href="./tell-show-do-apply.html" class="nav-link{" active" if active_file == "tell-show-do-apply.html" else ""}">🎧 Tell-Show-Do-Apply</a>',
         f'<a href="./sanity-check.html" class="nav-link{" active" if active_file == "sanity-check.html" else ""}">🩺 Sanity Check</a>',
-        f'<a href="./generated-code.html" class="nav-link{" active" if active_file == "generated-code.html" else ""}">💻 Generated Code</a>',
-        '<a href="../data/claude-associate-terms.json" target="_blank" class="nav-link">🔗 Terms JSON</a>'
+        f'<a href="./generated-code.html" class="nav-link{" active" if active_file == "generated-code.html" else ""}">💻 Generated Code</a>'
     ]
     return '\n        '.join(links)
 
