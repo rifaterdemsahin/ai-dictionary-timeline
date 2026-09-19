@@ -537,6 +537,219 @@
       gap: 12px;
       font-size: 12.5px;
     }
+  
+    /* Top Navigation Dropdown Styles */
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-dropdown-btn {
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid transparent;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .nav-dropdown:hover .nav-dropdown-btn,
+    .nav-dropdown-btn:hover {
+      color: #fafafa;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .nav-dropdown-btn.active {
+      color: var(--accent);
+      background: rgba(204, 120, 92, 0.12);
+      border-color: rgba(204, 120, 92, 0.3);
+    }
+    .dropdown-chevron {
+      font-size: 10px;
+      opacity: 0.7;
+      transition: transform 0.2s ease;
+    }
+    .nav-dropdown:hover .dropdown-chevron {
+      transform: rotate(180deg);
+    }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 280px;
+      background: #141418;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.85);
+      padding: 8px;
+      z-index: 1000;
+      margin-top: 4px;
+      backdrop-filter: blur(16px);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu {
+      display: block;
+      animation: navMenuFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes navMenuFadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .dropdown-header-badge {
+      padding: 6px 10px 4px 10px;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      font-weight: 700;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dropdown-item {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #e4e4e7;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+    .dropdown-item:hover {
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--accent);
+      transform: translateX(2px);
+    }
+    .dropdown-item.active {
+      background: rgba(204, 120, 92, 0.15);
+      color: var(--accent);
+      font-weight: 600;
+      border-left: 2px solid var(--accent);
+    }
+    .dropdown-item-desc {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+    .nav-action-pill {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--cyan);
+      padding: 5px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-action-pill:hover, .nav-action-pill.active {
+      background: rgba(56, 189, 248, 0.22);
+      color: #ffffff;
+      border-color: var(--cyan);
+    }
+
+    /* Comprehensive Global Footer */
+    .global-footer {
+      background: #000000;
+      border-top: 1px solid var(--border);
+      padding: 60px 20px 30px 20px;
+      color: var(--muted);
+      font-size: 13.5px;
+      margin-top: 60px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 900px) {
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fafafa;
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: 12px;
+    }
+    .footer-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 380px;
+      margin-bottom: 16px;
+    }
+    .footer-heading {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+    }
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-links-list a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-links-list a:hover {
+      color: var(--accent);
+    }
+    .footer-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(74, 222, 128, 0.1);
+      border: 1px solid rgba(74, 222, 128, 0.25);
+      color: var(--green);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    .footer-bottom-bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12.5px;
+    }
+
   </style>
 </head>
 <body>
@@ -549,22 +762,89 @@
         <span>Claude Associate Engine</span>
       </a>
       <div class="nav-links">
-        <a href="./index.html" class="nav-link active">📖 Terms Dictionary</a>
-        <a href="./pages/flashcards.html" class="nav-link">⚡ Flashcards</a>
-        <a href="./pages/slideshow.html" class="nav-link">🎬 Keyframe Slideshow</a>
-        <a href="./pages/prompts.html" class="nav-link">📜 Prompts Log</a>
-        <a href="./pages/production-cost.html" class="nav-link">💰 Production Cost</a>
-        <a href="./pages/model-selection.html" class="nav-link">🧠 Model Selection</a>
-        <a href="./pages/voice-selection.html" class="nav-link">🎙️ Voice Selection</a>
-        <a href="./pages/architecture.html" class="nav-link">🏛️ Architecture</a>
-        <a href="./pages/parameters.html" class="nav-link">⚙️ Parameters</a>
-        <a href="./pages/specs.html" class="nav-link">📋 Production Spec</a>
-        <a href="./pages/json-viewer.html" class="nav-link">🔍 JSON Viewer</a>
-        <a href="./pages/youtube-vs-adwords.html" class="nav-link">📊 Shorts vs AdWords</a>
-        <a href="./pages/execution-logic.html" class="nav-link">🚀 Execution Logic</a>
-        <a href="./pages/tell-show-do-apply.html" class="nav-link">🎧 Tell-Show-Do-Apply</a>
-        <a href="./pages/sanity-check.html" class="nav-link">🩺 Sanity Check</a>
-        <a href="./pages/generated-code.html" class="nav-link">💻 Generated Code</a>
+        <a href="./index.html" class="nav-link active">📖 Dictionary</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn active">
+            <span>🔬 Research</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <div class="dropdown-header-badge"><span>Analysis & Exams</span><span>6 Pages</span></div>
+            <a href="./index.html" class="dropdown-item active">📖 Terms Dictionary<span class="dropdown-item-desc">24 certified curriculum terms</span></a>
+            <a href="./pages/flashcards.html" class="dropdown-item">⚡ Exam Flashcards<span class="dropdown-item-desc">Interactive flip-card study deck</span></a>
+            <a href="./pages/youtube-vs-adwords.html" class="dropdown-item">📊 Shorts vs AdWords<span class="dropdown-item-desc">Empirical CAC & traffic analysis</span></a>
+            <a href="./pages/production-cost.html" class="dropdown-item">💰 Production Cost<span class="dropdown-item-desc">Granular $0.63 unit economics</span></a>
+            <a href="./pages/model-selection.html" class="dropdown-item">🧠 Model Selection<span class="dropdown-item-desc">Claude, fal.ai Kling & ElevenLabs</span></a>
+            <a href="./pages/sanity-check.html" class="dropdown-item">🩺 Sanity Check<span class="dropdown-item-desc">7-stage automated quality gating</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn">
+            <span>✍️ Script</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <div class="dropdown-header-badge"><span>Narrative & Audio</span><span>5 Pages</span></div>
+            <a href="./pages/tell-show-do-apply.html" class="dropdown-item">🎧 Tell-Show-Do-Apply<span class="dropdown-item-desc">Pedagogical video timing & SFX</span></a>
+            <a href="./pages/voice-selection.html" class="dropdown-item">🎙️ Voice Selection<span class="dropdown-item-desc">ElevenLabs Brian (112Hz / 165 WPM)</span></a>
+            <a href="./pages/specs.html" class="dropdown-item">📋 Production Spec<span class="dropdown-item-desc">Anchor Video #01 master spec</span></a>
+            <a href="./pages/execution-logic.html" class="dropdown-item">🚀 Execution Logic<span class="dropdown-item-desc">Two-stage calibration calendar</span></a>
+            <a href="./pages/prompts.html" class="dropdown-item">📜 Prompts Log<span class="dropdown-item-desc">21 prompt session creation history</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn">
+            <span>🎨 Design</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <div class="dropdown-header-badge"><span>Architecture & Code</span><span>5 Pages</span></div>
+            <a href="./pages/slideshow.html" class="dropdown-item">🎬 Keyframe Slideshow<span class="dropdown-item-desc">Seedream 4.0 9:16 visual gallery</span></a>
+            <a href="./pages/architecture.html" class="dropdown-item">🏛️ System Architecture<span class="dropdown-item-desc">5 UML diagrams with Excalidraw pan/zoom</span></a>
+            <a href="./pages/parameters.html" class="dropdown-item">⚙️ System Parameters<span class="dropdown-item-desc">38 engine parameters & sandbox</span></a>
+            <a href="./pages/json-viewer.html" class="dropdown-item">🔍 JSON Viewer<span class="dropdown-item-desc">Live schema explorer & DOM inspector</span></a>
+            <a href="./pages/generated-code.html" class="dropdown-item">💻 Generated Code<span class="dropdown-item-desc">Full repository filesystem explorer</span></a>
+          </div>
+        </div>
+        <a href="./pages/json-viewer.html" class="nav-action-pill">🔍 JSON Viewer</a>
+      </div>
+            <a href="./index.html" class="dropdown-item active">📖 Terms Dictionary<span class="dropdown-item-desc">24 certified curriculum terms</span></a>
+            <a href="./pages/flashcards.html" class="dropdown-item">⚡ Exam Flashcards<span class="dropdown-item-desc">Interactive flip-card study deck</span></a>
+            <a href="./pages/youtube-vs-adwords.html" class="dropdown-item">📊 Shorts vs AdWords<span class="dropdown-item-desc">Empirical CAC & traffic analysis</span></a>
+            <a href="./pages/production-cost.html" class="dropdown-item">💰 Production Cost<span class="dropdown-item-desc">Granular $0.63 unit economics</span></a>
+            <a href="./pages/model-selection.html" class="dropdown-item">🧠 Model Selection<span class="dropdown-item-desc">Claude, fal.ai Kling & ElevenLabs</span></a>
+            <a href="./pages/sanity-check.html" class="dropdown-item">🩺 Sanity Check<span class="dropdown-item-desc">7-stage automated quality gating</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn">
+            <span>✍️ Script</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <div class="dropdown-header-badge"><span>Narrative & Audio</span><span>5 Pages</span></div>
+            <a href="./pages/tell-show-do-apply.html" class="dropdown-item">🎧 Tell-Show-Do-Apply<span class="dropdown-item-desc">Pedagogical video timing & SFX</span></a>
+            <a href="./pages/voice-selection.html" class="dropdown-item">🎙️ Voice Selection<span class="dropdown-item-desc">ElevenLabs Brian (112Hz / 165 WPM)</span></a>
+            <a href="./pages/specs.html" class="dropdown-item">📋 Production Spec<span class="dropdown-item-desc">Anchor Video #01 master spec</span></a>
+            <a href="./pages/execution-logic.html" class="dropdown-item">🚀 Execution Logic<span class="dropdown-item-desc">Two-stage calibration calendar</span></a>
+            <a href="./pages/prompts.html" class="dropdown-item">📜 Prompts Log<span class="dropdown-item-desc">21 prompt session creation history</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn">
+            <span>🎨 Design</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <div class="dropdown-header-badge"><span>Architecture & Code</span><span>5 Pages</span></div>
+            <a href="./pages/slideshow.html" class="dropdown-item">🎬 Keyframe Slideshow<span class="dropdown-item-desc">Seedream 4.0 9:16 visual gallery</span></a>
+            <a href="./pages/architecture.html" class="dropdown-item">🏛️ System Architecture<span class="dropdown-item-desc">5 UML diagrams with Excalidraw pan/zoom</span></a>
+            <a href="./pages/parameters.html" class="dropdown-item">⚙️ System Parameters<span class="dropdown-item-desc">38 engine parameters & sandbox</span></a>
+            <a href="./pages/json-viewer.html" class="dropdown-item">🔍 JSON Viewer<span class="dropdown-item-desc">Live schema explorer & DOM inspector</span></a>
+            <a href="./pages/generated-code.html" class="dropdown-item">💻 Generated Code<span class="dropdown-item-desc">Full repository filesystem explorer</span></a>
+          </div>
+        </div>
+        <a href="./pages/json-viewer.html" class="nav-action-pill">🔍 JSON Viewer</a>
       </div>
     </div>
   </nav>
@@ -770,6 +1050,8 @@
   </div>
 
   <!-- Global Footer -->
+  <!-- Global Footer -->
+  <!-- Global Footer -->
   <footer class="global-footer">
     <div class="footer-inner">
       <!-- Col 1: Brand & Overview -->
@@ -786,32 +1068,30 @@
         </div>
       </div>
 
-      <!-- Col 2: Learning & Study Tools -->
+      <!-- Col 2: Research & Analysis -->
       <div>
-        <div class="footer-heading">Curriculum Tools</div>
+        <div class="footer-heading">🔬 Research &amp; Study</div>
         <ul class="footer-links-list">
           <li><a href="./index.html">📖 Terms Dictionary</a></li>
           <li><a href="./pages/flashcards.html">⚡ Exam Flashcards</a></li>
-          <li><a href="./pages/slideshow.html">🎬 Keyframe Slideshow</a></li>
-          <li><a href="./pages/tell-show-do-apply.html">🎧 Tell-Show-Do-Apply</a></li>
-          <li><a href="./pages/specs.html">📋 Production Spec</a></li>
-          <li><a href="./pages/json-viewer.html">🔍 Interactive JSON Viewer</a></li>
-          <li><a href="./data/claude-associate-terms.json" target="_blank">🔗 Raw Terms JSON</a></li>
+          <li><a href="./pages/youtube-vs-adwords.html">📊 Shorts vs AdWords</a></li>
+          <li><a href="./pages/production-cost.html">💰 Production Cost Model</a></li>
+          <li><a href="./pages/model-selection.html">🧠 Model Selection</a></li>
+          <li><a href="./pages/sanity-check.html">🩺 Sanity Check Audit</a></li>
         </ul>
       </div>
 
-      <!-- Col 3: Economics & Operations -->
+      <!-- Col 3: Script & Design -->
       <div>
-        <div class="footer-heading">Pipeline &amp; Scaling</div>
+        <div class="footer-heading">✍️ Script &amp; 🎨 Design</div>
         <ul class="footer-links-list">
-          <li><a href="./pages/parameters.html">⚙️ System Parameters</a></li>
-          <li><a href="./pages/production-cost.html">💰 Production Cost Model</a></li>
-          <li><a href="./pages/model-selection.html">🧠 Model Selection &amp; Rationale</a></li>
+          <li><a href="./pages/tell-show-do-apply.html">🎧 Tell-Show-Do-Apply</a></li>
           <li><a href="./pages/voice-selection.html">🎙️ ElevenLabs Voice Architecture</a></li>
+          <li><a href="./pages/specs.html">📋 Production Video Spec</a></li>
           <li><a href="./pages/architecture.html">🏛️ System Architecture &amp; UML</a></li>
-          <li><a href="./pages/youtube-vs-adwords.html">📊 Shorts vs AdWords CAC</a></li>
+          <li><a href="./pages/parameters.html">⚙️ System Parameters</a></li>
+          <li><a href="./pages/json-viewer.html">🔍 Interactive JSON Viewer</a></li>
           <li><a href="./pages/execution-logic.html">🚀 Two-Stage Execution Logic</a></li>
-          <li><a href="./pages/sanity-check.html">🩺 Sanity Check Audit</a></li>
           <li><a href="./pages/generated-code.html">💻 Generated Codebase</a></li>
           <li><a href="./pages/prompts.html">📜 Prompt History Log</a></li>
         </ul>

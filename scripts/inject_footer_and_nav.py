@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Standardize Top Navigation and Global Footer across all pages in pages/.
+Standardize Top Navigation and Global Footer across all pages in pages/ and index.html.
 Ensures:
-1. Complete 10-link navigation with 'active' class on current page
-2. Comprehensive 4-column Global Footer with links to Skool, YouTube, GitHub, GitHub Pages, and all curriculum tools
-3. Consistent CSS styling
+1. Logical Grouped Navigation: Research / Script / Design with interactive dropdowns
+2. Comprehensive 4-column Global Footer with links to Skool, YouTube, GitHub, and tools
+3. Zero dead links, complete relative path support, and mobile responsiveness
 """
 
 import re
@@ -12,6 +12,46 @@ from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 PAGES_DIR = ROOT_DIR / "pages"
+
+NAV_GROUPS = [
+    {
+        "id": "research",
+        "title": "🔬 Research",
+        "badge": "Analysis & Exams",
+        "items": [
+            {"file": "index.html", "name": "📖 Terms Dictionary", "desc": "24 certified curriculum terms"},
+            {"file": "flashcards.html", "name": "⚡ Exam Flashcards", "desc": "Interactive flip-card study deck"},
+            {"file": "youtube-vs-adwords.html", "name": "📊 Shorts vs AdWords", "desc": "Empirical CAC & traffic analysis"},
+            {"file": "production-cost.html", "name": "💰 Production Cost", "desc": "Granular $0.63 unit economics"},
+            {"file": "model-selection.html", "name": "🧠 Model Selection", "desc": "Claude, fal.ai Kling & ElevenLabs"},
+            {"file": "sanity-check.html", "name": "🩺 Sanity Check", "desc": "7-stage automated quality gating"}
+        ]
+    },
+    {
+        "id": "script",
+        "title": "✍️ Script",
+        "badge": "Narrative & Audio",
+        "items": [
+            {"file": "tell-show-do-apply.html", "name": "🎧 Tell-Show-Do-Apply", "desc": "Pedagogical video timing & SFX"},
+            {"file": "voice-selection.html", "name": "🎙️ Voice Selection", "desc": "ElevenLabs Brian (112Hz / 165 WPM)"},
+            {"file": "specs.html", "name": "📋 Production Spec", "desc": "Anchor Video #01 master spec"},
+            {"file": "execution-logic.html", "name": "🚀 Execution Logic", "desc": "Two-stage calibration calendar"},
+            {"file": "prompts.html", "name": "📜 Prompts Log", "desc": "21 prompt session creation history"}
+        ]
+    },
+    {
+        "id": "design",
+        "title": "🎨 Design",
+        "badge": "Architecture & Code",
+        "items": [
+            {"file": "slideshow.html", "name": "🎬 Keyframe Slideshow", "desc": "Seedream 4.0 9:16 visual gallery"},
+            {"file": "architecture.html", "name": "🏛️ System Architecture", "desc": "5 UML diagrams with Excalidraw pan/zoom"},
+            {"file": "parameters.html", "name": "⚙️ System Parameters", "desc": "38 engine parameters & sandbox"},
+            {"file": "json-viewer.html", "name": "🔍 JSON Viewer", "desc": "Live schema explorer & DOM inspector"},
+            {"file": "generated-code.html", "name": "💻 Generated Code", "desc": "Full repository filesystem explorer"}
+        ]
+    }
+]
 
 PAGE_CONFIG = [
     {"file": "flashcards.html", "name": "⚡ Flashcards"},
@@ -31,7 +71,130 @@ PAGE_CONFIG = [
     {"file": "json-viewer.html", "name": "🔍 JSON Viewer"},
 ]
 
-FOOTER_CSS = """
+GLOBAL_CSS = """
+    /* Top Navigation Dropdown Styles */
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-dropdown-btn {
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid transparent;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .nav-dropdown:hover .nav-dropdown-btn,
+    .nav-dropdown-btn:hover {
+      color: #fafafa;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .nav-dropdown-btn.active {
+      color: var(--accent);
+      background: rgba(204, 120, 92, 0.12);
+      border-color: rgba(204, 120, 92, 0.3);
+    }
+    .dropdown-chevron {
+      font-size: 10px;
+      opacity: 0.7;
+      transition: transform 0.2s ease;
+    }
+    .nav-dropdown:hover .dropdown-chevron {
+      transform: rotate(180deg);
+    }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 280px;
+      background: #141418;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.85);
+      padding: 8px;
+      z-index: 1000;
+      margin-top: 4px;
+      backdrop-filter: blur(16px);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu {
+      display: block;
+      animation: navMenuFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes navMenuFadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .dropdown-header-badge {
+      padding: 6px 10px 4px 10px;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      font-weight: 700;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dropdown-item {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #e4e4e7;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+    .dropdown-item:hover {
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--accent);
+      transform: translateX(2px);
+    }
+    .dropdown-item.active {
+      background: rgba(204, 120, 92, 0.15);
+      color: var(--accent);
+      font-weight: 600;
+      border-left: 2px solid var(--accent);
+    }
+    .dropdown-item-desc {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+    .nav-action-pill {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--cyan);
+      padding: 5px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-action-pill:hover, .nav-action-pill.active {
+      background: rgba(56, 189, 248, 0.22);
+      color: #ffffff;
+      border-color: var(--cyan);
+    }
+
     /* Comprehensive Global Footer */
     .global-footer {
       background: #000000;
@@ -122,7 +285,11 @@ FOOTER_CSS = """
     }
 """
 
-FOOTER_HTML = """  <!-- Global Footer -->
+def generate_footer_html(is_root=False):
+    prefix = "./pages/" if is_root else "./"
+    root_link = "./index.html" if is_root else "../index.html"
+
+    return f"""  <!-- Global Footer -->
   <footer class="global-footer">
     <div class="footer-inner">
       <!-- Col 1: Brand & Overview -->
@@ -139,34 +306,32 @@ FOOTER_HTML = """  <!-- Global Footer -->
         </div>
       </div>
 
-      <!-- Col 2: Learning & Study Tools -->
+      <!-- Col 2: Research & Analysis -->
       <div>
-        <div class="footer-heading">Curriculum Tools</div>
+        <div class="footer-heading">🔬 Research &amp; Study</div>
         <ul class="footer-links-list">
-          <li><a href="../index.html">📖 Terms Dictionary</a></li>
-          <li><a href="./flashcards.html">⚡ Exam Flashcards</a></li>
-          <li><a href="./slideshow.html">🎬 Keyframe Slideshow</a></li>
-          <li><a href="./tell-show-do-apply.html">🎧 Tell-Show-Do-Apply</a></li>
-          <li><a href="./specs.html">📋 Production Spec</a></li>
-          <li><a href="./json-viewer.html">🔍 Interactive JSON Viewer</a></li>
-          <li><a href="../data/claude-associate-terms.json" target="_blank">🔗 Raw Terms JSON</a></li>
+          <li><a href="{root_link}">📖 Terms Dictionary</a></li>
+          <li><a href="{prefix}flashcards.html">⚡ Exam Flashcards</a></li>
+          <li><a href="{prefix}youtube-vs-adwords.html">📊 Shorts vs AdWords</a></li>
+          <li><a href="{prefix}production-cost.html">💰 Production Cost Model</a></li>
+          <li><a href="{prefix}model-selection.html">🧠 Model Selection</a></li>
+          <li><a href="{prefix}sanity-check.html">🩺 Sanity Check Audit</a></li>
         </ul>
       </div>
 
-      <!-- Col 3: Economics & Operations -->
+      <!-- Col 3: Script & Design -->
       <div>
-        <div class="footer-heading">Pipeline &amp; Scaling</div>
+        <div class="footer-heading">✍️ Script &amp; 🎨 Design</div>
         <ul class="footer-links-list">
-          <li><a href="./parameters.html">⚙️ System Parameters</a></li>
-          <li><a href="./production-cost.html">💰 Production Cost Model</a></li>
-          <li><a href="./model-selection.html">🧠 Model Selection &amp; Rationale</a></li>
-          <li><a href="./voice-selection.html">🎙️ ElevenLabs Voice Architecture</a></li>
-          <li><a href="./architecture.html">🏛️ System Architecture &amp; UML</a></li>
-          <li><a href="./youtube-vs-adwords.html">📊 Shorts vs AdWords CAC</a></li>
-          <li><a href="./execution-logic.html">🚀 Two-Stage Execution Logic</a></li>
-          <li><a href="./sanity-check.html">🩺 Sanity Check Audit</a></li>
-          <li><a href="./generated-code.html">💻 Generated Codebase</a></li>
-          <li><a href="./prompts.html">📜 Prompt History Log</a></li>
+          <li><a href="{prefix}tell-show-do-apply.html">🎧 Tell-Show-Do-Apply</a></li>
+          <li><a href="{prefix}voice-selection.html">🎙️ ElevenLabs Voice Architecture</a></li>
+          <li><a href="{prefix}specs.html">📋 Production Video Spec</a></li>
+          <li><a href="{prefix}architecture.html">🏛️ System Architecture &amp; UML</a></li>
+          <li><a href="{prefix}parameters.html">⚙️ System Parameters</a></li>
+          <li><a href="{prefix}json-viewer.html">🔍 Interactive JSON Viewer</a></li>
+          <li><a href="{prefix}execution-logic.html">🚀 Two-Stage Execution Logic</a></li>
+          <li><a href="{prefix}generated-code.html">💻 Generated Codebase</a></li>
+          <li><a href="{prefix}prompts.html">📜 Prompt History Log</a></li>
         </ul>
       </div>
 
@@ -189,32 +354,63 @@ FOOTER_HTML = """  <!-- Global Footer -->
         <a href="https://rifaterdemsahin.github.io/ai-dictionary-timeline/" target="_blank" style="color: var(--cyan); text-decoration: underline; font-weight: 600;">https://rifaterdemsahin.github.io/ai-dictionary-timeline/ ↗</a>
       </div>
     </div>
-  </footer>
-"""
+  </footer>"""
 
-def generate_nav_html(active_file):
-    links = [
-        f'<a href="../index.html" class="nav-link{" active" if active_file == "index.html" else ""}">📖 Terms Dictionary</a>',
-        f'<a href="./flashcards.html" class="nav-link{" active" if active_file == "flashcards.html" else ""}">⚡ Flashcards</a>',
-        f'<a href="./slideshow.html" class="nav-link{" active" if active_file == "slideshow.html" else ""}">🎬 Keyframe Slideshow</a>',
-        f'<a href="./prompts.html" class="nav-link{" active" if active_file == "prompts.html" else ""}">📜 Prompts Log</a>',
-        f'<a href="./production-cost.html" class="nav-link{" active" if active_file == "production-cost.html" else ""}">💰 Production Cost</a>',
-        f'<a href="./model-selection.html" class="nav-link{" active" if active_file == "model-selection.html" else ""}">🧠 Model Selection</a>',
-        f'<a href="./voice-selection.html" class="nav-link{" active" if active_file == "voice-selection.html" else ""}">🎙️ Voice Selection</a>',
-        f'<a href="./architecture.html" class="nav-link{" active" if active_file == "architecture.html" else ""}">🏛️ Architecture</a>',
-        f'<a href="./parameters.html" class="nav-link{" active" if active_file == "parameters.html" else ""}">⚙️ Parameters</a>',
-        f'<a href="./specs.html" class="nav-link{" active" if active_file == "specs.html" else ""}">📋 Production Spec</a>',
-        f'<a href="./json-viewer.html" class="nav-link{" active" if active_file == "json-viewer.html" else ""}">🔍 JSON Viewer</a>',
-        f'<a href="./youtube-vs-adwords.html" class="nav-link{" active" if active_file == "youtube-vs-adwords.html" else ""}">📊 Shorts vs AdWords</a>',
-        f'<a href="./execution-logic.html" class="nav-link{" active" if active_file == "execution-logic.html" else ""}">🚀 Execution Logic</a>',
-        f'<a href="./tell-show-do-apply.html" class="nav-link{" active" if active_file == "tell-show-do-apply.html" else ""}">🎧 Tell-Show-Do-Apply</a>',
-        f'<a href="./sanity-check.html" class="nav-link{" active" if active_file == "sanity-check.html" else ""}">🩺 Sanity Check</a>',
-        f'<a href="./generated-code.html" class="nav-link{" active" if active_file == "generated-code.html" else ""}">💻 Generated Code</a>'
-    ]
-    return '\n        '.join(links)
+def generate_nav_html(active_file, is_root=False):
+    prefix = "./pages/" if is_root else "./"
+    root_link = "./index.html" if is_root else "../index.html"
+    json_link = f"{prefix}json-viewer.html"
 
-def update_page(filename):
-    fpath = PAGES_DIR / filename
+    nav_elements = []
+
+    # Home dictionary link
+    is_home_active = active_file == "index.html"
+    nav_elements.append(f'<a href="{root_link}" class="nav-link{" active" if is_home_active else ""}">📖 Dictionary</a>')
+
+    # Three groups: Research, Script, Design
+    for group in NAV_GROUPS:
+        # Check if active file is in this group
+        group_files = [it["file"] for it in group["items"]]
+        is_group_active = active_file in group_files
+
+        items_html = []
+        items_html.append(f'<div class="dropdown-header-badge"><span>{group["badge"]}</span><span>{len(group["items"])} Pages</span></div>')
+
+        for it in group["items"]:
+            if it["file"] == "index.html":
+                href = root_link
+            else:
+                href = f"{prefix}{it['file']}"
+            is_item_active = active_file == it["file"]
+            active_class = " active" if is_item_active else ""
+            items_html.append(
+                f'<a href="{href}" class="dropdown-item{active_class}">'
+                f'{it["name"]}'
+                f'<span class="dropdown-item-desc">{it["desc"]}</span>'
+                f'</a>'
+            )
+
+        dropdown_menu = '\n            '.join(items_html)
+        group_html = (
+            f'<div class="nav-dropdown">\n'
+            f'          <button class="nav-dropdown-btn{" active" if is_group_active else ""}">\n'
+            f'            <span>{group["title"]}</span>\n'
+            f'            <span class="dropdown-chevron">▾</span>\n'
+            f'          </button>\n'
+            f'          <div class="nav-dropdown-menu">\n'
+            f'            {dropdown_menu}\n'
+            f'          </div>\n'
+            f'        </div>'
+        )
+        nav_elements.append(group_html)
+
+    # Direct JSON Viewer quick action pill
+    is_json_active = active_file == "json-viewer.html"
+    nav_elements.append(f'<a href="{json_link}" class="nav-action-pill{" active" if is_json_active else ""}">🔍 JSON Viewer</a>')
+
+    return '\n        '.join(nav_elements)
+
+def update_file(fpath, filename, is_root=False):
     if not fpath.exists():
         print(f"Skipping {filename} (not found)")
         return
@@ -223,7 +419,7 @@ def update_page(filename):
         content = f.read()
 
     # 1. Update navigation links inside <div class="nav-links">...</div>
-    new_nav_links = generate_nav_html(filename)
+    new_nav_links = generate_nav_html(filename, is_root=is_root)
     content = re.sub(
         r'<div class="nav-links">[\s\S]*?</div>',
         f'<div class="nav-links">\n        {new_nav_links}\n      </div>',
@@ -231,25 +427,31 @@ def update_page(filename):
         count=1
     )
 
-    # 2. Ensure Footer CSS is present
-    if ".global-footer" not in content:
-        content = content.replace("</style>", f"{FOOTER_CSS}\n  </style>", 1)
+    # 2. Ensure Global CSS is present
+    if ".nav-dropdown" not in content:
+        content = content.replace("</style>", f"{GLOBAL_CSS}\n  </style>", 1)
+    elif ".global-footer" not in content:
+        content = content.replace("</style>", f"{GLOBAL_CSS}\n  </style>", 1)
 
     # 3. Replace old <footer> with Global Footer
+    footer_html = generate_footer_html(is_root=is_root)
     if "<footer" in content:
-        content = re.sub(r'<footer[\s\S]*?</footer>', FOOTER_HTML.strip(), content, count=1)
+        content = re.sub(r'<footer[\s\S]*?</footer>', footer_html.strip(), content, count=1)
     else:
-        # Insert before </body>
-        content = content.replace("</body>", f"{FOOTER_HTML}\n</body>", 1)
+        content = content.replace("</body>", f"{footer_html}\n</body>", 1)
 
     with open(fpath, "w", encoding="utf-8") as f:
         f.write(content)
 
-    print(f"✅ Updated nav & footer in pages/{filename}")
+    print(f"✅ Updated nav & footer in {'index.html' if is_root else 'pages/' + filename}")
 
 def main():
+    # Update all files in pages/
     for item in PAGE_CONFIG:
-        update_page(item["file"])
+        update_file(PAGES_DIR / item["file"], item["file"], is_root=False)
+
+    # Update root index.html
+    update_file(ROOT_DIR / "index.html", "index.html", is_root=True)
 
 if __name__ == "__main__":
     main()
