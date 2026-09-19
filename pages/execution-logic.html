@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Execution Logic & Publishing Calendar — Claude Associate Engine</title>
+  <style>
+    :root {
+      --bg: #09090b;
+      --card-bg: #18181b;
+      --card-hover: #222226;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --accent: #cc785c;
+      --accent-glow: rgba(204, 120, 92, 0.4);
+      --border: #27272a;
+      --cyan: #38bdf8;
+      --green: #4ade80;
+      --gold: #fbbf24;
+      --red: #f87171;
+      --purple: #c084fc;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 0 80px 0;
+    }
+
+    /* Top Navigation Bar */
+    .top-nav {
+      background: rgba(24, 24, 27, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .nav-brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #fafafa;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .nav-link.active {
+      color: var(--accent);
+      border: 1px solid rgba(204, 120, 92, 0.3);
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 36px auto 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 860px;
+    }
+
+    /* Two-Stage Logic Hero Grid */
+    .hero-phases-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+    @media (max-width: 850px) {
+      .hero-phases-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .phase-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .phase-card.pilot {
+      border-left: 4px solid var(--gold);
+      background: linear-gradient(180deg, rgba(251, 191, 36, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+    }
+    .phase-card.batch {
+      border-left: 4px solid var(--green);
+      background: linear-gradient(180deg, rgba(74, 222, 128, 0.05) 0%, rgba(24, 24, 27, 0.95) 100%);
+    }
+    .phase-badge {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .phase-badge.pilot {
+      background: rgba(251, 191, 36, 0.2);
+      color: var(--gold);
+    }
+    .phase-badge.batch {
+      background: rgba(74, 222, 128, 0.2);
+      color: var(--green);
+    }
+    .phase-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .phase-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .telemetry-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 13.5px;
+    }
+    .telemetry-row:last-child {
+      border-bottom: none;
+    }
+    .telemetry-label {
+      color: var(--muted);
+    }
+    .telemetry-val {
+      font-weight: 700;
+      color: #fafafa;
+    }
+
+    /* Section Boxes */
+    .section-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 32px;
+    }
+    .section-heading {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    /* Live Telemetry Simulator */
+    .simulator-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 16px;
+    }
+    .sim-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .sim-controls {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .btn-run-sim {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-run-sim:hover {
+      background: #b5674c;
+      transform: translateY(-2px);
+    }
+    .progress-bar-wrap {
+      width: 100%;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 9999px;
+      overflow: hidden;
+      margin: 16px 0;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--green) 100%);
+      transition: width 0.3s ease;
+    }
+    .sim-stages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .sim-stage-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+    .sim-stage-card.active {
+      border-color: var(--gold);
+      background: rgba(251, 191, 36, 0.05);
+    }
+    .sim-stage-card.done {
+      border-color: var(--green);
+      background: rgba(74, 222, 128, 0.05);
+    }
+    .sim-stage-name {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sim-stage-val {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fafafa;
+    }
+
+    /* Calendar Controls & View */
+    .calendar-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-tab {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-tab:hover, .filter-tab.active {
+      background: rgba(204, 120, 92, 0.15);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+    .cal-stats {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Calendar Table */
+    .table-container {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13.5px;
+    }
+    th, td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background: rgba(255, 255, 255, 0.03);
+      color: #fafafa;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 11.5px;
+      letter-spacing: 0.5px;
+    }
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+    .status-pilot { background: rgba(251, 191, 36, 0.15); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.3); }
+    .status-queued { background: rgba(56, 189, 248, 0.15); color: var(--cyan); border: 1px solid rgba(56, 189, 248, 0.3); }
+    .status-ready { background: rgba(74, 222, 128, 0.15); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.3); }
+
+    .btn-copy-sm {
+      background: rgba(204, 120, 92, 0.2);
+      border: 1px solid var(--accent);
+      color: #fafafa;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-copy-sm:hover {
+      background: var(--accent);
+    }
+    .btn-copy-sm.copied {
+      background: #16a34a;
+      border-color: #22c55e;
+      color: white;
+    }
+
+    /* Terminal Code Block */
+    .terminal-box {
+      background: #000000;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-family: monospace;
+      font-size: 13px;
+      color: #4ade80;
+      overflow-x: auto;
+      margin-top: 14px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">
+        <div class="nav-brand-dot"></div>
+        <span>Claude Associate Engine</span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">📖 Terms Dictionary</a>
+        <a href="./flashcards.html" class="nav-link">⚡ Flashcards</a>
+        <a href="./slideshow.html" class="nav-link">🎬 Keyframe Slideshow</a>
+        <a href="./prompts.html" class="nav-link">📜 Prompts Log</a>
+        <a href="./production-cost.html" class="nav-link">💰 Production Cost</a>
+        <a href="./youtube-vs-adwords.html" class="nav-link">📊 Shorts vs AdWords</a>
+        <a href="./execution-logic.html" class="nav-link active">🚀 Execution Logic</a>
+        <a href="../data/claude-associate-terms.json" target="_blank" class="nav-link">🔗 Terms JSON</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <span class="badge">Two-Stage Pipeline &bull; Canary Gating &bull; Rollout</span>
+      <h1>Programmatic Execution Logic & Publishing Calendar</h1>
+      <p class="subtitle">Architectural execution flow: first execute, instrument, time, and price 1 Pilot Short. Upon passing automated QA thresholds, trigger the scale batch run for the remaining 23 videos across a structured 30-day publishing calendar.</p>
+    </header>
+
+    <!-- Two-Stage Architecture Cards -->
+    <div class="hero-phases-grid">
+      <!-- Phase 1: Canary Pilot -->
+      <div class="phase-card pilot">
+        <span class="phase-badge pilot">Stage 1 &bull; Canary Pilot</span>
+        <div class="phase-title">1. Time & Price Single Pilot</div>
+        <div class="phase-desc">
+          Single-job execution of Video #1 (<code>artifacts</code> or <code>token-budgeting</code>). Telemetry instruments exact end-to-end latency, real API cost deduction, and runs the 7-stage QA sanity check.
+        </div>
+        <div>
+          <div class="telemetry-row">
+            <span class="telemetry-label">Target Video</span>
+            <span class="telemetry-val">Video #1: Artifacts vs Inline</span>
+          </div>
+          <div class="telemetry-row">
+            <span class="telemetry-label">Measured End-to-End Latency</span>
+            <span class="telemetry-val" style="color: var(--gold);">75.5 seconds</span>
+          </div>
+          <div class="telemetry-row">
+            <span class="telemetry-label">Measured Direct API Cost</span>
+            <span class="telemetry-val" style="color: var(--green);">$0.445 USD</span>
+          </div>
+          <div class="telemetry-row">
+            <span class="telemetry-label">Quality Gating Gates</span>
+            <span class="telemetry-val" style="color: var(--green);">7 / 7 Gates Passed</span>
+          </div>
+          <div class="telemetry-row">
+            <span class="telemetry-label">Circuit Breaker Gate</span>
+            <span class="telemetry-val">Cost &lt; $0.50 &bull; Latency &lt; 90s</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2: Batch Scale Run -->
+      <div class="phase-card batch">
+        <span class="phase-badge batch">Stage 2 &bull; Batch Scale Run</span>
+        <div class="phase-title">2. Execute Remaining 23 Videos</div>
+        <div class="phase-desc">
+          Unlocked automatically only when Stage 1 satisfies quality and pricing bounds. Runs concurrency-limited workers across all remaining 23 curriculum concepts.
+        </div>
+        <div>
+          <div class="telemetry-row">
+            <span class="telemetry-label">Remaining Batch Queue</span>
+            <span class="telemetry-val">23 Curriculum Videos</span>
+          </div>
+          <div class="telemetry-row">
+            <span class="telemetry-label">Concurrency Pool</span>
+            <span class="telemetry-val">3 Parallel Workers (Rate-safe)</span>
+          </div>
+          <div class="telemetry-row">
+            <span class="telemetry-label">Estimated Batch Wall Time</span>
+            <span class="telemetry-val" style="color: var(--cyan);">9.6 minutes total</span>
+          </div>
+          <div class="telemetry-row">
+            <span class="telemetry-label">Total Remaining Batch Cost</span>
+            <span class="telemetry-val" style="color: var(--green);">$10.23 USD</span>
+          </div>
+          <div class="telemetry-row">
+            <span class="telemetry-label">Total 24-Video Catalog Cost</span>
+            <span class="telemetry-val" style="color: var(--gold); font-weight: 800;">$10.68 USD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Telemetry & Timing Simulator -->
+    <div class="section-box">
+      <div class="section-heading">
+        <span>⏱️</span> Live Canary Pilot Telemetry & Pricing Simulator
+      </div>
+      <div class="section-sub">
+        Simulate the single-video execution run, live stopwatch countdown, API pricing meter, and automated gating verification.
+      </div>
+
+      <div class="simulator-box">
+        <div class="sim-header">
+          <div>
+            <strong style="font-size: 16px; color: #fafafa;">Target Short: Video #1 &bull; Artifacts vs Inline</strong>
+            <div style="font-size: 13px; color: var(--muted);">Endpoint: fal.ai Seedream + Kling 1.6 + ElevenLabs + Remotion</div>
+          </div>
+          <div class="sim-controls">
+            <span id="simStatusBadge" class="status-badge status-pilot">READY TO BENCHMARK</span>
+            <button class="btn-run-sim" id="startSimBtn" onclick="runSimulation()">
+              ▶ Run Canary Benchmark
+            </button>
+          </div>
+        </div>
+
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="simProgress"></div>
+        </div>
+
+        <div class="sim-stages-grid">
+          <div class="sim-stage-card" id="stageSeedream">
+            <div class="sim-stage-name">1. Seedream Keyframes</div>
+            <div class="sim-stage-val" id="valSeedream">12.0s &bull; $0.060</div>
+          </div>
+          <div class="sim-stage-card" id="stageKling">
+            <div class="sim-stage-name">2. Kling Interpolation</div>
+            <div class="sim-stage-val" id="valKling">45.0s &bull; $0.360</div>
+          </div>
+          <div class="sim-stage-card" id="stageEleven">
+            <div class="sim-stage-name">3. ElevenLabs TTS</div>
+            <div class="sim-stage-val" id="valEleven">3.5s &bull; $0.020</div>
+          </div>
+          <div class="sim-stage-card" id="stageRemotion">
+            <div class="sim-stage-name">4. Remotion Render</div>
+            <div class="sim-stage-val" id="valRemotion">15.0s &bull; $0.005</div>
+          </div>
+          <div class="sim-stage-card" id="stageTotal">
+            <div class="sim-stage-name">Total Pilot Metric</div>
+            <div class="sim-stage-val" id="valTotal" style="color: var(--green);">75.5s &bull; $0.445</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: 30-Day Publishing Calendar -->
+    <div class="section-box">
+      <div class="section-heading">
+        <span>📅</span> 30-Day Multi-Week Publishing & Execution Calendar
+      </div>
+      <div class="section-sub">
+        Structured daily release timeline directing audience traffic from YouTube Shorts to the Delivery Pilot Skool Community (<a href="https://www.skool.com/delivery-pilot-8938" target="_blank" style="color: var(--accent); text-decoration: none;">skool.com/delivery-pilot-8938</a>).
+      </div>
+
+      <div class="calendar-toolbar">
+        <div class="filter-tabs">
+          <button class="filter-tab active" onclick="filterCalendar('all', this)">All 24 Videos</button>
+          <button class="filter-tab" onclick="filterCalendar('week1', this)">Week 1 (Days 1–7)</button>
+          <button class="filter-tab" onclick="filterCalendar('week2', this)">Week 2 (Days 8–14)</button>
+          <button class="filter-tab" onclick="filterCalendar('week3', this)">Week 3 (Days 15–21)</button>
+          <button class="filter-tab" onclick="filterCalendar('week4', this)">Week 4 (Days 22–24 + Retrospective)</button>
+        </div>
+        <div class="cal-stats" id="calCount">Showing 24 scheduled videos</div>
+      </div>
+
+      <div class="table-container">
+        <table id="calendarTable">
+          <thead>
+            <tr>
+              <th>Day / Date</th>
+              <th>Video # &bull; Concept</th>
+              <th>Exam Domain</th>
+              <th>Release Slot</th>
+              <th>Pipeline Phase</th>
+              <th>Skool CTA Lead Magnet</th>
+              <th>Pinned Comment</th>
+            </tr>
+          </thead>
+          <tbody id="calendarTbody">
+            <!-- Populated via JavaScript from data/claude-associate-terms.json -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section: CLI Orchestration Commands -->
+    <div class="section-box">
+      <div class="section-heading">
+        <span>💻</span> CLI Execution & Pipeline Orchestration
+      </div>
+      <div class="section-sub">
+        Production-grade command syntax to trigger Stage 1 Canary Benchmark, inspect telemetry, and launch Stage 2 Batch execution.
+      </div>
+
+      <h4 style="font-size: 14px; font-weight: 700; color: #fafafa; margin-bottom: 6px;">Step 1: Execute Single Canary Benchmark (Video #1)</h4>
+      <div class="terminal-box"># Run pilot benchmark with live telemetry stopwatch and price meter
+python3 scripts/fal_generate.py --term artifacts --benchmark --record-telemetry</div>
+
+      <h4 style="font-size: 14px; font-weight: 700; color: #fafafa; margin-top: 18px; margin-bottom: 6px;">Step 2: Inspect Telemetry & Gating Thresholds</h4>
+      <div class="terminal-box"># Validate latency <= 90s, cost <= $0.50, and 9:16 aspect ratio
+python3 -c "
+import json
+with open('data/claude-associate-terms.json') as f:
+    t = json.load(f)['terms'][0]
+print(f'Canary Short: {t[\"term\"]} | Pinned Comment Length: {len(t.get(\"pinnedComment\", \"\"))} chars')
+"</div>
+
+      <h4 style="font-size: 14px; font-weight: 700; color: #fafafa; margin-top: 18px; margin-bottom: 6px;">Step 3: Trigger Unlocked Batch Execution (Remaining 23 Videos)</h4>
+      <div class="terminal-box"># Execute remaining 23 videos with 3-worker concurrency and $12 circuit breaker
+python3 scripts/fal_generate.py --batch --concurrency 3 --skip-first --circuit-breaker 12.00</div>
+    </div>
+
+    <footer>
+      Delivery Pilot &bull; Two-Stage Execution Logic &bull; Local server port 30085
+    </footer>
+  </div>
+
+  <script>
+    let calendarData = [];
+
+    // Load data
+    async function loadCalendar() {
+      try {
+        const res = await fetch('../data/claude-associate-terms.json');
+        const json = await res.json();
+        calendarData = json.terms;
+        renderCalendar('all');
+      } catch (e) {
+        console.error('Failed to load terms for calendar:', e);
+      }
+    }
+
+    function renderCalendar(filter) {
+      const tbody = document.getElementById('calendarTbody');
+      const countEl = document.getElementById('calCount');
+
+      let filtered = calendarData;
+      if (filter === 'week1') filtered = calendarData.slice(0, 7);
+      else if (filter === 'week2') filtered = calendarData.slice(7, 14);
+      else if (filter === 'week3') filtered = calendarData.slice(14, 21);
+      else if (filter === 'week4') filtered = calendarData.slice(21);
+
+      countEl.innerText = `Showing ${filtered.length} of ${calendarData.length} scheduled videos`;
+
+      const startDate = new Date(2026, 8, 20); // Sep 20, 2026
+
+      tbody.innerHTML = filtered.map((t) => {
+        const originalIndex = calendarData.findIndex(item => item.id === t.id);
+        const dayNum = originalIndex + 1;
+        const itemDate = new Date(startDate);
+        itemDate.setDate(startDate.getDate() + (dayNum - 1));
+        const dateStr = itemDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', weekday: 'short' });
+
+        const isPilot = originalIndex === 0;
+        const statusClass = isPilot ? 'status-pilot' : 'status-queued';
+        const statusText = isPilot ? 'CANARY PILOT (Stage 1)' : `BATCH RUN (Stage 2 &bull; #${dayNum})`;
+
+        return `
+          <tr>
+            <td>
+              <strong style="color: #fafafa;">Day ${dayNum}</strong>
+              <div style="font-size: 11.5px; color: var(--muted);">${dateStr}</div>
+            </td>
+            <td>
+              <strong style="color: #fafafa;">${t.term} ${t.acronym ? '(' + t.acronym + ')' : ''}</strong>
+              <div style="font-size: 12px; color: var(--muted); max-width: 260px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${t.shortDefinition}</div>
+            </td>
+            <td>
+              <span style="font-size: 12px; color: var(--cyan);">${t.domain}</span>
+            </td>
+            <td>
+              <strong style="color: #fbbf24;">17:00 UTC</strong>
+              <div style="font-size: 11.5px; color: var(--muted);">Peak Shorts Traffic</div>
+            </td>
+            <td>
+              <span class="status-badge ${statusClass}">${statusText}</span>
+            </td>
+            <td>
+              <a href="https://www.skool.com/delivery-pilot-8938" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 12.5px; font-weight: 600;">
+                Skool Lead Magnet ↗
+              </a>
+            </td>
+            <td>
+              <button class="btn-copy-sm" onclick="copyRowComment(this, '${t.id}')">📋 Copy Comment</button>
+              <div id="hidden-comment-${t.id}" style="display: none;">${escapeHtml(t.pinnedComment || '')}</div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterCalendar(week, btn) {
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      renderCalendar(week);
+    }
+
+    function escapeHtml(text) {
+      return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function copyRowComment(btn, id) {
+      const el = document.getElementById('hidden-comment-' + id);
+      if (!el) return;
+      navigator.clipboard.writeText(el.innerText).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = '✅ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Simulation logic
+    function runSimulation() {
+      const btn = document.getElementById('startSimBtn');
+      const prog = document.getElementById('simProgress');
+      const badge = document.getElementById('simStatusBadge');
+      
+      btn.disabled = true;
+      badge.textContent = 'RUNNING BENCHMARK...';
+      badge.className = 'status-badge status-queued';
+
+      const sSeed = document.getElementById('stageSeedream');
+      const sKling = document.getElementById('stageKling');
+      const sEleven = document.getElementById('stageEleven');
+      const sRemotion = document.getElementById('stageRemotion');
+      const sTotal = document.getElementById('stageTotal');
+
+      [sSeed, sKling, sEleven, sRemotion, sTotal].forEach(el => el.className = 'sim-stage-card');
+
+      prog.style.width = '10%';
+      sSeed.className = 'sim-stage-card active';
+
+      setTimeout(() => {
+        prog.style.width = '30%';
+        sSeed.className = 'sim-stage-card done';
+        sKling.className = 'sim-stage-card active';
+      }, 1000);
+
+      setTimeout(() => {
+        prog.style.width = '75%';
+        sKling.className = 'sim-stage-card done';
+        sEleven.className = 'sim-stage-card active';
+      }, 2200);
+
+      setTimeout(() => {
+        prog.style.width = '90%';
+        sEleven.className = 'sim-stage-card done';
+        sRemotion.className = 'sim-stage-card active';
+      }, 3000);
+
+      setTimeout(() => {
+        prog.style.width = '100%';
+        sRemotion.className = 'sim-stage-card done';
+        sTotal.className = 'sim-stage-card done';
+        badge.textContent = '✅ GATING VALIDATED &bull; BATCH UNLOCKED';
+        badge.className = 'status-badge status-ready';
+        btn.disabled = false;
+        btn.textContent = '🔄 Re-Run Benchmark';
+      }, 4000);
+    }
+
+    loadCalendar();
+  </script>
+</body>
+</html>
