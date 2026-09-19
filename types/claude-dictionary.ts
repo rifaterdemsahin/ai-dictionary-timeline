@@ -10,6 +10,13 @@ export type ExamDomain =
 
 export type DifficultyLevel = "Associate" | "Architect-Foundational";
 
+export interface KeyframeVisualSpec {
+  initialFramePrompt: string; // Seedream visual prompt for 00:00 (start keyframe)
+  endFramePrompt: string;     // Seedream visual prompt for target state (end keyframe)
+  cameraMotion: string;       // Interpolation motion directive (e.g., 'dolly-in zoom', 'pan right')
+  styleAnchor: string;        // Consistent aesthetic style anchor token
+}
+
 export interface VideoScript16s {
   hook: string;             // 00:00 - 00:03 (Pattern interrupt / core question)
   conceptPart1: string;     // 00:03 - 00:08 (Mechanism & principles)
@@ -36,6 +43,7 @@ export interface ClaudeTermEntry {
   keyExamTrap: ExamTrap;           // Specific trap candidates fail on
   codeOrSyntaxSnippet?: string;    // JSON, XML, or API parameter snippet
   video16sBlueprint: VideoScript16s; // Ready for Remotion / fal.ai pipeline
+  keyframeVisualSpec: KeyframeVisualSpec; // Initial & End frame image generation prompts
   relatedTermIds: string[];        // Graph connections
 }
 

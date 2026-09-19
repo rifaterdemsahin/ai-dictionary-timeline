@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Concept Keyframe Slideshow & Prompt Studio</title>
+  <style>
+    :root {
+      --bg: #09090b;
+      --card-bg: #18181b;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --accent: #cc785c;
+      --accent-glow: rgba(204, 120, 92, 0.4);
+      --border: #27272a;
+      --terminal-bg: #000000;
+      --cyan: #38bdf8;
+      --gold: #fbbf24;
+      --green: #4ade80;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 0 60px 0;
+    }
+    /* Top Navigation Bar */
+    .top-nav {
+      background: rgba(24, 24, 27, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .nav-brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #fafafa;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .nav-link.active {
+      color: var(--accent);
+      border: 1px solid rgba(204, 120, 92, 0.3);
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 30px auto 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Slideshow Layout */
+    .slideshow-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
+    }
+
+    /* Controller Header */
+    .slide-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .slide-indicator {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .slide-controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      color: #fafafa;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+    .nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    /* Main Slide Presentation */
+    .slide-main-header {
+      margin-bottom: 20px;
+    }
+    .slide-domain {
+      display: inline-block;
+      font-size: 12px;
+      color: var(--accent);
+      background: rgba(204, 120, 92, 0.12);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .slide-title {
+      font-size: 34px;
+      font-weight: 900;
+      color: #fafafa;
+      line-height: 1.2;
+    }
+    .slide-def {
+      font-size: 16px;
+      color: #d4d4d8;
+      margin-top: 8px;
+    }
+
+    /* Side-by-Side Frames Grid */
+    .frames-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 28px 0;
+    }
+    @media (max-width: 820px) {
+      .frames-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .frame-box {
+      background: var(--terminal-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .frame-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+    .frame-box.initial::before {
+      background: linear-gradient(90deg, var(--accent), #f97316);
+    }
+    .frame-box.end::before {
+      background: linear-gradient(90deg, #10b981, #06b6d4);
+    }
+
+    .frame-badge {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .frame-label {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .frame-box.initial .frame-label { color: #fb923c; }
+    .frame-box.end .frame-label { color: #34d399; }
+    .frame-timestamp {
+      font-family: monospace;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+    }
+
+    /* Mock 9:16 Canvas Placeholder Preview */
+    .frame-preview-art {
+      width: 100%;
+      height: 200px;
+      background: #111113;
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      position: relative;
+    }
+    .frame-preview-art .art-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    .frame-preview-art .art-sub {
+      font-size: 11px;
+      color: var(--muted);
+      max-width: 90%;
+    }
+
+    .prompt-content {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      color: #e4e4e7;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      padding: 12px;
+      flex: 1;
+      overflow-y: auto;
+      max-height: 160px;
+      line-height: 1.5;
+    }
+
+    /* Motion directive box */
+    .motion-box {
+      background: rgba(56, 189, 248, 0.05);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-size: 13px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .motion-box strong {
+      color: var(--cyan);
+    }
+
+    /* Video Script 16s Timeline Breakdown */
+    .script-timeline {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      padding: 16px;
+      border: 1px solid var(--border);
+    }
+    .script-timeline h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .timeline-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .t-step {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 10px 14px;
+      border-radius: 8px;
+    }
+    .t-step-time {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .t-step-text {
+      font-size: 12px;
+      color: #d4d4d8;
+      margin-top: 4px;
+    }
+
+    /* Jump Bar */
+    .jump-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .jump-label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .term-select {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      flex: 1;
+      max-width: 320px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">
+        <div class="nav-brand-dot"></div>
+        <span>Claude Associate Engine</span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">📖 Terms Dictionary</a>
+        <a href="./flashcards.html" class="nav-link">⚡ Flashcards</a>
+        <a href="./slideshow.html" class="nav-link active">🎬 Keyframe Slideshow</a>
+        <a href="../data/claude-associate-terms.json" target="_blank" class="nav-link">🔗 Terms JSON</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="slideshow-card">
+      <div class="slide-top">
+        <div class="slide-indicator" id="slideIndicator">Slide 1 of 24</div>
+        <div class="slide-controls">
+          <button class="nav-btn" id="prevBtn" title="Keyboard Left Arrow">&larr; Previous</button>
+          <button class="nav-btn" id="autoBtn">▶ Play Auto</button>
+          <button class="nav-btn" id="nextBtn" title="Keyboard Right Arrow">Next &rarr;</button>
+        </div>
+      </div>
+
+      <div class="slide-main-header">
+        <span class="slide-domain" id="slideDomain">Domain</span>
+        <h1 class="slide-title" id="slideTitle">Loading...</h1>
+        <p class="slide-def" id="slideDef">Definition text...</p>
+      </div>
+
+      <!-- Interpolation Video Motion Directive -->
+      <div class="motion-box">
+        <span>🎥</span>
+        <div>
+          <strong>Fal.ai Interpolation Motion:</strong> <span id="cameraMotionText">Loading motion...</span>
+        </div>
+      </div>
+
+      <!-- 2-Frame Generation Prompts Grid -->
+      <div class="frames-grid">
+        <!-- Initial Frame Prompt (00:00) -->
+        <div class="frame-box initial">
+          <div class="frame-badge">
+            <span class="frame-label">Initial Frame Prompt (00:00)</span>
+            <span class="frame-timestamp">Start Keyframe &bull; Seedream</span>
+          </div>
+          <div class="frame-preview-art">
+            <div class="art-icon">🎬</div>
+            <strong style="font-size: 13px; color: #fb923c;">Start Frame Hook State</strong>
+            <div class="art-sub" id="initialFrameSub">Visual metaphor initializing...</div>
+          </div>
+          <div class="prompt-content" id="initialPromptText">Loading initial prompt...</div>
+        </div>
+
+        <!-- End Frame Prompt (00:16) -->
+        <div class="frame-box end">
+          <div class="frame-badge">
+            <span class="frame-label">End Frame Prompt (00:16)</span>
+            <span class="frame-timestamp">End Keyframe &bull; Seedream</span>
+          </div>
+          <div class="frame-preview-art">
+            <div class="art-icon">✨</div>
+            <strong style="font-size: 13px; color: #34d399;">Resolved Architecture State</strong>
+            <div class="art-sub" id="endFrameSub">Certification badge & architecture...</div>
+          </div>
+          <div class="prompt-content" id="endPromptText">Loading end prompt...</div>
+        </div>
+      </div>
+
+      <!-- 16s Video Breakdown Script -->
+      <div class="script-timeline">
+        <h4>16-Second Short Voiceover Script & Visual Breakdown</h4>
+        <div class="timeline-steps">
+          <div class="t-step">
+            <div class="t-step-time">00:00 - 00:03 (Hook)</div>
+            <div class="t-step-text" id="scriptHook">...</div>
+          </div>
+          <div class="t-step">
+            <div class="t-step-time">00:03 - 00:08 (Mechanism)</div>
+            <div class="t-step-text" id="scriptMech">...</div>
+          </div>
+          <div class="t-step">
+            <div class="t-step-time">00:08 - 00:13 (Architecture)</div>
+            <div class="t-step-text" id="scriptArch">...</div>
+          </div>
+          <div class="t-step">
+            <div class="t-step-time">00:13 - 00:16 (Exam Tip)</div>
+            <div class="t-step-text" id="scriptTip">...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jump dropdown -->
+      <div class="jump-bar">
+        <span class="jump-label">Jump to Slide:</span>
+        <select class="term-select" id="termSelect"></select>
+      </div>
+    </div>
+
+    <footer>
+      Running on dedicated local server port 30085 &bull; AI Dictionary Timeline Project
+    </footer>
+  </div>
+
+  <script>
+    let terms = [];
+    let currentIndex = 0;
+    let autoInterval = null;
+
+    async function loadData() {
+      try {
+        const res = await fetch('../data/claude-associate-terms.json');
+        const json = await res.json();
+        terms = json.terms;
+        populateSelect();
+        showSlide(0);
+      } catch (e) {
+        console.error('Failed to load terms data:', e);
+      }
+    }
+
+    function populateSelect() {
+      const select = document.getElementById('termSelect');
+      select.innerHTML = terms.map((t, idx) => `
+        <option value="${idx}">${idx + 1}. ${t.term}</option>
+      `).join('');
+      select.addEventListener('change', (e) => {
+        showSlide(parseInt(e.target.value));
+      });
+    }
+
+    function showSlide(index) {
+      if (!terms.length) return;
+      if (index < 0) index = 0;
+      if (index >= terms.length) index = terms.length - 1;
+      currentIndex = index;
+
+      const t = terms[currentIndex];
+      document.getElementById('slideIndicator').textContent = `Slide ${currentIndex + 1} of ${terms.length}`;
+      document.getElementById('slideDomain').textContent = t.domain;
+      document.getElementById('slideTitle').textContent = t.term + (t.acronym ? ` (${t.acronym})` : '');
+      document.getElementById('slideDef').textContent = t.shortDefinition;
+
+      // Prompts
+      const kf = t.keyframeVisualSpec;
+      document.getElementById('cameraMotionText').textContent = kf.cameraMotion;
+      document.getElementById('initialPromptText').textContent = kf.initialFramePrompt;
+      document.getElementById('endPromptText').textContent = kf.endFramePrompt;
+      document.getElementById('initialFrameSub').textContent = t.video16sBlueprint.hook;
+      document.getElementById('endFrameSub').textContent = t.video16sBlueprint.ctaExamTip;
+
+      // Scripts
+      document.getElementById('scriptHook').textContent = t.video16sBlueprint.hook;
+      document.getElementById('scriptMech').textContent = t.video16sBlueprint.conceptPart1;
+      document.getElementById('scriptArch').textContent = t.video16sBlueprint.conceptPart2;
+      document.getElementById('scriptTip').textContent = t.video16sBlueprint.ctaExamTip;
+
+      // UI updates
+      document.getElementById('prevBtn').disabled = (currentIndex === 0);
+      document.getElementById('nextBtn').disabled = (currentIndex === terms.length - 1);
+      document.getElementById('termSelect').value = currentIndex;
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => showSlide(currentIndex - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => showSlide(currentIndex + 1));
+
+    // Keyboard navigation (Left / Right Arrow)
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') showSlide(currentIndex - 1);
+      if (e.key === 'ArrowRight') showSlide(currentIndex + 1);
+    });
+
+    // Auto slideshow toggle
+    const autoBtn = document.getElementById('autoBtn');
+    autoBtn.addEventListener('click', () => {
+      if (autoInterval) {
+        clearInterval(autoInterval);
+        autoInterval = null;
+        autoBtn.textContent = '▶ Play Auto';
+      } else {
+        autoBtn.textContent = '⏸ Pause Auto';
+        autoInterval = setInterval(() => {
+          let next = currentIndex + 1;
+          if (next >= terms.length) next = 0;
+          showSlide(next);
+        }, 5000);
+      }
+    });
+
+    loadData();
+  </script>
+</body>
+</html>

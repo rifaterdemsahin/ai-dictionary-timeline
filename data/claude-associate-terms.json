@@ -57,7 +57,17 @@
         "conceptPart2": "Conversational replies and quick 3-line snippets always stay inline to avoid cluttering your workspace.",
         "ctaExamTip": "Exam Tip: Candidates failed this at 0%! Remember: standalone and reusable equals Artifact, quick explanation equals inline!"
       },
-      "relatedTermIds": ["inline-markdown", "claude-projects", "output-formatting"]
+      "relatedTermIds": [
+        "inline-markdown",
+        "claude-projects",
+        "output-formatting"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Artifacts' in Claude AI architecture: Why does Claude put some code in a side window and some directly in chat?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Artifacts' concept: Conversational replies and quick 3-line snippets always stay inline to avoid cluttering your workspace.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: Candidates failed this at 0%! Remember: standalone and reusable equals Artifact, quick explanation equals inline!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "inline-markdown",
@@ -79,7 +89,16 @@
         "conceptPart2": "Creating an Artifact for a short response interrupts the user's flow and wastes layout real estate.",
         "ctaExamTip": "Associate Exam Rule: If the user doesn't need to export, compile, or iterate on the code as a file, keep it inline!"
       },
-      "relatedTermIds": ["artifacts", "output-formatting"]
+      "relatedTermIds": [
+        "artifacts",
+        "output-formatting"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Inline Markdown' in Claude AI architecture: Should Claude generate an Artifact or stay inline in the chat?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Inline Markdown' concept: Creating an Artifact for a short response interrupts the user's flow and wastes layout real estate.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Associate Exam Rule: If the user doesn't need to export, compile, or iterate on the code as a file, keep it inline!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "task-decomposition",
@@ -102,7 +121,17 @@
         "conceptPart2": "Task decomposition forces Claude to execute Step 1, verify the intermediate state, then proceed to Step 2.",
         "ctaExamTip": "Exam Tip: For multi-step enterprise workflows, always decompose complex instructions into numbered sequential stages!"
       },
-      "relatedTermIds": ["chain-of-thought", "xml-tagging", "system-prompts"]
+      "relatedTermIds": [
+        "chain-of-thought",
+        "xml-tagging",
+        "system-prompts"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Task Decomposition' in Claude AI architecture: Why does Claude hallucinate when you ask it to do three complex jobs at once?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Task Decomposition' concept: Task decomposition forces Claude to execute Step 1, verify the intermediate state, then proceed to Step 2.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: For multi-step enterprise workflows, always decompose complex instructions into numbered sequential stages!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "xml-tagging",
@@ -125,7 +154,17 @@
         "conceptPart2": "This prevents prompt injection and stops Claude from confusing your example data with actual user instructions.",
         "ctaExamTip": "Anthropic Associate Exam Gold: Always use semantic XML tags to wrap input documents and reference criteria!"
       },
-      "relatedTermIds": ["system-prompts", "task-decomposition", "few-shot-prompting"]
+      "relatedTermIds": [
+        "system-prompts",
+        "task-decomposition",
+        "few-shot-prompting"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'XML Tagging in Prompts' in Claude AI architecture: What is Anthropic's secret weapon for structuring complex prompts?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'XML Tagging in Prompts' concept: This prevents prompt injection and stops Claude from confusing your example data with actual user instructions.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Anthropic Associate Exam Gold: Always use semantic XML tags to wrap input documents and reference criteria!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "system-prompts",
@@ -148,7 +187,17 @@
         "conceptPart2": "Even across 50 multi-turn conversation exchanges, the system prompt retains maximum steering priority.",
         "ctaExamTip": "Exam Tip: Use the top-level 'system' parameter for persistent role definitions and security boundaries!"
       },
-      "relatedTermIds": ["xml-tagging", "temperature", "guardrails"]
+      "relatedTermIds": [
+        "xml-tagging",
+        "temperature",
+        "guardrails"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'System Prompts' in Claude AI architecture: Where should you lock in Claude's persona so it never forgets its instructions?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'System Prompts' concept: Even across 50 multi-turn conversation exchanges, the system prompt retains maximum steering priority.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: Use the top-level 'system' parameter for persistent role definitions and security boundaries!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "model-tier-tradeoffs",
@@ -170,7 +219,17 @@
         "conceptPart2": "Sonnet 3.5 is the enterprise workhorse with frontier coding and vision, while Opus tackles the deepest multi-step research.",
         "ctaExamTip": "Exam Question Alert: Never default to the largest model! Always match volume, latency SLA, and token cost to the tier!"
       },
-      "relatedTermIds": ["context-window", "prompt-caching", "token-budgeting"]
+      "relatedTermIds": [
+        "context-window",
+        "prompt-caching",
+        "token-budgeting"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Claude Model Family (Haiku vs Sonnet vs Opus)' in Claude AI architecture: Haiku, Sonnet, or Opus: Which Claude model should you deploy in production?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Claude Model Family (Haiku vs Sonnet vs Opus)' concept: Sonnet 3.5 is the enterprise workhorse with frontier coding and vision, while Opus tackles the deepest multi-step research.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Question Alert: Never default to the largest model! Always match volume, latency SLA, and token cost to the tier!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "context-window",
@@ -187,12 +246,22 @@
         "examClue": "When to clear context, summarize previous turns, or spin up a new session."
       },
       "video16sBlueprint": {
-        "hook": "Claude can handle 200,000 tokens—so should you ever reset the chat?",
+        "hook": "Claude can handle 200,000 tokens\u2014so should you ever reset the chat?",
         "conceptPart1": "Yes! Just because Claude can read 500 pages doesn't mean your budget and latency want to pay for 500 pages on every turn.",
         "conceptPart2": "Long contexts increase time-to-first-token and cost. Pruning and summarizing keeps responses sharp.",
         "ctaExamTip": "Associate Exam Rule: When a conversation shifts topics, restart or summarize rather than dragging the entire historical context!"
       },
-      "relatedTermIds": ["prompt-caching", "model-tier-tradeoffs", "token-budgeting"]
+      "relatedTermIds": [
+        "prompt-caching",
+        "model-tier-tradeoffs",
+        "token-budgeting"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing '200k Context Window Management' in Claude AI architecture: Claude can handle 200,000 tokens\u2014so should you ever reset the chat?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for '200k Context Window Management' concept: Long contexts increase time-to-first-token and cost. Pruning and summarizing keeps responses sharp.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Associate Exam Rule: When a conversation shifts topics, restart or summarize rather than dragging the entire historical context!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "prompt-caching",
@@ -215,7 +284,17 @@
         "conceptPart2": "Subsequent API calls read from memory instead of recalculating, reducing latency by up to 85%.",
         "ctaExamTip": "Exam Tip: Minimum cacheable prompt size is 1,024 tokens. Look for 'cache_control: ephemeral' on the exam!"
       },
-      "relatedTermIds": ["context-window", "model-tier-tradeoffs", "tool-use-stop-reason"]
+      "relatedTermIds": [
+        "context-window",
+        "model-tier-tradeoffs",
+        "tool-use-stop-reason"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Prompt Caching' in Claude AI architecture: How do you slash your Claude API costs by 90% in large context applications?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Prompt Caching' concept: Subsequent API calls read from memory instead of recalculating, reducing latency by up to 85%.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: Minimum cacheable prompt size is 1,024 tokens. Look for 'cache_control: ephemeral' on the exam!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "tool-use-stop-reason",
@@ -238,7 +317,17 @@
         "conceptPart2": "Your client application executes the database query or API, then feeds the result back to Claude.",
         "ctaExamTip": "Certification Golden Rule: Claude decides WHEN to call and outputs parameters; your client application does the actual execution!"
       },
-      "relatedTermIds": ["mcp-protocol", "json-schema-tools", "task-decomposition"]
+      "relatedTermIds": [
+        "mcp-protocol",
+        "json-schema-tools",
+        "task-decomposition"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Tool Use & Stop Reason ('tool_use')' in Claude AI architecture: Does Claude actually run the tools you give it in the API?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Tool Use & Stop Reason ('tool_use')' concept: Your client application executes the database query or API, then feeds the result back to Claude.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Certification Golden Rule: Claude decides WHEN to call and outputs parameters; your client application does the actual execution!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "mcp-protocol",
@@ -258,9 +347,18 @@
         "hook": "What is Anthropic's Model Context Protocol, and why does every developer need it?",
         "conceptPart1": "MCP is an open standard that connects AI models to local files, databases, and enterprise tools.",
         "conceptPart2": "Instead of writing bespoke API glue for every tool, MCP provides universal client-server connectors.",
-        "ctaExamTip": "Exam Tip: Think of MCP like USB-C for AI—one standard protocol for data resources, prompts, and tools!"
+        "ctaExamTip": "Exam Tip: Think of MCP like USB-C for AI\u2014one standard protocol for data resources, prompts, and tools!"
       },
-      "relatedTermIds": ["tool-use-stop-reason", "json-schema-tools"]
+      "relatedTermIds": [
+        "tool-use-stop-reason",
+        "json-schema-tools"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Model Context Protocol (MCP)' in Claude AI architecture: What is Anthropic's Model Context Protocol, and why does every developer need it?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Model Context Protocol (MCP)' concept: Instead of writing bespoke API glue for every tool, MCP provides universal client-server connectors.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: Think of MCP like USB-C for AI\u2014one standard protocol for data resources, prompts, and tools!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "claude-projects",
@@ -282,7 +380,17 @@
         "conceptPart2": "Your uploaded style guides and code repos are dynamically retrieved to frame answers in team chats.",
         "ctaExamTip": "Exam Question Alert: Projects provide in-context reference and team workspaces, never fine-tuning or weight modification!"
       },
-      "relatedTermIds": ["artifacts", "context-window", "hallucination-mitigation"]
+      "relatedTermIds": [
+        "artifacts",
+        "context-window",
+        "hallucination-mitigation"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Claude Projects' in Claude AI architecture: Does uploading PDF files into Claude Projects fine-tune the model?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Claude Projects' concept: Your uploaded style guides and code repos are dynamically retrieved to frame answers in team chats.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Question Alert: Projects provide in-context reference and team workspaces, never fine-tuning or weight modification!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "chain-of-thought",
@@ -305,7 +413,17 @@
         "conceptPart2": "Asking Claude to think inside <thinking> tags decouples internal scratchpad reasoning from the polished output.",
         "ctaExamTip": "Certification Tip: Use Chain-of-Thought whenever tasks require multi-step math, policy verification, or complex deduction!"
       },
-      "relatedTermIds": ["task-decomposition", "xml-tagging", "hallucination-mitigation"]
+      "relatedTermIds": [
+        "task-decomposition",
+        "xml-tagging",
+        "hallucination-mitigation"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Chain-of-Thought (CoT) Prompting' in Claude AI architecture: Why do thinking tags make Claude dramatically smarter at logic problems?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Chain-of-Thought (CoT) Prompting' concept: Asking Claude to think inside <thinking> tags decouples internal scratchpad reasoning from the polished output.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Certification Tip: Use Chain-of-Thought whenever tasks require multi-step math, policy verification, or complex deduction!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "few-shot-prompting",
@@ -328,7 +446,17 @@
         "conceptPart2": "Claude mirrors the syntax, tone, and edge-case decisions demonstrated in your examples.",
         "ctaExamTip": "Exam Strategy: When zero-shot instructions fail on schema edge cases, few-shot examples are the proven fix!"
       },
-      "relatedTermIds": ["xml-tagging", "task-decomposition", "chain-of-thought"]
+      "relatedTermIds": [
+        "xml-tagging",
+        "task-decomposition",
+        "chain-of-thought"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Few-Shot Prompting' in Claude AI architecture: Tired of writing 5-paragraph prompts that Claude still misinterprets?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Few-Shot Prompting' concept: Claude mirrors the syntax, tone, and edge-case decisions demonstrated in your examples.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Strategy: When zero-shot instructions fail on schema edge cases, few-shot examples are the proven fix!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "hallucination-mitigation",
@@ -351,7 +479,17 @@
         "conceptPart2": "Real grounding requires negative constraints: instruct Claude to quote source documents directly and say 'I don't know' if missing.",
         "ctaExamTip": "Exam Rule: Always give Claude an explicit 'escape hatch' instruction to state when context does not contain the answer!"
       },
-      "relatedTermIds": ["human-in-the-loop", "temperature", "xml-tagging"]
+      "relatedTermIds": [
+        "human-in-the-loop",
+        "temperature",
+        "xml-tagging"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Hallucination Mitigation & Grounding' in Claude AI architecture: Does setting temperature to 0 stop Claude from hallucinating?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Hallucination Mitigation & Grounding' concept: Real grounding requires negative constraints: instruct Claude to quote source documents directly and say 'I don't know' if missing.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Rule: Always give Claude an explicit 'escape hatch' instruction to state when context does not contain the answer!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "human-in-the-loop",
@@ -373,7 +511,16 @@
         "conceptPart2": "Human-in-the-loop architectures allow Claude to draft and analyze, but require human confirmation before triggering final actions.",
         "ctaExamTip": "Associate Exam Tip: In high-stakes regulatory environments, always place human review between AI proposals and live execution!"
       },
-      "relatedTermIds": ["hallucination-mitigation", "tool-use-stop-reason"]
+      "relatedTermIds": [
+        "hallucination-mitigation",
+        "tool-use-stop-reason"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Human-in-the-Loop (HITL) Verification' in Claude AI architecture: When should you NEVER let an AI agent act fully autonomously?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Human-in-the-Loop (HITL) Verification' concept: Human-in-the-loop architectures allow Claude to draft and analyze, but require human confirmation before triggering final actions.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Associate Exam Tip: In high-stakes regulatory environments, always place human review between AI proposals and live execution!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "temperature",
@@ -391,11 +538,20 @@
       },
       "video16sBlueprint": {
         "hook": "What happens when you set Claude's temperature to 0 versus 1?",
-        "conceptPart1": "Temperature controls randomness. Low temperature makes Claude focused and analytical—ideal for code and extraction.",
+        "conceptPart1": "Temperature controls randomness. Low temperature makes Claude focused and analytical\u2014ideal for code and extraction.",
         "conceptPart2": "High temperature introduces creative diversity, perfect for brainstorming and narrative generation.",
         "ctaExamTip": "Exam Takeaway: For JSON schemas, math, and data extraction, always configure temperature close to 0!"
       },
-      "relatedTermIds": ["model-tier-tradeoffs", "hallucination-mitigation"]
+      "relatedTermIds": [
+        "model-tier-tradeoffs",
+        "hallucination-mitigation"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Temperature & Top_p Parameters' in Claude AI architecture: What happens when you set Claude's temperature to 0 versus 1?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Temperature & Top_p Parameters' concept: High temperature introduces creative diversity, perfect for brainstorming and narrative generation.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Takeaway: For JSON schemas, math, and data extraction, always configure temperature close to 0!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "json-schema-tools",
@@ -418,7 +574,16 @@
         "conceptPart2": "Always specify types, required fields, and clear format guidance inside your tool's input_schema.",
         "ctaExamTip": "Associate Exam Tip: Rich parameter descriptions and strict 'required' arrays prevent faulty tool calls!"
       },
-      "relatedTermIds": ["tool-use-stop-reason", "mcp-protocol"]
+      "relatedTermIds": [
+        "tool-use-stop-reason",
+        "mcp-protocol"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'JSON Schema Tool Definitions' in Claude AI architecture: Why did Claude pass the wrong parameter format to your API tool?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'JSON Schema Tool Definitions' concept: Always specify types, required fields, and clear format guidance inside your tool's input_schema.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Associate Exam Tip: Rich parameter descriptions and strict 'required' arrays prevent faulty tool calls!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "research-mode",
@@ -440,7 +605,16 @@
         "conceptPart2": "To fetch live pricing or news, integrate external search tools or knowledge connectors.",
         "ctaExamTip": "Exam Alert: Distinguish between the frozen base model knowledge and live retrieval through tools and connectors!"
       },
-      "relatedTermIds": ["claude-projects", "tool-use-stop-reason"]
+      "relatedTermIds": [
+        "claude-projects",
+        "tool-use-stop-reason"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Research Mode & Web Connectors' in Claude AI architecture: Does Claude know what happened in the tech world yesterday?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Research Mode & Web Connectors' concept: To fetch live pricing or news, integrate external search tools or knowledge connectors.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Alert: Distinguish between the frozen base model knowledge and live retrieval through tools and connectors!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "prompt-iteration",
@@ -458,11 +632,21 @@
       },
       "video16sBlueprint": {
         "hook": "How do elite AI engineers write production-ready prompts?",
-        "conceptPart1": "They don't guess—they iterate! They test baseline prompts against diverse edge-case test sets.",
+        "conceptPart1": "They don't guess\u2014they iterate! They test baseline prompts against diverse edge-case test sets.",
         "conceptPart2": "When Claude fails on an edge case, they inspect the failure mode and add explicit negative constraints or examples.",
         "ctaExamTip": "Exam Tip: Prompt development is an empirical testing cycle, not a one-off writing exercise!"
       },
-      "relatedTermIds": ["task-decomposition", "few-shot-prompting", "evaluation-metrics"]
+      "relatedTermIds": [
+        "task-decomposition",
+        "few-shot-prompting",
+        "evaluation-metrics"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Prompt Iteration Cycle' in Claude AI architecture: How do elite AI engineers write production-ready prompts?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Prompt Iteration Cycle' concept: When Claude fails on an edge case, they inspect the failure mode and add explicit negative constraints or examples.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: Prompt development is an empirical testing cycle, not a one-off writing exercise!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "evaluation-metrics",
@@ -484,7 +668,16 @@
         "conceptPart2": "Run systematic test suites measuring accuracy, latency, and format compliance against golden answer benchmarks.",
         "ctaExamTip": "Associate Exam Rule: Always validate system changes against structured eval datasets before production rollout!"
       },
-      "relatedTermIds": ["hallucination-mitigation", "human-in-the-loop"]
+      "relatedTermIds": [
+        "hallucination-mitigation",
+        "human-in-the-loop"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Evaluation & LLM Benchmark Metrics' in Claude AI architecture: How do you know if your prompt change actually made Claude better or worse?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Evaluation & LLM Benchmark Metrics' concept: Run systematic test suites measuring accuracy, latency, and format compliance against golden answer benchmarks.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Associate Exam Rule: Always validate system changes against structured eval datasets before production rollout!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "stakeholder-value-communication",
@@ -506,7 +699,16 @@
         "conceptPart2": "Set realistic stakeholder expectations: highlight immense speed and scale, but establish clear review guardrails for high-risk data.",
         "ctaExamTip": "Exam Tip: Always pair AI capability demonstrations with honest communication of latency, probabilistic variance, and safety boundaries!"
       },
-      "relatedTermIds": ["human-in-the-loop", "hallucination-mitigation"]
+      "relatedTermIds": [
+        "human-in-the-loop",
+        "hallucination-mitigation"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Communicating AI Value & Limitations' in Claude AI architecture: What is the biggest mistake engineers make when pitching AI to executives?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Communicating AI Value & Limitations' concept: Set realistic stakeholder expectations: highlight immense speed and scale, but establish clear review guardrails for high-risk data.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: Always pair AI capability demonstrations with honest communication of latency, probabilistic variance, and safety boundaries!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "task-alignment-model-fit",
@@ -528,7 +730,16 @@
         "conceptPart2": "Reserve Sonnet 3.5 for complex code generation and multi-step reasoning.",
         "ctaExamTip": "Certification Golden Rule: Multi-agent architectures should always route cheap classification to Haiku and heavy logic to Sonnet!"
       },
-      "relatedTermIds": ["model-tier-tradeoffs", "token-budgeting"]
+      "relatedTermIds": [
+        "model-tier-tradeoffs",
+        "token-budgeting"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Task-to-Model Alignment Matrix' in Claude AI architecture: Are you wasting 80% of your AI budget on the wrong model tier?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Task-to-Model Alignment Matrix' concept: Reserve Sonnet 3.5 for complex code generation and multi-step reasoning.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Certification Golden Rule: Multi-agent architectures should always route cheap classification to Haiku and heavy logic to Sonnet!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "token-budgeting",
@@ -550,7 +761,16 @@
         "conceptPart2": "Implement exponential backoff with jitter to pause and retry progressively without overwhelming the gateway.",
         "ctaExamTip": "Associate Exam Alert: Handle 429 rate limits using exponential backoff, prompt caching, and token budgeting!"
       },
-      "relatedTermIds": ["prompt-caching", "model-tier-tradeoffs"]
+      "relatedTermIds": [
+        "prompt-caching",
+        "model-tier-tradeoffs"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Token Budgeting & Rate Limit Management' in Claude AI architecture: What should your application do when Claude returns an HTTP 429 error?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Token Budgeting & Rate Limit Management' concept: Implement exponential backoff with jitter to pause and retry progressively without overwhelming the gateway.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Associate Exam Alert: Handle 429 rate limits using exponential backoff, prompt caching, and token budgeting!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     },
     {
       "id": "output-formatting",
@@ -571,9 +791,19 @@
         "hook": "How do you stop Claude from saying 'Here is your JSON' before the code?",
         "conceptPart1": "Prefill the assistant response! In the API, ending the assistant turn with an opening brace '{' forces Claude to output pure JSON.",
         "conceptPart2": "Pair this with an exact JSON schema in your prompt to prevent parse errors in your code.",
-        "ctaExamTip": "Curriculum Gap Alert: Master output curation—prefilling and strict schemas ensure pure machine-parseable data!"
+        "ctaExamTip": "Curriculum Gap Alert: Master output curation\u2014prefilling and strict schemas ensure pure machine-parseable data!"
       },
-      "relatedTermIds": ["artifacts", "inline-markdown", "json-schema-tools"]
+      "relatedTermIds": [
+        "artifacts",
+        "inline-markdown",
+        "json-schema-tools"
+      ],
+      "keyframeVisualSpec": {
+        "initialFramePrompt": "Initial state representing 'Output Format Curation (JSON, Markdown, CSV)' in Claude AI architecture: How do you stop Claude from saying 'Here is your JSON' before the code?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "endFramePrompt": "Resolved target state for 'Output Format Curation (JSON, Markdown, CSV)' concept: Pair this with an exact JSON schema in your prompt to prevent parse errors in your code.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Curriculum Gap Alert: Master output curation\u2014prefilling and strict schemas ensure pure machine-parseable data!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
+        "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
+        "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
+      }
     }
   ]
 }
