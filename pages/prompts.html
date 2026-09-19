@@ -210,6 +210,7 @@
         <a href="./slideshow.html" class="nav-link">🎬 Keyframe Slideshow</a>
         <a href="./prompts.html" class="nav-link active">📜 Prompts Log</a>
         <a href="./production-cost.html" class="nav-link">💰 Production Cost</a>
+        <a href="./youtube-vs-adwords.html" class="nav-link">📊 Shorts vs AdWords</a>
         <a href="../data/claude-associate-terms.json" target="_blank" class="nav-link">🔗 Terms JSON</a>
       </div>
     </div>
@@ -319,6 +320,42 @@ Design a production-ready, step-by-step technical blueprint and architecture for
         <div class="prompt-content">create one page and list all the prompts i have give to create the project</div>
         <div class="prompt-summary-box">
           <strong>Built / Delivered:</strong> Created <code>pages/prompts.html</code> documenting every prompt given during this session with verbatim prompt texts, delivery summaries, and top menu navigation integration.
+        </div>
+      </div>
+
+      <!-- Prompt 7 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <span class="prompt-num">Prompt 7 &bull; Generation Cost &amp; 7-Stage Sanity Check</span>
+          <span class="prompt-outcome">Status: Complete &amp; Rendered</span>
+        </div>
+        <div class="prompt-content">add a bottom section for the cost of the generation for the images and the video , and add a sanity check for our video productiopn process. check all the steps</div>
+        <div class="prompt-summary-box">
+          <strong>Built / Delivered:</strong> Appended cost breakdown matrix ($0.44 per 16s video via Seedream keyframes + Kling video interpolation + ElevenLabs voiceover) and comprehensive 7-stage quality sanity check checklist directly to the base of <code>index.html</code>.
+        </div>
+      </div>
+
+      <!-- Prompt 8 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <span class="prompt-num">Prompt 8 &bull; Total Cost Page, fal.ai Script &amp; Azure Key Vault</span>
+          <span class="prompt-outcome">Status: Complete &amp; Tested</span>
+        </div>
+        <div class="prompt-content">add a [age for total cost of production. add code to generate images with fal.ai and video with fal.ai . and use the keys from az kay vault . place .env and git ignire them</div>
+        <div class="prompt-summary-box">
+          <strong>Built / Delivered:</strong> Created <code>pages/production-cost.html</code> with unit economics, created <code>scripts/fal_generate.py</code> fetching credentials from Azure Key Vault (<code>dp-kv-deliverypilot</code>) or local <code>.env</code>, configured secure <code>.gitignore</code>, and verified execution.
+        </div>
+      </div>
+
+      <!-- Prompt 9 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <span class="prompt-num">Prompt 9 &bull; YouTube Short Audit vs. Google AdWords &amp; Skool CAC</span>
+          <span class="prompt-outcome">Status: Complete &amp; Live</span>
+        </div>
+        <div class="prompt-content">https://www.youtube.com/shorts/KVKJRdkH-B8 estimate the performance and compare it with google adwords that short is what i have done compare the it for me to create it and the prodution and cost we are gping to ask audience to go to skool platform https://www.skool.com/delivery-pilot-8938</div>
+        <div class="prompt-summary-box">
+          <strong>Built / Delivered:</strong> Audited YouTube Short <code>KVKJRdkH-B8</code> (46.3s, 108 views, 5.56% like rate), compared manual founder creation (~$234 labor) vs automated pipeline ($0.44 API), modeled acquisition funnel to Skool community (<code>delivery-pilot-8938</code>) demonstrating 56x–125x CAC advantage over Google AdWords, created <code>pages/youtube-vs-adwords.html</code> with an interactive ROI calculator, and integrated across all site navigation.
         </div>
       </div>
 

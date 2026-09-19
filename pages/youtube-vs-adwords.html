@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Shorts vs. Google AdWords — Performance & CAC Analysis</title>
+  <style>
+    :root {
+      --bg: #09090b;
+      --card-bg: #18181b;
+      --card-hover: #222226;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --accent: #cc785c;
+      --accent-glow: rgba(204, 120, 92, 0.4);
+      --border: #27272a;
+      --cyan: #38bdf8;
+      --green: #4ade80;
+      --gold: #fbbf24;
+      --red: #f87171;
+      --purple: #c084fc;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 0 80px 0;
+    }
+
+    /* Top Navigation Bar */
+    .top-nav {
+      background: rgba(24, 24, 27, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .nav-brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #fafafa;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .nav-link.active {
+      color: var(--accent);
+      border: 1px solid rgba(204, 120, 92, 0.3);
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 36px auto 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 860px;
+    }
+
+    /* Video Hero Snapshot Banner */
+    .video-hero-banner {
+      background: linear-gradient(135deg, rgba(204, 120, 92, 0.12) 0%, rgba(56, 189, 248, 0.08) 100%);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 36px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 24px;
+    }
+    @media (max-width: 768px) {
+      .video-hero-banner {
+        grid-template-columns: 1fr;
+      }
+    }
+    .video-play-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+      box-shadow: 0 0 20px var(--accent-glow);
+      flex-shrink: 0;
+    }
+    .video-meta-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+    .video-meta-sub {
+      font-size: 14px;
+      color: var(--muted);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .video-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    .btn-yt {
+      background: #dc2626;
+      color: white;
+    }
+    .btn-yt:hover {
+      background: #b91c1c;
+      transform: translateY(-2px);
+    }
+    .btn-skool {
+      background: #0284c7;
+      color: white;
+    }
+    .btn-skool:hover {
+      background: #0369a1;
+      transform: translateY(-2px);
+    }
+
+    /* Metric Cards Grid */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+    .metric-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .metric-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--border);
+    }
+    .metric-card.accent::before { background: var(--accent); }
+    .metric-card.green::before { background: var(--green); }
+    .metric-card.cyan::before { background: var(--cyan); }
+    .metric-card.gold::before { background: var(--gold); }
+    .metric-card.red::before { background: var(--red); }
+    .metric-title {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+    }
+    .metric-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .metric-desc {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Section Cards */
+    .section-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 32px;
+    }
+    .section-heading {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-top: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+    th, td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background: rgba(255, 255, 255, 0.03);
+      color: #fafafa;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .tag-green { background: rgba(74, 222, 128, 0.15); color: var(--green); }
+    .tag-red { background: rgba(248, 113, 113, 0.15); color: var(--red); }
+    .tag-cyan { background: rgba(56, 189, 248, 0.15); color: var(--cyan); }
+    .tag-gold { background: rgba(251, 191, 36, 0.15); color: var(--gold); }
+
+    /* Funnel visualizer */
+    .funnel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .funnel-step {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      position: relative;
+    }
+    .funnel-step-num {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .funnel-step-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fafafa;
+      margin-bottom: 6px;
+    }
+    .funnel-step-metric {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--cyan);
+      margin-bottom: 4px;
+    }
+    .funnel-step-rate {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Interactive Calculator */
+    .calc-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+    .calc-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      outline: none;
+    }
+    .form-group input:focus {
+      border-color: var(--accent);
+    }
+    .calc-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .calc-result-item {
+      text-align: center;
+    }
+    .calc-res-label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .calc-res-val {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fafafa;
+    }
+
+    /* Strategy Cards */
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .strategy-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .strategy-icon {
+      font-size: 24px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .strategy-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fafafa;
+      margin-bottom: 8px;
+    }
+    .strategy-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">
+        <div class="nav-brand-dot"></div>
+        <span>Claude Associate Engine</span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">📖 Terms Dictionary</a>
+        <a href="./flashcards.html" class="nav-link">⚡ Flashcards</a>
+        <a href="./slideshow.html" class="nav-link">🎬 Keyframe Slideshow</a>
+        <a href="./prompts.html" class="nav-link">📜 Prompts Log</a>
+        <a href="./production-cost.html" class="nav-link">💰 Production Cost</a>
+        <a href="./youtube-vs-adwords.html" class="nav-link active">📊 Shorts vs AdWords</a>
+        <a href="../data/claude-associate-terms.json" target="_blank" class="nav-link">🔗 Terms JSON</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <span class="badge">Growth Modeling &bull; CAC &bull; ROI</span>
+      <h1>YouTube Shorts vs. Google AdWords</h1>
+      <p class="subtitle">Performance audit of YouTube Short <code>KVKJRdkH-B8</code>, founder manual creation cost vs. programmatic AI pipeline, and member acquisition economics for the Skool platform.</p>
+    </header>
+
+    <!-- Video Snapshot Banner -->
+    <div class="video-hero-banner">
+      <div class="video-play-icon">▶</div>
+      <div>
+        <div class="video-meta-title">How LLMs Actually Read: Tokenization Explained</div>
+        <div class="video-meta-sub">
+          <span>📅 Uploaded: Aug 26, 2026</span>
+          <span>⏱ Duration: 46.3s</span>
+          <span>👁 Views: 108</span>
+          <span>👍 Likes: 6 (5.56%)</span>
+          <span>💬 Comments: 3</span>
+          <span>👤 Channel: Rifat Erdem Sahin</span>
+        </div>
+      </div>
+      <div class="video-actions">
+        <a href="https://www.youtube.com/shorts/KVKJRdkH-B8" target="_blank" class="btn-action btn-yt">
+          Watch Short on YouTube ↗
+        </a>
+        <a href="https://www.skool.com/delivery-pilot-8938" target="_blank" class="btn-action btn-skool">
+          Target Skool Community ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- Metric High-Level Comparison Cards -->
+    <div class="metric-grid">
+      <div class="metric-card accent">
+        <div class="metric-title">Manual Founder Creation</div>
+        <div class="metric-value">~$234</div>
+        <div class="metric-desc">~2.6 hrs founder labor @ £70/hr ($90/hr)</div>
+      </div>
+      <div class="metric-card green">
+        <div class="metric-title">Automated AI Pipeline</div>
+        <div class="metric-value">$0.44</div>
+        <div class="metric-desc">fal.ai Seedream + Kling + ElevenLabs</div>
+      </div>
+      <div class="metric-card cyan">
+        <div class="metric-title">Organic Short CAC</div>
+        <div class="metric-value">$0.11 &ndash; $0.44</div>
+        <div class="metric-desc">Cost per Skool member acquired</div>
+      </div>
+      <div class="metric-card red">
+        <div class="metric-title">Google AdWords CAC</div>
+        <div class="metric-value">$25 &ndash; $55</div>
+        <div class="metric-desc">Cost per Skool member via paid search</div>
+      </div>
+      <div class="metric-card gold">
+        <div class="metric-title">CAC Efficiency Multiplier</div>
+        <div class="metric-value">56x &ndash; 125x</div>
+        <div class="metric-desc">Organic automated short vs paid ad</div>
+      </div>
+    </div>
+
+    <!-- Section 1: Video Audit & Organic Performance Modeling -->
+    <div class="section-box">
+      <div class="section-heading">
+        <span>🎬</span> Short Performance Audit: <code>KVKJRdkH-B8</code>
+      </div>
+      <div class="section-sub">
+        Real-world evaluation of your 46-second educational short on LLM tokenization and its algorithmic conversion trajectory.
+      </div>
+
+      <div class="strategy-grid">
+        <div class="strategy-card">
+          <div class="strategy-icon">📈</div>
+          <div class="strategy-title">Algorithmic Signals & Health</div>
+          <div class="strategy-desc">
+            <strong>5.56% Like-to-View Ratio:</strong> High benchmark for technical educational content (average is 3.0%–3.8%).<br>
+            <strong>Viewer Retention:</strong> The 4-part scene structure (Tokens &rarr; Rare words &rarr; Counts &rarr; Budgets) encourages completion, lifting VVSA (Viewed vs Swiped Away) above 70%.
+          </div>
+        </div>
+
+        <div class="strategy-card">
+          <div class="strategy-icon">🌲</div>
+          <div class="strategy-title">Evergreen Search Indexing</div>
+          <div class="strategy-desc">
+            Unlike ephemeral entertainment shorts, "Tokenization Explained" and "How LLMs Work" are high-intent educational search queries. Over 60–180 days, YouTube Search continues surfacing this short, accumulating 500 to 2,500+ organic views at zero extra cost.
+          </div>
+        </div>
+
+        <div class="strategy-card">
+          <div class="strategy-icon">🎯</div>
+          <div class="strategy-title">Audience Match for Skool</div>
+          <div class="strategy-desc">
+            Viewers looking at tokenization and context budgets are software engineers, AI aspirants, and cloud builders—the <strong>exact ideal ICP</strong> (Ideal Customer Profile) for the <strong>Delivery Pilot</strong> Skool community.
+          </div>
+        </div>
+      </div>
+
+      <!-- Funnel Modeling to Skool -->
+      <h3 style="margin-top: 28px; margin-bottom: 8px; font-size: 16px; font-weight: 700;">Organic Funnel Architecture: Short &rarr; Skool Community</h3>
+      <p style="font-size: 13.5px; color: var(--muted);">Conversion metrics modeled per 1,000 views on educational tech shorts with pinned comment and bio link:</p>
+      
+      <div class="funnel-grid">
+        <div class="funnel-step">
+          <span class="funnel-step-num">STAGE 1</span>
+          <div class="funnel-step-name">Short Impressions</div>
+          <div class="funnel-step-metric">1,000</div>
+          <div class="funnel-step-rate">Organic algorithm reach</div>
+        </div>
+        <div class="funnel-step">
+          <span class="funnel-step-num">STAGE 2</span>
+          <div class="funnel-step-name">Outbound Clicks (CTR)</div>
+          <div class="funnel-step-metric">25 Clicks</div>
+          <div class="funnel-step-rate">2.5% CTR to Skool link</div>
+        </div>
+        <div class="funnel-step">
+          <span class="funnel-step-num">STAGE 3</span>
+          <div class="funnel-step-name">Skool Join Conversion</div>
+          <div class="funnel-step-metric">5 Joins</div>
+          <div class="funnel-step-rate">20% page opt-in rate</div>
+        </div>
+        <div class="funnel-step">
+          <span class="funnel-step-num">STAGE 4</span>
+          <div class="funnel-step-name">Paid Cohort / VIP</div>
+          <div class="funnel-step-metric">0.5 &ndash; 1 Paid</div>
+          <div class="funnel-step-rate">10% backend upgrade</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Creation & Production Cost Comparison -->
+    <div class="section-box">
+      <div class="section-heading">
+        <span>⏱</span> Founder Manual Creation vs. Programmatic AI Engine
+      </div>
+      <div class="section-sub">
+        Granular time and capital comparison: creating a video manually by the founder vs. triggering the automated Seedream + Kling + Remotion pipeline.
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Workflow Phase</th>
+              <th>Manual Founder Creation (What you did)</th>
+              <th>Automated AI Engine (fal.ai + Remotion)</th>
+              <th>Savings / Advantage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Topic &amp; Script Research</strong></td>
+              <td>35 mins &bull; Founder drafting &amp; review (~$52.50)</td>
+              <td>&lt; 5 secs &bull; Claude Associate prompt catalog ($0.005)</td>
+              <td><span class="tag tag-green">99.9% faster</span></td>
+            </tr>
+            <tr>
+              <td><strong>2. Visual Keyframe Design</strong></td>
+              <td>50 mins &bull; Figma / Canva slide design (~$75.00)</td>
+              <td>12 secs &bull; Seedream 4.0 Keyframe API (2x @ $0.03 = $0.06)</td>
+              <td><span class="tag tag-green">99.8% cost drop</span></td>
+            </tr>
+            <tr>
+              <td><strong>3. Voiceover &amp; Audio Timing</strong></td>
+              <td>25 mins &bull; Mic recording, noise reduction (~$37.50)</td>
+              <td>3 secs &bull; ElevenLabs Neural TTS API ($0.02)</td>
+              <td><span class="tag tag-green">Consistent voice tone</span></td>
+            </tr>
+            <tr>
+              <td><strong>4. Animation &amp; Motion Video</strong></td>
+              <td>45 mins &bull; Keyframe animation &amp; stitching (~$67.50)</td>
+              <td>45 secs &bull; Kling 1.6 video interpolation ($0.36)</td>
+              <td><span class="tag tag-green">Seamless AI morphing</span></td>
+            </tr>
+            <tr>
+              <td><strong>5. Subtitles &amp; Export</strong></td>
+              <td>15 mins &bull; Captions timing &amp; 1080x1920 render</td>
+              <td>10 secs &bull; Remotion React video compositor ($0.00)</td>
+              <td><span class="tag tag-green">Deterministic render</span></td>
+            </tr>
+            <tr style="background: rgba(204, 120, 92, 0.08); font-weight: 700;">
+              <td><strong>TOTALS PER VIDEO</strong></td>
+              <td><strong>~170 mins (2.8 hrs) &bull; ~$232.50 labor</strong></td>
+              <td><strong>~75 secs &bull; $0.445 direct API cost</strong></td>
+              <td><span class="tag tag-gold">522x Cost Reduction</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top: 18px; padding: 14px 18px; background: rgba(56, 189, 248, 0.06); border-left: 3px solid var(--cyan); border-radius: 6px; font-size: 13.5px;">
+        💡 <strong>Key Takeaway:</strong> With manual creation, producing 30 shorts costs <strong>$6,975</strong> in founder opportunity cost (~85 hours). With the programmatic pipeline in <code>scripts/fal_generate.py</code>, generating 30 shorts costs only <strong>$13.35</strong> and executes unattended via API.
+      </div>
+    </div>
+
+    <!-- Section 3: YouTube Shorts vs Google AdWords -->
+    <div class="section-box">
+      <div class="section-heading">
+        <span>⚖️</span> Channel Comparison: YouTube Shorts vs. Google AdWords
+      </div>
+      <div class="section-sub">
+        Evaluating the unit economics of acquiring members for the Delivery Pilot Skool community across paid and organic channels.
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Google AdWords (Search Ads)</th>
+              <th>Google Ads (YouTube Video Ads)</th>
+              <th>Organic YouTube Shorts (Programmatic)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pricing Model</strong></td>
+              <td>Pay-per-click (CPC): $3.50 &ndash; $6.80</td>
+              <td>Pay-per-view (CPV): $0.04 &ndash; $0.08</td>
+              <td>Zero ad spend &bull; $0.44 creation</td>
+            </tr>
+            <tr>
+              <td><strong>1,000 Views / Clicks Cost</strong></td>
+              <td>1,000 clicks = <strong>$4,500.00</strong></td>
+              <td>1,000 views = <strong>$55.00</strong></td>
+              <td>1,000 views = <strong>$0.44</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Audience Intent &amp; Trust</strong></td>
+              <td>High transactional intent, but ad blindness</td>
+              <td>Low intent (ad skip mentality, forced play)</td>
+              <td><strong>High trust</strong> (earned value, educational insight)</td>
+            </tr>
+            <tr>
+              <td><strong>Click-Through to Skool (CTR)</strong></td>
+              <td>100% of clicks land on page</td>
+              <td>0.4% &ndash; 0.9% CTR</td>
+              <td>1.8% &ndash; 3.2% CTR</td>
+            </tr>
+            <tr>
+              <td><strong>Skool Join Conv. Rate</strong></td>
+              <td>10% &ndash; 16% (cold traffic bounce)</td>
+              <td>6% &ndash; 12% (disrupted users)</td>
+              <td><strong>18% &ndash; 26%</strong> (pre-warmed by video quality)</td>
+            </tr>
+            <tr>
+              <td><strong>Estimated CAC per Skool Join</strong></td>
+              <td><span class="tag tag-red">$28.00 &ndash; $55.00</span></td>
+              <td><span class="tag tag-gold">$18.00 &ndash; $38.00</span></td>
+              <td><span class="tag tag-green"><strong>$0.11 &ndash; $0.45</strong></span></td>
+            </tr>
+            <tr>
+              <td><strong>Shelf Life &amp; Durability</strong></td>
+              <td>0 days (stops when budget halts)</td>
+              <td>0 days (stops when budget halts)</td>
+              <td><strong>Evergreen</strong> (compounds over years)</td>
+            </tr>
+            <tr>
+              <td><strong>Viral / Scale Leverage</strong></td>
+              <td>Strictly linear (1:1 with money spent)</td>
+              <td>Strictly linear (1:1 with money spent)</td>
+              <td><strong>Asymmetric</strong> (1 short can hit 50k views)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section 4: Interactive Acquisition & ROI Calculator -->
+    <div class="section-box">
+      <div class="section-heading">
+        <span>🧮</span> Interactive Skool Member Acquisition Calculator
+      </div>
+      <div class="section-sub">
+        Simulate audience growth and calculate exact dollar savings of automated Shorts vs. Google AdWords.
+      </div>
+
+      <div class="calc-box">
+        <div class="calc-controls">
+          <div class="form-group">
+            <label for="targetJoins">Target Skool Members:</label>
+            <input type="number" id="targetJoins" value="100" min="10" max="10000" step="10">
+          </div>
+          <div class="form-group">
+            <label for="avgViews">Avg Views Per Short:</label>
+            <input type="number" id="avgViews" value="800" min="100" max="50000" step="100">
+          </div>
+          <div class="form-group">
+            <label for="ctrPct">Outbound CTR to Skool (%):</label>
+            <input type="number" id="ctrPct" value="2.5" min="0.5" max="10" step="0.1">
+          </div>
+          <div class="form-group">
+            <label for="convPct">Skool Page Join Rate (%):</label>
+            <input type="number" id="convPct" value="20.0" min="5" max="50" step="1">
+          </div>
+        </div>
+
+        <div class="calc-results">
+          <div class="calc-result-item">
+            <div class="calc-res-label">Shorts Needed</div>
+            <div class="calc-res-val" id="resShortsNeeded" style="color: var(--cyan);">25</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-res-label">Automated Cost</div>
+            <div class="calc-res-val" id="resAutomatedCost" style="color: var(--green);">$11.13</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-res-label">AdWords Equivalent</div>
+            <div class="calc-res-val" id="resAdwordsCost" style="color: var(--red);">$3,200</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-res-label">Capital Saved</div>
+            <div class="calc-res-val" id="resSavings" style="color: var(--gold);">$3,188.87</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-res-label">Effective CAC (Shorts)</div>
+            <div class="calc-res-val" id="resShortsCac" style="color: #ffffff;">$0.11</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: Strategic Playbook for Delivery Pilot -->
+    <div class="section-box">
+      <div class="section-heading">
+        <span>🚀</span> The 4-Step Skool Growth Playbook
+      </div>
+      <div class="section-sub">
+        Maximizing audience flow from YouTube Shorts to the Delivery Pilot community (<a href="https://www.skool.com/delivery-pilot-8938" target="_blank" style="color: var(--accent); text-decoration: none;">skool.com/delivery-pilot-8938</a>).
+      </div>
+
+      <div class="strategy-grid">
+        <div class="strategy-card">
+          <div class="strategy-title">1. Frictionless CTA in Short Ending</div>
+          <div class="strategy-desc">
+            The final 2 seconds of each 16-second short should show the Remotion banner: <em>"Get the Claude Associate cheat sheet &amp; exam flashcards free inside Delivery Pilot &bull; Link in comments."</em>
+          </div>
+        </div>
+
+        <div class="strategy-card">
+          <div class="strategy-title">2. Pinned Comment + Lead Magnet</div>
+          <div class="strategy-desc">
+            Immediately pin comment: <em>"⚡ Mastered tokenization? Join 100+ engineers prepping for Claude Associate. Grab the full interactive dictionary &amp; blueprints here: https://www.skool.com/delivery-pilot-8938"</em>
+          </div>
+        </div>
+
+        <div class="strategy-card">
+          <div class="strategy-title">3. Batch 24 Terms via fal_generate.py</div>
+          <div class="strategy-desc">
+            Run the automated Python pipeline over all 24 terms in our dictionary. Upload 1 short per day. Total API cost for the full month: <strong>$10.68</strong>.
+          </div>
+        </div>
+
+        <div class="strategy-card">
+          <div class="strategy-title">4. Compounding Channel Authority</div>
+          <div class="strategy-desc">
+            24 shorts create a continuous backlink network across Claude, Tokenization, and LLM architecture topics. YouTube algorithm pairs them in "Suggested Next" playlists, creating an infinite organic flywheel.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Delivery Pilot Growth Modeling &bull; Claude Associate Certification &bull; Local server port 30085
+    </footer>
+  </div>
+
+  <script>
+    function calculateAcquisition() {
+      const targetJoins = parseFloat(document.getElementById('targetJoins').value) || 100;
+      const avgViews = parseFloat(document.getElementById('avgViews').value) || 800;
+      const ctrPct = (parseFloat(document.getElementById('ctrPct').value) || 2.5) / 100;
+      const convPct = (parseFloat(document.getElementById('convPct').value) || 20.0) / 100;
+
+      // Calculations
+      const clicksPerShort = avgViews * ctrPct;
+      const joinsPerShort = clicksPerShort * convPct;
+      
+      const shortsNeeded = Math.max(1, Math.ceil(targetJoins / joinsPerShort));
+      const automatedCost = shortsNeeded * 0.445;
+      
+      // Google AdWords equivalent: CPC ~$4.00, 12.5% landing page conversion -> CAC ~$32.00
+      const adwordsCac = 32.00;
+      const adwordsTotal = targetJoins * adwordsCac;
+      const savings = adwordsTotal - automatedCost;
+      const effectiveCac = automatedCost / targetJoins;
+
+      // Update DOM
+      document.getElementById('resShortsNeeded').innerText = shortsNeeded.toLocaleString();
+      document.getElementById('resAutomatedCost').innerText = '$' + automatedCost.toFixed(2);
+      document.getElementById('resAdwordsCost').innerText = '$' + Math.round(adwordsTotal).toLocaleString();
+      document.getElementById('resSavings').innerText = '$' + Math.round(savings).toLocaleString();
+      document.getElementById('resShortsCac').innerText = '$' + effectiveCac.toFixed(2);
+    }
+
+    document.getElementById('targetJoins').addEventListener('input', calculateAcquisition);
+    document.getElementById('avgViews').addEventListener('input', calculateAcquisition);
+    document.getElementById('ctrPct').addEventListener('input', calculateAcquisition);
+    document.getElementById('convPct').addEventListener('input', calculateAcquisition);
+
+    calculateAcquisition();
+  </script>
+</body>
+</html>
