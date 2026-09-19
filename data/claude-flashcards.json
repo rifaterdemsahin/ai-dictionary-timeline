@@ -1,0 +1,81 @@
+{
+  "version": "1.0.0",
+  "name": "Claude Exam Flashcard Dataset",
+  "generatedAt": "2026-09-19",
+  "totalCards": 8,
+  "category": "High-Yield Flashcards",
+  "flashcards": [
+    {
+      "id": "fc-001",
+      "topic": "Artifact vs Inline Decision Matrix",
+      "question": "When should Claude format output as an Artifact instead of inline chat?",
+      "answer": "When the content is substantial (>15 lines), self-contained, and intended for standalone reuse, modification, or execution outside the chat conversation (e.g. React components, complete SVG diagrams, standalone documents).",
+      "examTrapAlert": "Never put 3-line terminal commands or brief explanations in an artifact.",
+      "codeSnippet": "<antArtifact identifier=\"ui-card\" type=\"application/vnd.ant.react\">...</antArtifact>",
+      "tags": ["artifacts", "output-format", "curriculum-gap", "associate"]
+    },
+    {
+      "id": "fc-002",
+      "topic": "Anthropic API Tool Use Stop Reason",
+      "question": "What does stop_reason='tool_use' signify when received from Claude's Messages API?",
+      "answer": "Claude determined that an external tool call is required to answer. It returns structured JSON arguments in the response and PAUSES execution. The client must execute the tool and return results.",
+      "examTrapAlert": "Claude does NOT execute your database query or server function directly.",
+      "codeSnippet": "{\"stop_reason\": \"tool_use\", \"content\": [{\"type\": \"tool_use\", \"name\": \"query_db\"}]}",
+      "tags": ["tool-use", "api", "stop-reason", "json-schema"]
+    },
+    {
+      "id": "fc-003",
+      "topic": "Prompt Caching Breakpoints & Thresholds",
+      "question": "What is the minimum prompt token threshold to qualify for Anthropic Prompt Caching?",
+      "answer": "1,024 tokens. Caching provides up to 90% cost reduction and 85% latency reduction on static context prefixes with a 5-minute time-to-live (TTL).",
+      "examTrapAlert": "Prompts under 1,024 tokens cannot be cached; cache_control must be explicitly declared.",
+      "codeSnippet": "{\"type\": \"text\", \"text\": documentation, \"cache_control\": {\"type\": \"ephemeral\"}}",
+      "tags": ["prompt-caching", "latency", "cost-optimization", "tokens"]
+    },
+    {
+      "id": "fc-004",
+      "topic": "XML Semantic Tagging in Prompts",
+      "question": "Why does Anthropic strongly recommend XML tags over standard markdown headings for complex prompts?",
+      "answer": "Claude has been specifically trained to recognize XML tags (<instructions>, <context>, <rules>) to create strict mathematical separation between instructions and untrusted user data, preventing prompt injection.",
+      "examTrapAlert": "Markdown '#' headers can be misinterpreted as raw text by downstream parsers.",
+      "codeSnippet": "<context>\n{{UNTRUSTED_DOCUMENT}}\n</context>\n<instructions>Summarize context.</instructions>",
+      "tags": ["prompting", "xml-tags", "security", "guardrails"]
+    },
+    {
+      "id": "fc-005",
+      "topic": "Chain-of-Thought Scratchpad (<thinking> Tags)",
+      "question": "How do <thinking> tags improve Claude's reasoning accuracy in production?",
+      "answer": "They give the model token space to calculate intermediate states before generating final answers, decoupling complex internal scratchpad reasoning from the polished user-facing response.",
+      "examTrapAlert": "Thinking tokens count toward context limits but allow systematic intermediate verification.",
+      "codeSnippet": "<instructions>Think step-by-step inside <thinking> tags before answering.</instructions>",
+      "tags": ["chain-of-thought", "reasoning", "cot", "task-decomposition"]
+    },
+    {
+      "id": "fc-006",
+      "topic": "Model Tier Matrix: Haiku vs Sonnet vs Opus",
+      "question": "Which Claude model should you select for high-volume customer classification versus complex software architecture?",
+      "answer": "Haiku 3.5 for high-volume, low-latency classification and routing (lowest cost); Sonnet 3.5 as the primary workhorse for code, agentic tool use, and enterprise reasoning.",
+      "examTrapAlert": "Do not default to Opus for everything—Sonnet 3.5 often matches or exceeds older Opus speed and capability.",
+      "codeSnippet": "model=\"claude-3-5-haiku-20241022\" // High throughput\nmodel=\"claude-3-5-sonnet-20241022\" // Coding & tools",
+      "tags": ["model-selection", "haiku", "sonnet", "cost-sla"]
+    },
+    {
+      "id": "fc-007",
+      "topic": "Model Context Protocol (MCP) Architecture",
+      "question": "What core problem does Anthropic's Model Context Protocol solve?",
+      "answer": "It provides an open, standardized client-server protocol (USB-C for AI) to securely expose local tools, database connections, and file resources to LLM agents without custom point-to-point wrappers.",
+      "examTrapAlert": "MCP is an open standard across Python/TypeScript, not a closed proprietary Claude Desktop silo.",
+      "codeSnippet": "mcp-server: provides tools/list, resources/read, prompts/get to mcp-client",
+      "tags": ["mcp", "agent-orchestration", "tools", "architecture"]
+    },
+    {
+      "id": "fc-008",
+      "topic": "HTTP 429 Rate Limit Mitigation",
+      "question": "What is the certified production pattern for handling Anthropic API HTTP 429 errors?",
+      "answer": "Implement exponential backoff with randomized jitter, respect Retry-After headers, and utilize prompt caching to reduce token-per-minute consumption.",
+      "examTrapAlert": "Never hammer the endpoint with immediate loop retries.",
+      "codeSnippet": "await sleep(Math.pow(2, attempt) * 1000 + Math.random() * 500);",
+      "tags": ["rate-limits", "429", "resilience", "exponential-backoff"]
+    }
+  ]
+}

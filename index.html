@@ -27,11 +27,72 @@
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      padding: 40px 20px;
+      padding: 0 0 60px 0;
     }
-    .container {
-      max-width: 1040px;
+
+    /* Top Navigation Bar */
+    .top-nav {
+      background: rgba(24, 24, 27, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1080px;
       margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .nav-brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #fafafa;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .nav-link.active {
+      color: var(--accent);
+      border: 1px solid rgba(204, 120, 92, 0.3);
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 40px auto 0 auto;
+      padding: 0 20px;
     }
     header {
       border-bottom: 1px solid var(--border);
@@ -199,7 +260,7 @@
     }
     footer {
       border-top: 1px solid var(--border);
-      padding-top: 20px;
+      padding-top: 24px;
       text-align: center;
       color: var(--muted);
       font-size: 13px;
@@ -207,6 +268,23 @@
   </style>
 </head>
 <body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="./index.html" class="nav-brand">
+        <div class="nav-brand-dot"></div>
+        <span>Claude Associate Engine</span>
+      </a>
+      <div class="nav-links">
+        <a href="./index.html" class="nav-link active">📖 Terms Dictionary</a>
+        <a href="./pages/flashcards.html" class="nav-link">⚡ High-Yield Flashcards</a>
+        <a href="./data/claude-flashcards.json" target="_blank" class="nav-link">🔗 Flashcards JSON</a>
+        <a href="./data/claude-associate-terms.json" target="_blank" class="nav-link">🔗 Terms JSON</a>
+      </div>
+    </div>
+  </nav>
+
   <div class="container">
     <header>
       <span class="badge">Claude Associate Exam Dictionary</span>
@@ -233,7 +311,7 @@
       </div>
     </div>
 
-    <input type="text" id="searchInput" class="search-box" placeholder="Search terms, concepts, or exam domains (e.g., Artifacts, MCP, Context Window)..." />
+    <input type="text" id="searchInput" class="search-box" placeholder="Search terms, concepts, exam domains, or exam traps (e.g. Artifacts, MCP, Context Window, 429)..." />
 
     <div class="terms-list" id="termsContainer">
       <!-- Injected via JavaScript from data/claude-associate-terms.json -->
@@ -314,7 +392,9 @@
         (t.acronym && t.acronym.toLowerCase().includes(q)) ||
         t.domain.toLowerCase().includes(q) ||
         t.shortDefinition.toLowerCase().includes(q) ||
-        t.keyExamTrap.myth.toLowerCase().includes(q)
+        t.keyExamTrap.myth.toLowerCase().includes(q) ||
+        t.keyExamTrap.reality.toLowerCase().includes(q) ||
+        t.keyExamTrap.examClue.toLowerCase().includes(q)
       );
       renderTerms(filtered);
     });
