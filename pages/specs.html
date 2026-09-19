@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Video Production Specification — Video #01 "Artifacts"</title>
+  <style>
+    :root {
+      --bg: #09090b;
+      --card-bg: #18181b;
+      --card-hover: #222226;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --accent: #cc785c;
+      --accent-glow: rgba(204, 120, 92, 0.4);
+      --border: #27272a;
+      --cyan: #38bdf8;
+      --gold: #fbbf24;
+      --green: #4ade80;
+      --red: #f87171;
+      --purple: #c084fc;
+      --terminal-bg: #000000;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 0 60px 0;
+    }
+
+    /* Top Navigation Bar */
+    .top-nav {
+      background: rgba(24, 24, 27, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .nav-brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #fafafa;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .nav-link.active {
+      color: var(--accent);
+      border: 1px solid rgba(204, 120, 92, 0.3);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 36px auto 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Section */
+    .header-section {
+      margin-bottom: 30px;
+    }
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(204, 120, 92, 0.15);
+      border: 1px solid rgba(204, 120, 92, 0.35);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 880px;
+      line-height: 1.6;
+    }
+
+    /* Master Action Header Bar */
+    .action-banner {
+      background: #121215;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 24px;
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .action-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .status-pill {
+      background: rgba(74, 222, 128, 0.12);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .stat-mini {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .stat-mini strong {
+      color: #fafafa;
+    }
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .btn {
+      background: #27272a;
+      color: #fafafa;
+      border: 1px solid #3f3f46;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #3f3f46;
+      border-color: #52525b;
+      transform: translateY(-1px);
+    }
+    .btn-primary {
+      background: var(--accent);
+      border-color: #d97706;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(204, 120, 92, 0.3);
+    }
+    .btn-primary:hover {
+      background: #b45309;
+      box-shadow: 0 6px 18px rgba(204, 120, 92, 0.45);
+    }
+    .btn-cyan {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: var(--cyan);
+    }
+    .btn-cyan:hover {
+      background: rgba(56, 189, 248, 0.25);
+    }
+
+    /* Tabs */
+    .view-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+    .tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--muted);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .tab-btn.active {
+      color: var(--accent);
+      background: rgba(204, 120, 92, 0.1);
+      border-color: rgba(204, 120, 92, 0.3);
+    }
+
+    /* Grid Sections */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+
+    .spec-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s ease;
+      position: relative;
+    }
+    .spec-card:hover {
+      border-color: #3f3f46;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fafafa;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .copy-icon-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+    .copy-icon-btn:hover {
+      color: #fafafa;
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #52525b;
+    }
+
+    /* Timeline Pedagogy Blocks */
+    .timeline-step {
+      background: #121215;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+    .step-timecode {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .step-phase {
+      background: rgba(251, 191, 36, 0.12);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10.5px;
+    }
+    .step-text {
+      font-size: 13.5px;
+      color: #e4e4e7;
+      font-weight: 500;
+    }
+    .step-meta {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* Spec Attributes Table */
+    .prop-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .prop-table tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .prop-table td {
+      padding: 8px 4px;
+    }
+    .prop-name {
+      color: var(--muted);
+      width: 45%;
+      font-weight: 500;
+    }
+    .prop-val {
+      color: #fafafa;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 12px;
+    }
+
+    /* Code & Prompt Box */
+    .code-box {
+      background: #000000;
+      border: 1px solid #27272a;
+      border-radius: 8px;
+      padding: 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #a7f3d0;
+      overflow-x: auto;
+      max-height: 280px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      position: relative;
+    }
+    .code-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Raw JSON Full Display Pane */
+    .raw-json-container {
+      background: #000000;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .raw-json-toolbar {
+      background: #18181b;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .raw-json-code {
+      padding: 24px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: #e2e8f0;
+      overflow-x: auto;
+      max-height: 700px;
+      white-space: pre;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #10b981;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Global Footer */
+    .global-footer {
+      background: #000000;
+      border-top: 1px solid var(--border);
+      padding: 60px 20px 30px 20px;
+      color: var(--muted);
+      font-size: 13.5px;
+      margin-top: 60px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 900px) {
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fafafa;
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: 12px;
+    }
+    .footer-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 380px;
+      margin-bottom: 16px;
+    }
+    .footer-heading {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+    }
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-links-list a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-links-list a:hover {
+      color: var(--accent);
+    }
+    .footer-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(74, 222, 128, 0.1);
+      border: 1px solid rgba(74, 222, 128, 0.25);
+      color: var(--green);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    .footer-bottom-bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">
+        <div class="nav-brand-dot"></div>
+        <span>Claude Associate Curriculum</span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">📖 Terms Dictionary</a>
+        <a href="./flashcards.html" class="nav-link">⚡ Flashcards</a>
+        <a href="./slideshow.html" class="nav-link">🎬 Keyframe Slideshow</a>
+        <a href="./prompts.html" class="nav-link">📜 Prompts Log</a>
+        <a href="./production-cost.html" class="nav-link">💰 Production Cost</a>
+        <a href="./model-selection.html" class="nav-link">🧠 Model Selection</a>
+        <a href="./voice-selection.html" class="nav-link">🎙️ Voice Selection</a>
+        <a href="./architecture.html" class="nav-link">🏛️ Architecture</a>
+        <a href="./parameters.html" class="nav-link">⚙️ Parameters</a>
+        <a href="./specs.html" class="nav-link active">📋 Production Spec</a>
+        <a href="./json-viewer.html" class="nav-link">🔍 JSON Viewer</a>
+        <a href="./youtube-vs-adwords.html" class="nav-link">📊 Shorts vs AdWords</a>
+        <a href="./execution-logic.html" class="nav-link">🚀 Execution Logic</a>
+        <a href="./tell-show-do-apply.html" class="nav-link">🎧 Tell-Show-Do-Apply</a>
+        <a href="./sanity-check.html" class="nav-link">🩺 Sanity Check</a>
+        <a href="./generated-code.html" class="nav-link">💻 Generated Code</a>
+        <a href="../data/claude-associate-terms.json" target="_blank" class="nav-link">🔗 Terms JSON</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header-section">
+      <div class="badge-tag">
+        <span>🎬</span> Anchor Video #01 Calibration Spec
+      </div>
+      <h1>Master Video Production Specification: "Artifacts"</h1>
+      <p class="subtitle">
+        The definitive, machine-executable single video specification for generating the 16-second YouTube Short for Term #01 (Artifacts). 
+        Serves as the empirical benchmark under the Two-Stage Execution Logic to calibrate render timing, API token consumption, and audience retention before batch scaling.
+      </p>
+    </div>
+
+    <!-- Action Header Banner -->
+    <div class="action-banner">
+      <div class="action-left">
+        <span class="status-pill">● Stage 1: Anchor Calibration Ready</span>
+        <span class="stat-mini">Term: <strong>01/24 (Artifacts)</strong></span>
+        <span class="stat-mini">Duration: <strong>16.0s (480 frames)</strong></span>
+        <span class="stat-mini">Estimated Cost: <strong>$0.632 USD</strong></span>
+      </div>
+      <div class="action-buttons">
+        <button class="btn btn-primary" onclick="copyFullSpec()">
+          <span>📋</span> Copy Full Spec (JSON)
+        </button>
+        <button class="btn btn-cyan" onclick="downloadSpecFile()">
+          <span>💾</span> Download JSON
+        </button>
+      </div>
+    </div>
+
+    <!-- View Mode Tabs -->
+    <div class="view-tabs">
+      <button class="tab-btn active" id="tabFormattedBtn" onclick="switchSpecTab('formatted')">📑 Formatted Spec Architecture</button>
+      <button class="tab-btn" id="tabRawBtn" onclick="switchSpecTab('raw')">💻 Raw Executable JSON Payload</button>
+    </div>
+
+    <!-- Formatted View Content -->
+    <div id="formattedView">
+      <div class="spec-grid">
+
+        <!-- Card 1: Tell-Show-Do-Apply Script -->
+        <div class="spec-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span>🎙️</span> Voiceover & Script Blueprint
+            </div>
+            <button class="copy-icon-btn" onclick="copyVoiceoverScript()">
+              <span>📋</span> Copy Script
+            </button>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-timecode">
+              <span>00:00 - 00:04</span>
+              <span class="step-phase">TELL &bull; HOOK</span>
+            </div>
+            <div class="step-text">"Why does Claude put some code in a side window?"</div>
+            <div class="step-meta">10 words &bull; 165 WPM &bull; Rising curiosity intonation</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-timecode">
+              <span>00:04 - 00:08</span>
+              <span class="step-phase">SHOW &bull; THESIS</span>
+            </div>
+            <div class="step-text">"That's an Artifact! It's for standalone, reusable code over 15 lines."</div>
+            <div class="step-meta">11 words &bull; Authoritative voice &bull; Emphasis on 15 lines</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-timecode">
+              <span>00:08 - 00:12</span>
+              <span class="step-phase">DO &bull; EXAM TRAP</span>
+            </div>
+            <div class="step-text">"Quick answers and three-line scripts always stay inline in chat."</div>
+            <div class="step-meta">10 words &bull; Cautionary tone &bull; Contrast cadence</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-timecode">
+              <span>00:12 - 00:16</span>
+              <span class="step-phase">APPLY &bull; EXAM TIP</span>
+            </div>
+            <div class="step-text">"Exam Tip: Standalone files equal Artifacts, quick chat stays inline!"</div>
+            <div class="step-meta">10 words &bull; High energy recall anchor &bull; Skool CTA</div>
+          </div>
+
+          <table class="prop-table" style="margin-top: 16px;">
+            <tr><td class="prop-name">Voice Persona</td><td class="prop-val">Brian (Tech Educator)</td></tr>
+            <tr><td class="prop-name">Voice ID</td><td class="prop-val">nPczCjzI22qc38FsL7NO</td></tr>
+            <tr><td class="prop-name">Fundamental Pitch</td><td class="prop-val">112 Hz (Authority Range)</td></tr>
+            <tr><td class="prop-name">Total Spoken Words</td><td class="prop-val">41 Words (Optimal 16s pacing)</td></tr>
+          </table>
+        </div>
+
+        <!-- Card 2: Visual Generation & fal.ai Spec -->
+        <div class="spec-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span>🎨</span> fal.ai Keyframe & Video Spec
+            </div>
+            <button class="copy-icon-btn" onclick="copyFalPrompt()">
+              <span>📋</span> Copy Prompts
+            </button>
+          </div>
+
+          <div class="code-box-header">Keyframe 1 Prompt (Initial Hook State):</div>
+          <div class="code-box" id="initialPromptText">Initial state representing 'Artifacts' in Claude AI architecture: Why does Claude put some code in a side window and some directly in chat?. Glowing terracotta UI terminal wireframe, sleek dark obsidian console, floating translucent panels displaying Anthropic iconography, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio</div>
+
+          <div class="code-box-header" style="margin-top: 14px;">Keyframe 2 Prompt (Resolved State):</div>
+          <div class="code-box" id="endPromptText">Resolved target state for 'Artifacts' concept: Conversational replies and quick 3-line snippets always stay inline to avoid cluttering your workspace.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: Candidates failed this at 0%! Remember: standalone and reusable equals Artifact, quick explanation equals inline!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio</div>
+
+          <table class="prop-table" style="margin-top: 16px;">
+            <tr><td class="prop-name">Keyframe Engine</td><td class="prop-val">fal-ai/seedream-4.0 ($0.03)</td></tr>
+            <tr><td class="prop-name">Interpolation Engine</td><td class="prop-val">fal-ai/kling-video/v1.6/pro ($0.56)</td></tr>
+            <tr><td class="prop-name">Motion Bucket ID</td><td class="prop-val">127 (Dynamic Camera Orbit)</td></tr>
+            <tr><td class="prop-name">Resolution & Aspect</td><td class="prop-val">1080 &times; 1920 (9:16 Vertical)</td></tr>
+          </table>
+        </div>
+
+        <!-- Card 3: Foley Sound Design & Audio Stems -->
+        <div class="spec-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span>🎧</span> Foley Sound & Audio Stems
+            </div>
+            <button class="copy-icon-btn" onclick="copyAudioSpec()">
+              <span>📋</span> Copy Audio Stems
+            </button>
+          </div>
+
+          <div class="timeline-step" style="border-left-color: var(--cyan);">
+            <div class="step-timecode">
+              <span>00:00.2 (Frame 6)</span>
+              <span class="step-phase" style="background: rgba(56, 189, 248, 0.15); color: var(--cyan);">-6.0 dB</span>
+            </div>
+            <div class="step-text">Sub-Bass Drop + Fast Air Whoosh</div>
+            <div class="step-meta">Sub impact punching with first UI terminal pop</div>
+          </div>
+
+          <div class="timeline-step" style="border-left-color: var(--cyan);">
+            <div class="step-timecode">
+              <span>00:04.1 (Frame 123)</span>
+              <span class="step-phase" style="background: rgba(56, 189, 248, 0.15); color: var(--cyan);">-14.0 dB</span>
+            </div>
+            <div class="step-text">Hologram UI Chirp & Data Stream Hum</div>
+            <div class="step-meta">High-tech sound as side Artifact pane expands</div>
+          </div>
+
+          <div class="timeline-step" style="border-left-color: var(--red);">
+            <div class="step-timecode">
+              <span>00:08.3 (Frame 249)</span>
+              <span class="step-phase" style="background: rgba(248, 113, 113, 0.15); color: var(--red);">-9.0 dB</span>
+            </div>
+            <div class="step-text">Alert Ping & Low Frequency Tension Sweep</div>
+            <div class="step-meta">Warning stinger marking the negative trap reveal</div>
+          </div>
+
+          <div class="timeline-step" style="border-left-color: var(--gold);">
+            <div class="step-timecode">
+              <span>00:13.0 (Frame 390)</span>
+              <span class="step-phase" style="background: rgba(251, 191, 36, 0.15); color: var(--gold);">-7.0 dB</span>
+            </div>
+            <div class="step-text">Gold Certification Chime + Sub Hit</div>
+            <div class="step-meta">Resonant metallic triumph ringing under final CTA</div>
+          </div>
+
+          <table class="prop-table" style="margin-top: 16px;">
+            <tr><td class="prop-name">Voiceover Ducking</td><td class="prop-val">-18 dB (Dynamic Sidechain)</td></tr>
+            <tr><td class="prop-name">Background Lo-Fi Beat</td><td class="prop-val">-22 dB (ambient_future_synth.mp3)</td></tr>
+            <tr><td class="prop-name">Attack / Release</td><td class="prop-val">15ms Attack / 250ms Release</td></tr>
+          </table>
+        </div>
+
+        <!-- Card 4: Remotion Code Composition Spec -->
+        <div class="spec-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span>⚙️</span> Remotion Composition Spec
+            </div>
+            <button class="copy-icon-btn" onclick="copyRemotionConfig()">
+              <span>📋</span> Copy Remotion Config
+            </button>
+          </div>
+
+          <div class="code-box-header">Remotion Composition Parameters:</div>
+          <div class="code-box" id="remotionCode">export const TermShort_Artifacts = {
+  id: "TermShort_Artifacts",
+  component: ClaudeTermVideo,
+  durationInFrames: 480, // Exactly 16.0 seconds
+  fps: 30,
+  width: 1080,
+  height: 1920,
+  defaultProps: {
+    termId: "artifacts",
+    title: "Artifacts",
+    domain: "Output Formats & Feature Selection",
+    audioSrc: "audio/artifacts_voiceover_brian.mp3",
+    videoClipSrc: "video/artifacts_kling_pro_30fps.mp4",
+    springConfig: { damping: 12, mass: 0.8, stiffness: 180 },
+    subtitles: [
+      { startFrame: 0, endFrame: 45, text: "Why does Claude put some code..." },
+      { startFrame: 45, endFrame: 115, text: "...in a SIDE WINDOW?" },
+      { startFrame: 120, endFrame: 170, text: "That's an ARTIFACT!" },
+      { startFrame: 170, endFrame: 235, text: "Standalone & Reusable (>15 Lines)" },
+      { startFrame: 240, endFrame: 290, text: "Short 3-Line Scripts?" },
+      { startFrame: 290, endFrame: 355, text: "Always Stay INLINE in Chat!" },
+      { startFrame: 360, endFrame: 410, text: "EXAM TIP:" },
+      { startFrame: 410, endFrame: 480, text: "Standalone = Artifact | Chat = Inline" }
+    ]
+  }
+};</div>
+
+          <table class="prop-table" style="margin-top: 16px;">
+            <tr><td class="prop-name">Kinetic Font</td><td class="prop-val">Inter Black (900 weight, 64px)</td></tr>
+            <tr><td class="prop-name">Spring Physics</td><td class="prop-val">Damping 12, Stiffness 180</td></tr>
+            <tr><td class="prop-name">Output Container</td><td class="prop-val">H.264 MP4, YUV420p, 18 Mbps</td></tr>
+          </table>
+        </div>
+
+        <!-- Card 5: Pinned Comment & Lead Magnet CTA -->
+        <div class="spec-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span>📌</span> YouTube Pinned Comment & CTA
+            </div>
+            <button class="copy-icon-btn" onclick="copyPinnedComment()">
+              <span>📋</span> Copy Comment
+            </button>
+          </div>
+
+          <div class="code-box-header">Exact YouTube Pinned Comment Copy:</div>
+          <div class="code-box" id="pinnedCommentText" style="color: #fbbf24;">📌 Mastered Artifacts vs Inline Markdown? Don't let this trick question cost you points on the Claude Certified Associate Exam! 🎯 Grab the full interactive 24-term exam blueprint and flashcards free inside Delivery Pilot: 👉 https://www.skool.com/delivery-pilot-8938
+
+👇 Quick Quiz: Would you put a 25-line React component or a 3-line curl command in an Artifact window? Drop your answer below!</div>
+
+          <table class="prop-table" style="margin-top: 16px;">
+            <tr><td class="prop-name">Lead Magnet Link</td><td class="prop-val"><a href="https://www.skool.com/delivery-pilot-8938" target="_blank" style="color: var(--cyan); text-decoration: none;">Delivery Pilot Skool ↗</a></td></tr>
+            <tr><td class="prop-name">Engagement Hook</td><td class="prop-val">A/B Choice Quiz (React vs cURL)</td></tr>
+            <tr><td class="prop-name">Expected CTR</td><td class="prop-val">4.5% &ndash; 7.2% to Community</td></tr>
+          </table>
+        </div>
+
+        <!-- Card 6: Cost Breakdown & Stage 1 Logic -->
+        <div class="spec-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span>💰</span> Empirical Production Economics
+            </div>
+            <button class="copy-icon-btn" onclick="copyCostData()">
+              <span>📋</span> Copy Cost Table
+            </button>
+          </div>
+
+          <table class="prop-table">
+            <tr><td class="prop-name">fal.ai Seedream 4.0 (Keyframes)</td><td class="prop-val">$0.030</td></tr>
+            <tr><td class="prop-name">fal.ai Kling 1.6 Pro (Interpolation)</td><td class="prop-val">$0.560</td></tr>
+            <tr><td class="prop-name">ElevenLabs Brian Voice (210 chars)</td><td class="prop-val">$0.037</td></tr>
+            <tr><td class="prop-name">Remotion Cloud Lambda Render</td><td class="prop-val">$0.005</td></tr>
+            <tr style="border-top: 1px solid var(--accent);"><td class="prop-name" style="color: #fafafa; font-weight: 700;">Total Single Video Cost</td><td class="prop-val" style="color: var(--green); font-weight: 700; font-size: 14px;">$0.632 USD</td></tr>
+          </table>
+
+          <div style="margin-top: 18px; padding: 12px; background: rgba(204, 120, 92, 0.08); border: 1px solid rgba(204, 120, 92, 0.25); border-radius: 8px; font-size: 12.5px; color: var(--muted); line-height: 1.5;">
+            <strong style="color: var(--accent);">Two-Stage Execution Checkpoint:</strong> Video #01 will be fully rendered and monitored for 48 hours to confirm exact billing matches $0.632 and completion rate exceeds 65% before authorizing the remaining 23 videos ($14.54 batch total).
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Raw JSON Pane (Tab 2) -->
+    <div id="rawView" style="display: none;">
+      <div class="raw-json-container">
+        <div class="raw-json-toolbar">
+          <div style="font-size: 13px; color: var(--muted); font-family: monospace;">
+            data/video-01-artifacts-spec.json &bull; (4,812 bytes)
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <button class="btn btn-primary" onclick="copyFullSpec()">📋 Copy Raw JSON</button>
+            <button class="btn" onclick="downloadSpecFile()">💾 Download File</button>
+          </div>
+        </div>
+        <pre class="raw-json-code" id="rawSpecJson"></pre>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <span>✓</span> <span id="toastMsg">Copied to clipboard!</span>
+  </div>
+
+  <!-- Global Footer -->
+  <!-- Global Footer -->
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="footer-inner">
+      <!-- Col 1: Brand & Overview -->
+      <div>
+        <div class="footer-brand">
+          <div class="nav-brand-dot"></div>
+          <span>Claude Associate Engine</span>
+        </div>
+        <p class="footer-desc">
+          Automated media architecture and 16-second vertical video generation engine for the Anthropic Claude Certified Associate examination.
+        </p>
+        <div class="footer-badge-pill">
+          <span>●</span> Port 30085 Active &bull; All 7 Gating Stages Passing
+        </div>
+      </div>
+
+      <!-- Col 2: Learning & Study Tools -->
+      <div>
+        <div class="footer-heading">Curriculum Tools</div>
+        <ul class="footer-links-list">
+          <li><a href="../index.html">📖 Terms Dictionary</a></li>
+          <li><a href="./flashcards.html">⚡ Exam Flashcards</a></li>
+          <li><a href="./slideshow.html">🎬 Keyframe Slideshow</a></li>
+          <li><a href="./tell-show-do-apply.html">🎧 Tell-Show-Do-Apply</a></li>
+          <li><a href="./specs.html">📋 Production Spec</a></li>
+          <li><a href="./json-viewer.html">🔍 Interactive JSON Viewer</a></li>
+          <li><a href="../data/claude-associate-terms.json" target="_blank">🔗 Raw Terms JSON</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Economics & Operations -->
+      <div>
+        <div class="footer-heading">Pipeline &amp; Scaling</div>
+        <ul class="footer-links-list">
+          <li><a href="./parameters.html">⚙️ System Parameters</a></li>
+          <li><a href="./production-cost.html">💰 Production Cost Model</a></li>
+          <li><a href="./model-selection.html">🧠 Model Selection &amp; Rationale</a></li>
+          <li><a href="./voice-selection.html">🎙️ ElevenLabs Voice Architecture</a></li>
+          <li><a href="./architecture.html">🏛️ System Architecture &amp; UML</a></li>
+          <li><a href="./youtube-vs-adwords.html">📊 Shorts vs AdWords CAC</a></li>
+          <li><a href="./execution-logic.html">🚀 Two-Stage Execution Logic</a></li>
+          <li><a href="./sanity-check.html">🩺 Sanity Check Audit</a></li>
+          <li><a href="./generated-code.html">💻 Generated Codebase</a></li>
+          <li><a href="./prompts.html">📜 Prompt History Log</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Ecosystem & External -->
+      <div>
+        <div class="footer-heading">Community &amp; Code</div>
+        <ul class="footer-links-list">
+          <li><a href="https://rifaterdemsahin.github.io/ai-dictionary-timeline/" target="_blank" style="color: var(--cyan); font-weight: 700;">🌐 GitHub Pages Live Site ↗</a></li>
+          <li><a href="https://www.skool.com/delivery-pilot-8938" target="_blank" style="color: var(--accent); font-weight: 600;">👥 Delivery Pilot Skool ↗</a></li>
+          <li><a href="https://www.youtube.com/shorts/KVKJRdkH-B8" target="_blank">🎥 Audited YouTube Short (KVKJRdkH-B8) ↗</a></li>
+          <li><a href="https://github.com/rifaterdemsahin/ai-dictionary-timeline" target="_blank">🐙 GitHub Repository ↗</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>&copy; 2026 Rifat Erdem Sahin &bull; Delivery Pilot AI Systems Architecture</div>
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+        <span style="color: var(--muted);">Live on GitHub Pages:</span>
+        <a href="https://rifaterdemsahin.github.io/ai-dictionary-timeline/" target="_blank" style="color: var(--cyan); text-decoration: underline; font-weight: 600;">https://rifaterdemsahin.github.io/ai-dictionary-timeline/ ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let specJsonData = null;
+
+    async function loadSpec() {
+      const paths = [
+        "../data/video-01-artifacts-spec.json",
+        "http://localhost:30085/data/video-01-artifacts-spec.json",
+        "/data/video-01-artifacts-spec.json"
+      ];
+      for (const p of paths) {
+        try {
+          const res = await fetch(p);
+          if (res.ok) {
+            specJsonData = await res.json();
+            document.getElementById('rawSpecJson').textContent = JSON.stringify(specJsonData, null, 2);
+            return;
+          }
+        } catch(e) {
+          console.warn("Fetch fallback", p, e);
+        }
+      }
+    }
+
+    function switchSpecTab(tab) {
+      const formattedView = document.getElementById('formattedView');
+      const rawView = document.getElementById('rawView');
+      const tabFormattedBtn = document.getElementById('tabFormattedBtn');
+      const tabRawBtn = document.getElementById('tabRawBtn');
+
+      if (tab === 'formatted') {
+        formattedView.style.display = 'block';
+        rawView.style.display = 'none';
+        tabFormattedBtn.classList.add('active');
+        tabRawBtn.classList.remove('active');
+      } else {
+        formattedView.style.display = 'none';
+        rawView.style.display = 'block';
+        tabRawBtn.classList.add('active');
+        tabFormattedBtn.classList.remove('active');
+      }
+    }
+
+    function triggerToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    function copyToClipboard(text, successMsg) {
+      navigator.clipboard.writeText(text).then(() => {
+        triggerToast(successMsg);
+      }).catch(err => {
+        console.error("Clipboard error:", err);
+      });
+    }
+
+    function copyFullSpec() {
+      if (specJsonData) {
+        copyToClipboard(JSON.stringify(specJsonData, null, 2), "✓ Full Video 01 JSON Spec copied to clipboard!");
+      } else {
+        const raw = document.getElementById('rawSpecJson').textContent;
+        copyToClipboard(raw, "✓ Full Video 01 JSON Spec copied to clipboard!");
+      }
+    }
+
+    function copyVoiceoverScript() {
+      const script = "Why does Claude put some code in a side window? That's an Artifact! It's for standalone, reusable code over 15 lines. Quick answers and three-line scripts always stay inline in chat. Exam Tip: Standalone files equal Artifacts, quick chat stays inline!";
+      copyToClipboard(script, "✓ Voiceover script copied to clipboard!");
+    }
+
+    function copyFalPrompt() {
+      const p1 = document.getElementById('initialPromptText').innerText;
+      const p2 = document.getElementById('endPromptText').innerText;
+      const combined = `[KEYFRAME 1 PROMPT]:\n${p1}\n\n[KEYFRAME 2 PROMPT]:\n${p2}`;
+      copyToClipboard(combined, "✓ Fal.ai keyframe prompts copied!");
+    }
+
+    function copyAudioSpec() {
+      const audioSpec = `00:00.2 | Frame 6   | Sub-Bass Drop + Fast Air Whoosh (-6.0 dB)\n00:04.1 | Frame 123 | Hologram UI Chirp & Data Stream Hum (-14.0 dB)\n00:08.3 | Frame 249 | Alert Ping & Low Frequency Tension Sweep (-9.0 dB)\n00:13.0 | Frame 390 | Gold Certification Chime + Sub Hit (-7.0 dB)\nVoiceover Ducking: -18 dB sidechain\nBackground Music: ambient_future_synth_lofi_110bpm.mp3 (-22 dB)`;
+      copyToClipboard(audioSpec, "✓ Foley and audio schedule copied!");
+    }
+
+    function copyRemotionConfig() {
+      const code = document.getElementById('remotionCode').innerText;
+      copyToClipboard(code, "✓ Remotion composition config copied!");
+    }
+
+    function copyPinnedComment() {
+      const comment = document.getElementById('pinnedCommentText').innerText;
+      copyToClipboard(comment, "✓ YouTube pinned comment copied!");
+    }
+
+    function copyCostData() {
+      const costTable = `Keyframe (fal Seedream 4.0): $0.030\nInterpolation (fal Kling 1.6 Pro): $0.560\nVoiceover (ElevenLabs Brian): $0.037\nLambda Render (Remotion): $0.005\nTotal Single Video Cost: $0.632 USD`;
+      copyToClipboard(costTable, "✓ Video cost breakdown copied!");
+    }
+
+    function downloadSpecFile() {
+      if (!specJsonData) return;
+      const blob = new Blob([JSON.stringify(specJsonData, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'video-01-artifacts-spec.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      triggerToast("✓ Downloaded video-01-artifacts-spec.json");
+    }
+
+    window.addEventListener('DOMContentLoaded', loadSpec);
+  </script>
+</body>
+</html>

@@ -27,6 +27,7 @@ PAGE_CONFIG = [
     {"file": "voice-selection.html", "name": "🎙️ Voice Selection"},
     {"file": "architecture.html", "name": "🏛️ Architecture"},
     {"file": "parameters.html", "name": "⚙️ Parameters"},
+    {"file": "specs.html", "name": "📋 Production Spec"},
     {"file": "json-viewer.html", "name": "🔍 JSON Viewer"},
 ]
 
@@ -146,6 +147,7 @@ FOOTER_HTML = """  <!-- Global Footer -->
           <li><a href="./flashcards.html">⚡ Exam Flashcards</a></li>
           <li><a href="./slideshow.html">🎬 Keyframe Slideshow</a></li>
           <li><a href="./tell-show-do-apply.html">🎧 Tell-Show-Do-Apply</a></li>
+          <li><a href="./specs.html">📋 Production Spec</a></li>
           <li><a href="./json-viewer.html">🔍 Interactive JSON Viewer</a></li>
           <li><a href="../data/claude-associate-terms.json" target="_blank">🔗 Raw Terms JSON</a></li>
         </ul>
@@ -201,6 +203,7 @@ def generate_nav_html(active_file):
         f'<a href="./voice-selection.html" class="nav-link{" active" if active_file == "voice-selection.html" else ""}">🎙️ Voice Selection</a>',
         f'<a href="./architecture.html" class="nav-link{" active" if active_file == "architecture.html" else ""}">🏛️ Architecture</a>',
         f'<a href="./parameters.html" class="nav-link{" active" if active_file == "parameters.html" else ""}">⚙️ Parameters</a>',
+        f'<a href="./specs.html" class="nav-link{" active" if active_file == "specs.html" else ""}">📋 Production Spec</a>',
         f'<a href="./json-viewer.html" class="nav-link{" active" if active_file == "json-viewer.html" else ""}">🔍 JSON Viewer</a>',
         f'<a href="./youtube-vs-adwords.html" class="nav-link{" active" if active_file == "youtube-vs-adwords.html" else ""}">📊 Shorts vs AdWords</a>',
         f'<a href="./execution-logic.html" class="nav-link{" active" if active_file == "execution-logic.html" else ""}">🚀 Execution Logic</a>',

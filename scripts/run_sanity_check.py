@@ -34,12 +34,14 @@ PAGES = [
     "pages/voice-selection.html",
     "pages/architecture.html",
     "pages/parameters.html",
+    "pages/specs.html",
     "pages/json-viewer.html",
 ]
 
 DATA_FILES = [
     "data/claude-associate-terms.json",
-    "data/claude-flashcards.json"
+    "data/claude-flashcards.json",
+    "data/video-01-artifacts-spec.json"
 ]
 
 def run_checks():
