@@ -31,6 +31,7 @@ PAGES = [
     "pages/sanity-check.html",
     "pages/generated-code.html",
     "pages/model-selection.html",
+    "pages/voice-selection.html",
 ]
 
 DATA_FILES = [

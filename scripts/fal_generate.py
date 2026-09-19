@@ -16,11 +16,13 @@ def load_dotenv():
                     k, v = line.split('=', 1)
                     os.environ.setdefault(k.strip(), v.strip())
 
-load_dotenv()
+ROOT_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT_DIR / "scripts"))
+from azure_vault import get_secret
 
-FAL_KEY = os.environ.get('FAL_KEY')
+FAL_KEY = get_secret("FAL-AI-KEY") or get_secret("FAL-KEY") or os.environ.get("FAL_KEY")
 if not FAL_KEY:
-    print("❌ ERROR: FAL_KEY not found in environment or .env file.")
+    print("❌ ERROR: FAL_KEY not found in Azure Key Vault (dp-kv-deliverypilot) or .env file.")
     print("Fetch it from Azure Key Vault using: az keyvault secret show --vault-name dp-kv-deliverypilot --name FAL-AI-KEY --query value -o tsv")
     sys.exit(1)
 

@@ -10,57 +10,62 @@
         {
           "item": "index.html",
           "passed": true,
-          "details": "Size: 33056 bytes"
+          "details": "Size: 33248 bytes"
         },
         {
           "item": "pages/flashcards.html",
           "passed": true,
-          "details": "Size: 19060 bytes"
+          "details": "Size: 19265 bytes"
         },
         {
           "item": "pages/slideshow.html",
           "passed": true,
-          "details": "Size: 38798 bytes"
+          "details": "Size: 39003 bytes"
         },
         {
           "item": "pages/prompts.html",
           "passed": true,
-          "details": "Size: 27861 bytes"
+          "details": "Size: 29331 bytes"
         },
         {
           "item": "pages/production-cost.html",
           "passed": true,
-          "details": "Size: 17332 bytes"
+          "details": "Size: 17537 bytes"
         },
         {
           "item": "pages/youtube-vs-adwords.html",
           "passed": true,
-          "details": "Size: 45193 bytes"
+          "details": "Size: 45398 bytes"
         },
         {
           "item": "pages/execution-logic.html",
           "passed": true,
-          "details": "Size: 32504 bytes"
+          "details": "Size: 32709 bytes"
         },
         {
           "item": "pages/tell-show-do-apply.html",
           "passed": true,
-          "details": "Size: 36235 bytes"
+          "details": "Size: 36440 bytes"
         },
         {
           "item": "pages/sanity-check.html",
           "passed": true,
-          "details": "Size: 18815 bytes"
+          "details": "Size: 19020 bytes"
         },
         {
           "item": "pages/generated-code.html",
           "passed": true,
-          "details": "Size: 42390 bytes"
+          "details": "Size: 45795 bytes"
         },
         {
           "item": "pages/model-selection.html",
           "passed": true,
-          "details": "Size: 48770 bytes"
+          "details": "Size: 48975 bytes"
+        },
+        {
+          "item": "pages/voice-selection.html",
+          "passed": true,
+          "details": "Size: 35419 bytes"
         },
         {
           "item": ".nojekyll",

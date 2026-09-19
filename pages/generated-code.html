@@ -430,6 +430,7 @@
         <a href="./prompts.html" class="nav-link">📜 Prompts Log</a>
         <a href="./production-cost.html" class="nav-link">💰 Production Cost</a>
         <a href="./model-selection.html" class="nav-link">🧠 Model Selection</a>
+        <a href="./voice-selection.html" class="nav-link">🎙️ Voice Selection</a>
         <a href="./youtube-vs-adwords.html" class="nav-link">📊 Shorts vs AdWords</a>
         <a href="./execution-logic.html" class="nav-link">🚀 Execution Logic</a>
         <a href="./tell-show-do-apply.html" class="nav-link">🎧 Tell-Show-Do-Apply</a>
@@ -495,6 +496,18 @@
             </button>
           </li>
           <li>
+            <button class="file-btn" onclick="showFile('elevenlabs-py', this)">
+              <span>elevenlabs_generate.py</span>
+              <span class="file-badge badge-py">PY</span>
+            </button>
+          </li>
+          <li>
+            <button class="file-btn" onclick="showFile('azure-vault-py', this)">
+              <span>azure_vault.py</span>
+              <span class="file-badge badge-py">PY</span>
+            </button>
+          </li>
+          <li>
             <button class="file-btn" onclick="showFile('sound-py', this)">
               <span>add_sound_and_pedagogy.py</span>
               <span class="file-badge badge-py">PY</span>
@@ -553,6 +566,7 @@
   <!-- Global Footer -->
   <!-- Global Footer -->
   <!-- Global Footer -->
+  <!-- Global Footer -->
   <footer class="global-footer">
     <div class="footer-inner">
       <!-- Col 1: Brand & Overview -->
@@ -587,6 +601,7 @@
         <ul class="footer-links-list">
           <li><a href="./production-cost.html">💰 Production Cost Model</a></li>
           <li><a href="./model-selection.html">🧠 Model Selection &amp; Rationale</a></li>
+          <li><a href="./voice-selection.html">🎙️ ElevenLabs Voice Architecture</a></li>
           <li><a href="./youtube-vs-adwords.html">📊 Shorts vs AdWords CAC</a></li>
           <li><a href="./execution-logic.html">🚀 Two-Stage Execution Logic</a></li>
           <li><a href="./sanity-check.html">🩺 Sanity Check Audit</a></li>
@@ -817,6 +832,66 @@ def generate_video_interpolation(start_img_url: str, end_img_url: str, prompt: s
     urllib.request.urlretrieve(video_url, dest)
     print(f"✅ Saved Video Clip: {dest}")
     return video_url`
+      },
+      "elevenlabs-py": {
+        path: "scripts/elevenlabs_generate.py",
+        desc: "ElevenLabs voiceover synthesis pipeline pulling secrets from Azure Key Vault (dp-kv-deliverypilot) and generating word-level subtitle alignment.",
+        code: `#!/usr/bin/env python3
+"""
+ElevenLabs Voiceover Generation Pipeline for Claude Associate Engine.
+Pulls API secrets securely from Azure Key Vault (dp-kv-deliverypilot).
+Synthesizes professional narration with word-level timestamps for Remotion kinetic typography.
+"""
+import json, os, sys, base64, urllib.request
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT_DIR / "scripts"))
+from azure_vault import get_secret
+
+VOICE_BRIAN_ID = "nPczCjzI2devNBz1zQrb"     # Selected Primary Voice (Authoritative Tech Educator)
+SELECTED_MODEL = "eleven_turbo_v2_5"
+
+VOICE_SETTINGS = {
+    "stability": 0.45,
+    "similarity_boost": 0.85,
+    "style": 0.10,
+    "use_speaker_boost": True
+}
+
+def synthesize_with_timestamps(text: str, voice_id: str = VOICE_BRIAN_ID, output_prefix: str = "voiceover"):
+    api_key = get_secret("ELEVENLABS-API-KEY") or get_secret("ELEVEN_API_KEY")
+    url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps"
+    payload = {
+        "text": text,
+        "model_id": SELECTED_MODEL,
+        "voice_settings": VOICE_SETTINGS
+    }
+    headers = {"xi-api-key": api_key, "Content-Type": "application/json"}
+    req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers=headers)
+    with urllib.request.urlopen(req) as resp:
+        data = json.loads(resp.read().decode('utf-8'))
+        audio_bytes = base64.b64decode(data.get("audio_base64", ""))
+        alignment = data.get("alignment", {})
+        # Saves MP3 audio and Remotion word-level timing JSON`
+      },
+      "azure-vault-py": {
+        path: "scripts/azure_vault.py",
+        desc: "Azure Key Vault secret retriever using DefaultAzureCredential with fallback to environment variables.",
+        code: `#!/usr/bin/env python3
+import os
+from pathlib import Path
+
+def get_secret(secret_name: str, vault_name: str = "dp-kv-deliverypilot") -> str:
+    """Retrieve secret from Azure Key Vault using DefaultAzureCredential with fallback to .env"""
+    try:
+        from azure.identity import DefaultAzureCredential
+        from azure.keyvault.secrets import SecretClient
+        vault_url = f"https://{vault_name}.vault.azure.net"
+        client = SecretClient(vault_url=vault_url, credential=DefaultAzureCredential())
+        return client.get_secret(secret_name).value.strip()
+    except Exception:
+        return os.environ.get(secret_name, os.environ.get(secret_name.replace('-', '_')))`
       },
       "sound-py": {
         path: "scripts/add_sound_and_pedagogy.py",
