@@ -21,6 +21,7 @@ NAV_GROUPS = [
         "hubFile": "research.html",
         "items": [
             {"file": "research.html", "name": "🧭 Research Hub", "desc": "Strategic rationale, unit economics & gating"},
+            {"file": "time-estimation.html", "name": "⏱️ Time Estimation", "desc": "New course velocity & turnaround model"},
             {"file": "flashcards.html", "name": "⚡ Exam Flashcards", "desc": "Interactive flip-card study deck"},
             {"file": "youtube-vs-adwords.html", "name": "📊 Shorts vs AdWords", "desc": "Empirical CAC & traffic analysis"},
             {"file": "production-cost.html", "name": "💰 Production Cost", "desc": "Granular $0.63 unit economics"},
@@ -70,6 +71,7 @@ NAV_GROUPS = [
 
 PAGE_CONFIG = [
     {"file": "research.html", "name": "🔬 Research Hub"},
+    {"file": "time-estimation.html", "name": "⏱️ Time Estimation"},
     {"file": "script.html", "name": "✍️ Script Hub"},
     {"file": "design.html", "name": "🎨 Design Hub"},
     {"file": "previz.html", "name": "🎬 Previz Hub"},
@@ -339,6 +341,7 @@ def generate_footer_html(is_root=False):
           <li><a href="{prefix}flashcards.html">⚡ Exam Flashcards</a></li>
           <li><a href="{prefix}voice-selection.html">🎙️ Voice Selection</a></li>
           <li><a href="{prefix}production-cost.html">💰 Production Cost Model</a></li>
+          <li><a href="{prefix}time-estimation.html">⏱️ Course Time Estimation</a></li>
           <li><a href="{prefix}model-selection.html">🧠 Model Selection</a></li>
           <li><a href="{prefix}execution-logic.html">🚀 Execution Logic</a></li>
           <li><a href="{prefix}prompts.html">📜 Prompt History Log</a></li>

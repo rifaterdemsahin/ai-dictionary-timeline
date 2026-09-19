@@ -503,6 +503,7 @@
   <!-- Top Navigation Bar -->
     <!-- Top Navigation Bar -->
     <!-- Top Navigation Bar -->
+    <!-- Top Navigation Bar -->
   <nav class="top-nav">
     <div class="nav-inner">
       <a href="../index.html" class="nav-brand">
@@ -517,8 +518,9 @@
             <span class="dropdown-chevron">▾</span>
           </a>
           <div class="nav-dropdown-menu">
-            <div class="dropdown-header-badge"><span>Analysis & Economics</span><span>6 Pages</span></div>
+            <div class="dropdown-header-badge"><span>Analysis & Economics</span><span>7 Pages</span></div>
             <a href="./research.html" class="dropdown-item">🧭 Research Hub<span class="dropdown-item-desc">Strategic rationale, unit economics & gating</span></a>
+            <a href="./time-estimation.html" class="dropdown-item">⏱️ Time Estimation<span class="dropdown-item-desc">New course velocity & turnaround model</span></a>
             <a href="./flashcards.html" class="dropdown-item">⚡ Exam Flashcards<span class="dropdown-item-desc">Interactive flip-card study deck</span></a>
             <a href="./youtube-vs-adwords.html" class="dropdown-item">📊 Shorts vs AdWords<span class="dropdown-item-desc">Empirical CAC & traffic analysis</span></a>
             <a href="./production-cost.html" class="dropdown-item">💰 Production Cost<span class="dropdown-item-desc">Granular $0.63 unit economics</span></a>
@@ -975,7 +977,33 @@ Design a production-ready, step-by-step technical blueprint and architecture for
         </div>
       </div>
 
+      <!-- Prompt 26 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <span class="prompt-num">Prompt 26 &bull; Calibrated Course Generation Time Estimation</span>
+          <span class="prompt-outcome">Status: Complete &amp; Deployed</span>
+        </div>
+        <div class="prompt-content">after i have one succeful run and fix the issues. Estimate the time it takes to generate a new course content and create a page on it.</div>
+        <div class="prompt-summary-box">
+          <strong>Built / Delivered:</strong>
+          <ul style="margin: 6px 0 0 18px; line-height: 1.6;">
+            <li><strong>Dedicated Pipeline Velocity Page (<code>pages/time-estimation.html</code>):</strong> Architected an empirical time estimation model analyzing production velocity once a baseline pipeline run has been successfully calibrated and verified:
+              <ul style="margin: 4px 0 4px 18px;">
+                <li><strong>Per-Video Latency Waterfall:</strong> 81 seconds compute per 16s short video (Claude script: 10s, ElevenLabs Brian TTS: 4s, Seedream 4.0 9:16 keyframes: 8s, Kling 1.6 motion synthesis: 45s, Remotion audio/SFX mix: 12s, Quality gate: 2s).</li>
+                <li><strong>Course Scaling:</strong> At 4 parallel API workers, an entire 24-term video curriculum renders in <strong>8.1 minutes</strong> of compute time.</li>
+                <li><strong>Total Course Delivery Turnaround:</strong> <strong>23.1 minutes end-to-end</strong> (3m syllabus ingest + 8.1m batch compute + 10m human spot-check of 20% sample + 2m deploy).</li>
+                <li><strong>Traditional Agency Comparison:</strong> 192 agency hours (~4 weeks) vs. 23 automated minutes &mdash; delivering a <strong>500x velocity acceleration</strong> at $15.12 total cloud cost ($0.63/video).</li>
+              </ul>
+            </li>
+            <li><strong>Interactive Turnaround &amp; Cost Simulator Sandbox:</strong> Built interactive sliders for curriculum term volume (4&ndash;60), API concurrency workers (1&ndash;8), human review sampling (0&ndash;100%), and motion mode toggle (Kling motion vs. Seedream static zooms).</li>
+            <li><strong>Cross-Ecosystem Integration:</strong> Linked the Time Estimation model under the 🔬 Research pillar across the top navigation dropdowns, Research Overview Hub (<code>pages/research.html</code>), Global Navigation Master Directory (<code>index.html</code>), and 4-column Global Footer.</li>
+            <li><strong>Quality Gate Audit:</strong> Validated all 22 project pages across all 7 stages with a 100% pass rate.</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
+  <!-- Global Footer -->
   <!-- Global Footer -->
   <footer class="global-footer">
     <div class="footer-inner">
@@ -1005,6 +1033,7 @@ Design a production-ready, step-by-step technical blueprint and architecture for
           <li><a href="./flashcards.html">⚡ Exam Flashcards</a></li>
           <li><a href="./voice-selection.html">🎙️ Voice Selection</a></li>
           <li><a href="./production-cost.html">💰 Production Cost Model</a></li>
+          <li><a href="./time-estimation.html">⏱️ Course Time Estimation</a></li>
           <li><a href="./model-selection.html">🧠 Model Selection</a></li>
           <li><a href="./execution-logic.html">🚀 Execution Logic</a></li>
           <li><a href="./prompts.html">📜 Prompt History Log</a></li>
