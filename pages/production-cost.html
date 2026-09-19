@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Production Cost Model & Generation Engine</title>
+  <style>
+    :root {
+      --bg: #09090b;
+      --card-bg: #18181b;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --accent: #cc785c;
+      --accent-glow: rgba(204, 120, 92, 0.4);
+      --border: #27272a;
+      --terminal-bg: #000000;
+      --cyan: #38bdf8;
+      --green: #4ade80;
+      --gold: #fbbf24;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 0 60px 0;
+    }
+    /* Top Navigation Bar */
+    .top-nav {
+      background: rgba(24, 24, 27, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .nav-brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #fafafa;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .nav-link.active {
+      color: var(--accent);
+      border: 1px solid rgba(204, 120, 92, 0.3);
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 40px auto 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* Big Metric Grid */
+    .metric-hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    .metric-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .metric-label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+    .metric-val {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--accent);
+      margin: 8px 0;
+    }
+    .metric-sub {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Breakdown Table */
+    .cost-table-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 32px;
+      overflow-x: auto;
+    }
+    .cost-table-card h2 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: #fafafa;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th {
+      border-bottom: 2px solid var(--border);
+      padding: 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+    td {
+      border-bottom: 1px solid var(--border);
+      padding: 14px 12px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    tr:last-child td {
+      border-bottom: none;
+      font-weight: 800;
+      color: var(--green);
+      font-size: 16px;
+    }
+
+    /* Architecture Code Snippet */
+    .code-box {
+      background: var(--terminal-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 32px;
+    }
+    .code-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .code-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--cyan);
+      font-family: monospace;
+    }
+    pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      color: #e4e4e7;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    /* Vault Security Box */
+    .security-box {
+      background: rgba(34, 197, 94, 0.05);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .security-icon {
+      font-size: 24px;
+    }
+    .security-content h3 {
+      font-size: 16px;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .security-content p {
+      font-size: 13px;
+      color: #d4d4d8;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">
+        <div class="nav-brand-dot"></div>
+        <span>Claude Associate Engine</span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">📖 Terms Dictionary</a>
+        <a href="./flashcards.html" class="nav-link">⚡ Flashcards</a>
+        <a href="./slideshow.html" class="nav-link">🎬 Keyframe Slideshow</a>
+        <a href="./prompts.html" class="nav-link">📜 Prompts Log</a>
+        <a href="./production-cost.html" class="nav-link active">💰 Production Cost</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <span class="badge">Inference Economics &bull; Cloud Architecture</span>
+      <h1>Total Cost of Production & Engine Specs</h1>
+      <p class="subtitle">Complete financial and technical breakdown for programmatic 16-second vertical video generation using Fal.ai, Azure Key Vault, ElevenLabs, and Remotion.</p>
+    </header>
+
+    <!-- Key Metrics Grid -->
+    <div class="metric-hero">
+      <div class="metric-card">
+        <div class="metric-label">Per-Video Direct Cost</div>
+        <div class="metric-val" style="color: var(--green);">$0.44</div>
+        <div class="metric-sub">Complete 16-second H.264 video with VO and music.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Full 24-Video Series</div>
+        <div class="metric-val" style="color: var(--cyan);">$10.56</div>
+        <div class="metric-sub">Complete Claude Associate curriculum library.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Key Vault Integration</div>
+        <div class="metric-val" style="color: var(--gold);">dp-kv-deliverypilot</div>
+        <div class="metric-sub">Zero plain-text keys in repository or git.</div>
+      </div>
+    </div>
+
+    <!-- Security & Key Management Section -->
+    <div class="security-box">
+      <div class="security-icon">🔐</div>
+      <div class="security-content">
+        <h3>Azure Key Vault Automated Secret Management</h3>
+        <p>API keys for <code>FAL_KEY</code> and <code>ELEVENLABS_API_KEY</code> are dynamically resolved from Azure Key Vault (<code>dp-kv-deliverypilot</code>). Secret files (<code>.env</code>) and rendered video outputs (<code>outputs/</code>, <code>*.mp4</code>) are strictly excluded from version control in <code>.gitignore</code>.</p>
+      </div>
+    </div>
+
+    <!-- Cost Breakdown Table -->
+    <div class="cost-table-card">
+      <h2>Programmatic Inference Cost Matrix (Per 16-Second Short)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Production Phase</th>
+            <th>Service &amp; Model</th>
+            <th>Volume / Short</th>
+            <th>Unit Rate</th>
+            <th>Direct Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Boundary Keyframes</strong></td>
+            <td><code>fal-ai/bytedance/seedream</code></td>
+            <td>8 images (2 per scene × 4 scenes)</td>
+            <td>$0.0075 / image</td>
+            <td><strong>$0.060</strong></td>
+          </tr>
+          <tr>
+            <td><strong>2. Motion Interpolation</strong></td>
+            <td><code>fal-ai/kling-video/v1/frame-to-frame</code></td>
+            <td>4 clips (16 seconds total motion)</td>
+            <td>$0.090 / clip</td>
+            <td><strong>$0.360</strong></td>
+          </tr>
+          <tr>
+            <td><strong>3. Synced Narration</strong></td>
+            <td><code>fal-ai/elevenlabs/tts</code></td>
+            <td>~45 words (~250 characters)</td>
+            <td>$0.300 / 1k chars</td>
+            <td><strong>$0.020</strong></td>
+          </tr>
+          <tr>
+            <td><strong>4. Composition &amp; SSR</strong></td>
+            <td>Remotion Server-Side Chromium</td>
+            <td>480 frames @ 30 FPS</td>
+            <td>Local / Lambda</td>
+            <td><strong>$0.000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Total Direct Production Cost</strong></td>
+            <td><strong>Automated Engine</strong></td>
+            <td><strong>16.0s Vertical Video</strong></td>
+            <td><strong>480 Frames</strong></td>
+            <td><strong>$0.440 USD</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Generation CLI Execution Snippet -->
+    <div class="code-box">
+      <div class="code-box-header">
+        <span class="code-title">Python Fal.ai Generation CLI: scripts/fal_generate.py</span>
+        <span style="font-size: 11px; color: var(--green); font-family: monospace;">Azure Key Vault Ready</span>
+      </div>
+      <pre><code># 1. Fetch secret from Azure Key Vault into local .env (git-ignored)
+az keyvault secret show --vault-name dp-kv-deliverypilot --name FAL-AI-KEY --query "value" -o tsv > .env.key
+
+# 2. Run automated image generation and frame-to-frame video interpolation
+python3 scripts/fal_generate.py --live
+
+# Output generated to:
+#  - outputs/keyframe_start.png (1080x1920 Seedream)
+#  - outputs/keyframe_end.png   (1080x1920 Seedream)
+#  - outputs/scene_interpolated.mp4 (Kling Frame-to-Frame)</code></pre>
+    </div>
+
+    <footer>
+      Running on dedicated local server port 30085 &bull; AI Dictionary Timeline Project
+    </footer>
+  </div>
+
+</body>
+</html>
