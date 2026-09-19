@@ -15,62 +15,62 @@
         {
           "item": "pages/flashcards.html",
           "passed": true,
-          "details": "Size: 19461 bytes"
+          "details": "Size: 19486 bytes"
         },
         {
           "item": "pages/slideshow.html",
           "passed": true,
-          "details": "Size: 39199 bytes"
+          "details": "Size: 39224 bytes"
         },
         {
           "item": "pages/prompts.html",
           "passed": true,
-          "details": "Size: 30549 bytes"
+          "details": "Size: 31542 bytes"
         },
         {
           "item": "pages/production-cost.html",
           "passed": true,
-          "details": "Size: 17733 bytes"
+          "details": "Size: 17758 bytes"
         },
         {
           "item": "pages/youtube-vs-adwords.html",
           "passed": true,
-          "details": "Size: 45594 bytes"
+          "details": "Size: 45619 bytes"
         },
         {
           "item": "pages/execution-logic.html",
           "passed": true,
-          "details": "Size: 32905 bytes"
+          "details": "Size: 32930 bytes"
         },
         {
           "item": "pages/tell-show-do-apply.html",
           "passed": true,
-          "details": "Size: 36636 bytes"
+          "details": "Size: 36661 bytes"
         },
         {
           "item": "pages/sanity-check.html",
           "passed": true,
-          "details": "Size: 19216 bytes"
+          "details": "Size: 19241 bytes"
         },
         {
           "item": "pages/generated-code.html",
           "passed": true,
-          "details": "Size: 45991 bytes"
+          "details": "Size: 46016 bytes"
         },
         {
           "item": "pages/model-selection.html",
           "passed": true,
-          "details": "Size: 49171 bytes"
+          "details": "Size: 49196 bytes"
         },
         {
           "item": "pages/voice-selection.html",
           "passed": true,
-          "details": "Size: 35615 bytes"
+          "details": "Size: 35640 bytes"
         },
         {
           "item": "pages/architecture.html",
           "passed": true,
-          "details": "Size: 31726 bytes"
+          "details": "Size: 46284 bytes"
         },
         {
           "item": ".nojekyll",

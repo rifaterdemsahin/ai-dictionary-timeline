@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>System Architecture & UML Diagrams — Claude Associate Engine</title>
+  <title>System Architecture & Excalidraw UML Diagrams — Claude Associate Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Kalam:wght@400;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <style>
     :root {
@@ -21,6 +24,8 @@
       --red: #f87171;
       --purple: #c084fc;
       --terminal-bg: #000000;
+      --excalidraw-bg: #121214;
+      --excalidraw-dot: rgba(255, 255, 255, 0.12);
     }
     * {
       box-sizing: border-box;
@@ -236,13 +241,13 @@
       box-shadow: 0 0 15px var(--accent-glow);
     }
 
-    /* Diagram Card */
+    /* Excalidraw Canvas Board Container */
     .diagram-pane {
       display: none;
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 28px;
+      padding: 24px;
       margin-bottom: 36px;
       box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
     }
@@ -253,7 +258,7 @@
     .diagram-header {
       border-bottom: 1px solid var(--border);
       padding-bottom: 16px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -283,15 +288,137 @@
       letter-spacing: 0.6px;
     }
 
-    .mermaid-container {
-      background: #09090b;
-      border: 1px solid #1f1f23;
-      border-radius: 10px;
-      padding: 24px;
-      overflow-x: auto;
+    /* Excalidraw Whiteboard Canvas & Viewport */
+    .excalidraw-viewport {
+      position: relative;
+      width: 100%;
+      height: 560px;
+      background-color: var(--excalidraw-bg);
+      background-image: radial-gradient(var(--excalidraw-dot) 1.2px, transparent 1.2px);
+      background-size: 24px 24px;
+      border: 2px solid #27272a;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: grab;
+      user-select: none;
+    }
+    .excalidraw-viewport.is-dragging {
+      cursor: grabbing;
+    }
+
+    .excalidraw-surface {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       display: flex;
+      align-items: center;
       justify-content: center;
-      min-height: 280px;
+      transform-origin: center center;
+      transition: transform 0.05s ease-out;
+    }
+
+    /* Excalidraw Hand-Drawn Font & Aesthetic */
+    .excalidraw-surface svg {
+      font-family: 'Caveat', 'Kalam', 'Virgil', cursive, sans-serif !important;
+      max-width: none !important;
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.6));
+    }
+    .excalidraw-surface text {
+      font-family: 'Caveat', 'Kalam', 'Virgil', cursive, sans-serif !important;
+      font-weight: 700 !important;
+      font-size: 17px !important;
+      letter-spacing: 0.5px !important;
+    }
+
+    /* Excalidraw Toolbar / Control Pill */
+    .excalidraw-toolbar {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(18, 18, 20, 0.92);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      padding: 6px 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    }
+    .tool-btn {
+      background: #27272a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fafafa;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .tool-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+    .zoom-level-badge {
+      font-size: 12px;
+      font-weight: 700;
+      font-family: ui-monospace, monospace;
+      color: var(--cyan);
+      min-width: 46px;
+      text-align: center;
+      padding: 0 4px;
+    }
+
+    .top-actions-bar {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 20;
+      display: flex;
+      gap: 8px;
+    }
+    .action-btn-pill {
+      background: rgba(24, 24, 27, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #f4f4f5;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .action-btn-pill:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* Hints Overlay */
+    .viewport-hint {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      z-index: 10;
+      font-size: 11.5px;
+      color: var(--muted);
+      background: rgba(0, 0, 0, 0.6);
+      padding: 4px 10px;
+      border-radius: 6px;
+      pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     /* Architectural Deep-Dive Grid */
@@ -333,6 +460,28 @@
     }
     .deepdive-card strong {
       color: #f4f4f5;
+    }
+
+    /* Copy Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--green);
+      color: #09090b;
+      font-weight: 800;
+      font-size: 13.5px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(74, 222, 128, 0.4);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
     }
   
     /* Comprehensive Global Footer */
@@ -456,10 +605,10 @@
 
   <div class="container">
     <header>
-      <span class="badge">System Architecture &bull; UML Formal Specification</span>
-      <h1>System Architecture & UML Diagrams</h1>
+      <span class="badge">Excalidraw Whiteboard &bull; Interactive Zoom &amp; Pan UML</span>
+      <h1>System Architecture & Excalidraw Diagrams</h1>
       <p class="subtitle">
-        Formal software architecture and UML diagram models representing the automated multi-modal media generation pipeline—from Claude exam domain structuring and Azure Key Vault secret orchestration to fal.ai video interpolation, ElevenLabs acoustic synthesis, and Remotion headless composition.
+        Interactive whiteboard diagrams rendered with hand-drawn Excalidraw aesthetics. Features continuous mouse wheel zoom, click-and-drag infinite canvas navigation, and direct 1-click Excalidraw compatibility.
       </p>
     </header>
 
@@ -485,14 +634,14 @@
         <div class="stat-note">Loosely coupled &bull; JSON contract driven</div>
       </div>
       <div class="stat-card" style="border-left-color: var(--green);">
-        <div class="stat-title">Orchestration Protocol</div>
-        <div class="stat-val" style="color: var(--green);">MCP &amp; Python 3</div>
-        <div class="stat-note">Model Context Protocol tools</div>
+        <div class="stat-title">Interactive Canvas</div>
+        <div class="stat-val" style="color: var(--green);">Excalidraw Style</div>
+        <div class="stat-note">Zoom 40%–300% &bull; Smooth Drag Pan</div>
       </div>
       <div class="stat-card" style="border-left-color: var(--gold);">
         <div class="stat-title">Secret Management</div>
         <div class="stat-val" style="color: var(--gold);">Azure Key Vault</div>
-        <div class="stat-note">Zero local secrets &bull; Managed identity</div>
+        <div class="stat-note">Vault: dp-kv-deliverypilot &bull; Zero local keys</div>
       </div>
       <div class="stat-card" style="border-left-color: var(--purple);">
         <div class="stat-title">Rendering Engine</div>
@@ -504,19 +653,19 @@
     <!-- Diagram Switcher Navigation -->
     <div class="tab-nav">
       <button class="tab-btn active" onclick="switchTab('tab-component', this)">
-        <span>🧩</span> 1. UML Component Diagram
+        <span>🧩</span> 1. Component Architecture
       </button>
       <button class="tab-btn" onclick="switchTab('tab-sequence', this)">
-        <span>⏱️</span> 2. UML Sequence Diagram
+        <span>⏱️</span> 2. Sequence Workflow (16s Lifecycle)
       </button>
       <button class="tab-btn" onclick="switchTab('tab-class', this)">
-        <span>📦</span> 3. UML Class / Domain Model
+        <span>📦</span> 3. Class & Domain Model
       </button>
       <button class="tab-btn" onclick="switchTab('tab-activity', this)">
-        <span>🔄</span> 4. UML Activity / Workflow
+        <span>🔄</span> 4. Activity State Machine
       </button>
       <button class="tab-btn" onclick="switchTab('tab-deployment', this)">
-        <span>🌐</span> 5. UML Deployment Topology
+        <span>🌐</span> 5. Cloud Deployment Topology
       </button>
     </div>
 
@@ -526,48 +675,60 @@
         <div>
           <div class="diagram-title">UML Component & Subsystem Architecture</div>
           <p class="diagram-desc">
-            Structural decomposition illustrating the decoupled services, data storage layers, and interfaces connecting the Anthropic Claude curriculum knowledge base to cloud generation endpoints.
+            Structural decomposition illustrating decoupled services, Azure Key Vault credential boundaries, fal.ai inference cloud, and Remotion video rendering.
           </p>
         </div>
-        <span class="diagram-badge">UML 2.5 Component</span>
+        <span class="diagram-badge">Excalidraw Component View</span>
       </div>
-      <div class="mermaid-container">
-        <pre class="mermaid">
+
+      <!-- Excalidraw Viewport -->
+      <div class="excalidraw-viewport" id="viewport-component">
+        <div class="top-actions-bar">
+          <button class="action-btn-pill" onclick="copyMermaidSource('src-component')">
+            <span>📋</span> Copy Mermaid for Excalidraw
+          </button>
+          <a href="https://excalidraw.com" target="_blank" class="action-btn-pill" style="text-decoration: none;">
+            <span>🎨</span> Open Excalidraw ↗
+          </a>
+        </div>
+
+        <div class="excalidraw-surface" id="surface-component">
+          <pre class="mermaid" id="src-component">
 graph TD
-    subgraph DataLayer ["Curriculum Knowledge & Type Layer"]
-        JSON["claude-associate-terms.json<br/>(24 Exam Terms, Blueprints, Audio Cues)"]
-        TS["types/claude-dictionary.ts<br/>(TypeScript Interfaces & Contracts)"]
+    subgraph DataLayer ["📂 Curriculum Knowledge & Type Layer"]
+        JSON["claude-associate-terms.json<br/>(24 Exam Terms & Blueprints)"]
+        TS["types/claude-dictionary.ts<br/>(TypeScript Contracts)"]
     end
 
-    subgraph SecurityLayer ["Identity & Security Boundary"]
+    subgraph SecurityLayer ["🔐 Identity & Secret Boundary"]
         AKV["Azure Key Vault<br/>(dp-kv-deliverypilot)"]
         AZV["scripts/azure_vault.py<br/>(DefaultAzureCredential)"]
         AKV -->|FAL-AI-KEY / ELEVENLABS-KEY| AZV
     end
 
-    subgraph OrchestrationLayer ["Pipeline Orchestration Engine"]
+    subgraph OrchestrationLayer ["⚙️ Pipeline Orchestration Engine"]
         FAL_PY["scripts/fal_generate.py<br/>(fal.ai Client)"]
         EL_PY["scripts/elevenlabs_generate.py<br/>(ElevenLabs Client)"]
-        PED_PY["scripts/add_sound_and_pedagogy.py<br/>(Tell-Show-Do-Apply Generator)"]
+        PED_PY["scripts/add_sound_and_pedagogy.py<br/>(Tell-Show-Do-Apply)"]
         QA_PY["scripts/run_sanity_check.py<br/>(7-Stage QA Suite)"]
     end
 
-    subgraph GenAILayer ["Generative Inference Cloud"]
-        SEEDREEM["fal.ai: Seedream 4.0 / Flux<br/>(9:16 Vertical Keyframes 00:00 & 00:16)"]
-        KLING["fal.ai: Kling 1.6 Pro<br/>(First/Last Frame Interpolation)"]
-        EL_API["ElevenLabs Turbo v2.5<br/>(Brian Voice & Word Timestamps)"]
+    subgraph GenAILayer ["⚡ Generative Inference Cloud"]
+        SEEDREEM["fal.ai: Seedream 4.0 / Flux<br/>(00:00 & 00:16 Keyframes)"]
+        KLING["fal.ai: Kling 1.6 Pro<br/>(Keyframe Interpolation)"]
+        EL_API["ElevenLabs Turbo v2.5<br/>(Brian Voice & Subtitles)"]
     end
 
-    subgraph RenderLayer ["Video Composition & Synthesis"]
-        REMOTION["Remotion React Framework<br/>(ShortPipelineVideo.tsx)"]
-        DUCK["Side-Chain Audio Compressor<br/>(-18dB Ducking on Voice Cue)"]
-        SUB["Kinetic Typography Renderer<br/>(Millisecond Word Highlight)"]
+    subgraph RenderLayer ["🎬 Video Composition & Audio Bus"]
+        REMOTION["Remotion React Engine<br/>(ShortPipelineVideo.tsx)"]
+        DUCK["Side-Chain Audio Ducking<br/>(BGM -18dB Clamped)"]
+        SUB["Kinetic Typography<br/>(Millisecond Karaoke)"]
     end
 
-    subgraph DistributionLayer ["Delivery & Audience Engagement"]
-        YT["YouTube Shorts<br/>(Vertical 9:16 Feed)"]
-        SKOOL["Skool Community<br/>(Delivery Pilot Community CTA)"]
-        GHP["GitHub Pages Edge CDN<br/>(Static Study Deck & Tools)"]
+    subgraph DistributionLayer ["🚀 Global Distribution"]
+        YT["YouTube Shorts<br/>(1080x1920 9:16)"]
+        SKOOL["Skool Community<br/>(Delivery Pilot CTA)"]
+        GHP["GitHub Pages CDN<br/>(Live Study Suite)"]
     end
 
     JSON --> FAL_PY
@@ -590,7 +751,21 @@ graph TD
     QA_PY --> YT
     QA_PY --> SKOOL
     JSON --> GHP
-        </pre>
+          </pre>
+        </div>
+
+        <!-- Excalidraw Zoom & Pan Floating Toolbar -->
+        <div class="excalidraw-toolbar">
+          <button class="tool-btn" onclick="zoomBoard('component', 0.2)" title="Zoom In">🔍 +</button>
+          <span class="zoom-level-badge" id="zoom-component">100%</span>
+          <button class="tool-btn" onclick="zoomBoard('component', -0.2)" title="Zoom Out">🔍 -</button>
+          <button class="tool-btn" onclick="resetBoard('component')" title="Reset Zoom">↺ 100%</button>
+          <button class="tool-btn" onclick="fitBoard('component')" title="Fit to Screen">⤢ Fit</button>
+        </div>
+
+        <div class="viewport-hint">
+          ✋ Drag to Pan &bull; 🖱️ Scroll Wheel to Zoom
+        </div>
       </div>
     </div>
 
@@ -603,10 +778,21 @@ graph TD
             Chronological interaction lifeline showing asynchronous API dispatch, token handshakes, word-level alignment callbacks, and Remotion audio mixing.
           </p>
         </div>
-        <span class="diagram-badge">UML 2.5 Sequence</span>
+        <span class="diagram-badge">Excalidraw Sequence View</span>
       </div>
-      <div class="mermaid-container">
-        <pre class="mermaid">
+
+      <div class="excalidraw-viewport" id="viewport-sequence">
+        <div class="top-actions-bar">
+          <button class="action-btn-pill" onclick="copyMermaidSource('src-sequence')">
+            <span>📋</span> Copy Mermaid for Excalidraw
+          </button>
+          <a href="https://excalidraw.com" target="_blank" class="action-btn-pill" style="text-decoration: none;">
+            <span>🎨</span> Open Excalidraw ↗
+          </a>
+        </div>
+
+        <div class="excalidraw-surface" id="surface-sequence">
+          <pre class="mermaid" id="src-sequence">
 sequenceDiagram
     autonumber
     actor Dev as Orchestrator / Agent
@@ -640,7 +826,20 @@ sequenceDiagram
 
     Dev->>QA: Execute 7-Stage Sanity Check (Schema, Duration, Sound, Links)
     QA-->>Dev: 7/7 Stages Passed (Green Gate)
-        </pre>
+          </pre>
+        </div>
+
+        <div class="excalidraw-toolbar">
+          <button class="tool-btn" onclick="zoomBoard('sequence', 0.2)">🔍 +</button>
+          <span class="zoom-level-badge" id="zoom-sequence">100%</span>
+          <button class="tool-btn" onclick="zoomBoard('sequence', -0.2)">🔍 -</button>
+          <button class="tool-btn" onclick="resetBoard('sequence')">↺ 100%</button>
+          <button class="tool-btn" onclick="fitBoard('sequence')">⤢ Fit</button>
+        </div>
+
+        <div class="viewport-hint">
+          ✋ Drag to Pan &bull; 🖱️ Scroll Wheel to Zoom
+        </div>
       </div>
     </div>
 
@@ -653,10 +852,21 @@ sequenceDiagram
             Formal object-oriented relationship between curriculum terms, pedagogical breakdown, audio cues, and Remotion mixing specifications.
           </p>
         </div>
-        <span class="diagram-badge">UML 2.5 Class</span>
+        <span class="diagram-badge">Excalidraw Class Model</span>
       </div>
-      <div class="mermaid-container">
-        <pre class="mermaid">
+
+      <div class="excalidraw-viewport" id="viewport-class">
+        <div class="top-actions-bar">
+          <button class="action-btn-pill" onclick="copyMermaidSource('src-class')">
+            <span>📋</span> Copy Mermaid for Excalidraw
+          </button>
+          <a href="https://excalidraw.com" target="_blank" class="action-btn-pill" style="text-decoration: none;">
+            <span>🎨</span> Open Excalidraw ↗
+          </a>
+        </div>
+
+        <div class="excalidraw-surface" id="surface-class">
+          <pre class="mermaid" id="src-class">
 classDiagram
     class ClaudeTermEntry {
         +string id
@@ -726,7 +936,20 @@ classDiagram
     ClaudeTermEntry "1" *-- "1" PinnedCommentSpec : generates CTA
     SoundAndTransitionsSpec "1" *-- "*" SfxCue : sequences
     SoundAndTransitionsSpec "1" *-- "1" RemotionAudioMixConfig : configures
-        </pre>
+          </pre>
+        </div>
+
+        <div class="excalidraw-toolbar">
+          <button class="tool-btn" onclick="zoomBoard('class', 0.2)">🔍 +</button>
+          <span class="zoom-level-badge" id="zoom-class">100%</span>
+          <button class="tool-btn" onclick="zoomBoard('class', -0.2)">🔍 -</button>
+          <button class="tool-btn" onclick="resetBoard('class')">↺ 100%</button>
+          <button class="tool-btn" onclick="fitBoard('class')">⤢ Fit</button>
+        </div>
+
+        <div class="viewport-hint">
+          ✋ Drag to Pan &bull; 🖱️ Scroll Wheel to Zoom
+        </div>
       </div>
     </div>
 
@@ -739,10 +962,21 @@ classDiagram
             Operational flow representing branch decisions, token validation, rate-limit retries, and automated quality gating.
           </p>
         </div>
-        <span class="diagram-badge">UML 2.5 Activity</span>
+        <span class="diagram-badge">Excalidraw Workflow</span>
       </div>
-      <div class="mermaid-container">
-        <pre class="mermaid">
+
+      <div class="excalidraw-viewport" id="viewport-activity">
+        <div class="top-actions-bar">
+          <button class="action-btn-pill" onclick="copyMermaidSource('src-activity')">
+            <span>📋</span> Copy Mermaid for Excalidraw
+          </button>
+          <a href="https://excalidraw.com" target="_blank" class="action-btn-pill" style="text-decoration: none;">
+            <span>🎨</span> Open Excalidraw ↗
+          </a>
+        </div>
+
+        <div class="excalidraw-surface" id="surface-activity">
+          <pre class="mermaid" id="src-activity">
 flowchart TD
     Start([Start: Term Ingestion]) --> Parse[Parse JSON & Validate TypeScript Schema]
     Parse --> FetchVault[Fetch API Keys from Azure Key Vault]
@@ -772,7 +1006,20 @@ flowchart TD
     QualityGate -- Passed --> Publish[Publish to GitHub Pages & Queue YouTube Short]
     
     Publish --> EndNode([Video Production Complete])
-        </pre>
+          </pre>
+        </div>
+
+        <div class="excalidraw-toolbar">
+          <button class="tool-btn" onclick="zoomBoard('activity', 0.2)">🔍 +</button>
+          <span class="zoom-level-badge" id="zoom-activity">100%</span>
+          <button class="tool-btn" onclick="zoomBoard('activity', -0.2)">🔍 -</button>
+          <button class="tool-btn" onclick="resetBoard('activity')">↺ 100%</button>
+          <button class="tool-btn" onclick="fitBoard('activity')">⤢ Fit</button>
+        </div>
+
+        <div class="viewport-hint">
+          ✋ Drag to Pan &bull; 🖱️ Scroll Wheel to Zoom
+        </div>
       </div>
     </div>
 
@@ -785,36 +1032,47 @@ flowchart TD
             Physical and virtual node deployment across cloud providers: Azure Key Vault, fal.ai GPU clusters, ElevenLabs edge, AWS Lambda, and GitHub Pages.
           </p>
         </div>
-        <span class="diagram-badge">UML 2.5 Deployment</span>
+        <span class="diagram-badge">Excalidraw Cloud Topology</span>
       </div>
-      <div class="mermaid-container">
-        <pre class="mermaid">
+
+      <div class="excalidraw-viewport" id="viewport-deployment">
+        <div class="top-actions-bar">
+          <button class="action-btn-pill" onclick="copyMermaidSource('src-deployment')">
+            <span>📋</span> Copy Mermaid for Excalidraw
+          </button>
+          <a href="https://excalidraw.com" target="_blank" class="action-btn-pill" style="text-decoration: none;">
+            <span>🎨</span> Open Excalidraw ↗
+          </a>
+        </div>
+
+        <div class="excalidraw-surface" id="surface-deployment">
+          <pre class="mermaid" id="src-deployment">
 graph LR
-    subgraph LocalNode ["Developer Workstation / CI Runner"]
+    subgraph LocalNode ["💻 Developer Station & CI Runner"]
         CLI["macOS / zsh (Local Server 30085)"]
-        GHA["GitHub Actions Runner (Ubuntu-latest)"]
+        GHA["GitHub Actions Runner (Ubuntu)"]
     end
 
-    subgraph AzureCloud ["Microsoft Azure Cloud"]
+    subgraph AzureCloud ["☁️ Microsoft Azure Cloud"]
         AKV["dp-kv-deliverypilot.vault.azure.net<br/>(HSM-backed Secret Store)"]
     end
 
-    subgraph FalCloud ["fal.ai Inference Infrastructure"]
+    subgraph FalCloud ["⚡ fal.ai Inference Cluster"]
         GPU1["H100 GPU Cluster (Seedream / Flux)"]
-        GPU2["A100 GPU Cluster (Kling 1.6 Pro Engine)"]
+        GPU2["A100 GPU Cluster (Kling 1.6 Pro)"]
     end
 
-    subgraph ElevenCloud ["ElevenLabs Edge Infrastructure"]
+    subgraph ElevenCloud ["🎙️ ElevenLabs Global Edge"]
         TTS["Turbo v2.5 Global Inference Nodes"]
     end
 
-    subgraph AWSCloud ["Amazon Web Services"]
+    subgraph AWSCloud ["📦 Amazon Web Services"]
         LAMBDA["AWS Lambda Remotion Cluster<br/>(Headless Chromium arm64)"]
         S3["Temporary Video Frame S3 Bucket"]
     end
 
-    subgraph EdgeCDN ["Global Distribution & Audience"]
-        GHP["GitHub Pages Global CDN<br/>(https://rifaterdemsahin.github.io/ai-dictionary-timeline/)"]
+    subgraph EdgeCDN ["🌐 Global Edge Distribution"]
+        GHP["GitHub Pages Global CDN<br/>(rifaterdemsahin.github.io)"]
         YT["YouTube CDN (Shorts Feed)"]
     end
 
@@ -832,7 +1090,20 @@ graph LR
     LAMBDA --> GHA
     GHA -->|git push gh-pages| GHP
     GHA -->|YouTube Data API v3| YT
-        </pre>
+          </pre>
+        </div>
+
+        <div class="excalidraw-toolbar">
+          <button class="tool-btn" onclick="zoomBoard('deployment', 0.2)">🔍 +</button>
+          <span class="zoom-level-badge" id="zoom-deployment">100%</span>
+          <button class="tool-btn" onclick="zoomBoard('deployment', -0.2)">🔍 -</button>
+          <button class="tool-btn" onclick="resetBoard('deployment')">↺ 100%</button>
+          <button class="tool-btn" onclick="fitBoard('deployment')">⤢ Fit</button>
+        </div>
+
+        <div class="viewport-hint">
+          ✋ Drag to Pan &bull; 🖱️ Scroll Wheel to Zoom
+        </div>
       </div>
     </div>
 
@@ -867,6 +1138,9 @@ graph LR
     </div>
 
   </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">✅ Mermaid Diagram copied! Ready to paste into Excalidraw.</div>
 
   <!-- Global Footer -->
   <!-- Global Footer -->
@@ -936,20 +1210,132 @@ graph LR
   </footer>
 
   <script>
+    // Excalidraw-style Hand-Drawn Mermaid Configuration
     mermaid.initialize({
-      startOnLoad: true,
-      theme: 'dark',
+      startOnLoad: false,
+      theme: 'base',
+      look: 'handDrawn',
       themeVariables: {
-        darkMode: true,
-        background: '#09090b',
-        primaryColor: '#cc785c',
-        primaryTextColor: '#ffffff',
-        primaryBorderColor: '#3f3f46',
+        fontFamily: '"Caveat", "Kalam", cursive, sans-serif',
+        fontSize: '16px',
+        primaryColor: '#1e2029',
+        primaryTextColor: '#f4f4f5',
+        primaryBorderColor: '#cc785c',
         lineColor: '#38bdf8',
-        secondaryColor: '#18181b',
-        tertiaryColor: '#111114'
+        secondaryColor: '#161822',
+        tertiaryColor: '#0f1117',
+        edgeLabelBackground: '#18181b',
+        actorTextColor: '#f4f4f5',
+        actorBorder: '#cc785c',
+        actorBkg: '#1e2029',
+        signalColor: '#38bdf8',
+        signalTextColor: '#f4f4f5',
+        labelBoxBkgColor: '#1e2029',
+        labelBoxBorderColor: '#38bdf8',
+        labelTextColor: '#f4f4f5',
+        noteBorderColor: '#fbbf24',
+        noteBkgColor: '#2b220e',
+        noteTextColor: '#fbbf24'
       }
     });
+
+    // Multi-Board Excalidraw Viewport State & Pan/Zoom Engine
+    const BOARDS = {
+      component: { scale: 1.0, x: 0, y: 0, isDragging: false, startX: 0, startY: 0 },
+      sequence: { scale: 1.0, x: 0, y: 0, isDragging: false, startX: 0, startY: 0 },
+      class: { scale: 1.0, x: 0, y: 0, isDragging: false, startX: 0, startY: 0 },
+      activity: { scale: 1.0, x: 0, y: 0, isDragging: false, startX: 0, startY: 0 },
+      deployment: { scale: 1.0, x: 0, y: 0, isDragging: false, startX: 0, startY: 0 }
+    };
+
+    function updateTransform(key) {
+      const b = BOARDS[key];
+      const surface = document.getElementById(`surface-${key}`);
+      const badge = document.getElementById(`zoom-${key}`);
+      if (surface) {
+        surface.style.transform = `translate(${b.x}px, ${b.y}px) scale(${b.scale})`;
+      }
+      if (badge) {
+        badge.textContent = `${Math.round(b.scale * 100)}%`;
+      }
+    }
+
+    function zoomBoard(key, delta) {
+      const b = BOARDS[key];
+      b.scale = Math.min(3.0, Math.max(0.35, Math.round((b.scale + delta) * 100) / 100));
+      updateTransform(key);
+    }
+
+    function resetBoard(key) {
+      const b = BOARDS[key];
+      b.scale = 1.0;
+      b.x = 0;
+      b.y = 0;
+      updateTransform(key);
+    }
+
+    function fitBoard(key) {
+      const b = BOARDS[key];
+      const vp = document.getElementById(`viewport-${key}`);
+      const svg = document.querySelector(`#surface-${key} svg`);
+      if (vp && svg) {
+        const vpRect = vp.getBoundingClientRect();
+        const svgRect = svg.getBoundingClientRect();
+        const currentScale = b.scale;
+        const rawW = svgRect.width / currentScale;
+        const rawH = svgRect.height / currentScale;
+        const scaleW = (vpRect.width - 60) / rawW;
+        const scaleH = (vpRect.height - 60) / rawH;
+        b.scale = Math.min(2.0, Math.max(0.4, Math.min(scaleW, scaleH)));
+        b.x = 0;
+        b.y = 0;
+        updateTransform(key);
+      }
+    }
+
+    function initViewportEvents(key) {
+      const vp = document.getElementById(`viewport-${key}`);
+      if (!vp) return;
+
+      // Mouse Wheel Zoom
+      vp.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const delta = e.deltaY < 0 ? 0.12 : -0.12;
+        zoomBoard(key, delta);
+      }, { passive: false });
+
+      // Mouse Drag-to-Pan
+      vp.addEventListener('mousedown', (e) => {
+        if (e.target.closest('.excalidraw-toolbar') || e.target.closest('.top-actions-bar')) return;
+        const b = BOARDS[key];
+        b.isDragging = true;
+        b.startX = e.clientX - b.x;
+        b.startY = e.clientY - b.y;
+        vp.classList.add('is-dragging');
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        const b = BOARDS[key];
+        if (!b.isDragging) return;
+        b.x = e.clientX - b.startX;
+        b.y = e.clientY - b.startY;
+        updateTransform(key);
+      });
+
+      window.addEventListener('mouseup', () => {
+        const b = BOARDS[key];
+        if (b.isDragging) {
+          b.isDragging = false;
+          vp.classList.remove('is-dragging');
+        }
+      });
+
+      // Double-click to Reset
+      vp.addEventListener('dblclick', (e) => {
+        if (e.target.closest('.excalidraw-toolbar') || e.target.closest('.top-actions-bar')) return;
+        resetBoard(key);
+      });
+    }
 
     function switchTab(tabId, btn) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -959,8 +1345,33 @@ graph LR
       const targetPane = document.getElementById(tabId);
       if (targetPane) {
         targetPane.classList.add('active');
+        const key = tabId.replace('tab-', '');
+        // Trigger resize fit if freshly viewed
+        setTimeout(() => fitBoard(key), 80);
       }
     }
+
+    function copyMermaidSource(srcId) {
+      const el = document.getElementById(srcId);
+      if (!el) return;
+      const text = el.textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      });
+    }
+
+    // Initialize Mermaid and Pan/Zoom Viewports on Page Load
+    document.addEventListener('DOMContentLoaded', async () => {
+      await mermaid.run();
+      Object.keys(BOARDS).forEach(key => {
+        initViewportEvents(key);
+        updateTransform(key);
+      });
+      // Initial fit on primary component board
+      setTimeout(() => fitBoard('component'), 150);
+    });
   </script>
 </body>
 </html>
