@@ -30,6 +30,7 @@ PAGES = [
     "pages/tell-show-do-apply.html",
     "pages/sanity-check.html",
     "pages/generated-code.html",
+    "pages/model-selection.html",
 ]
 
 DATA_FILES = [

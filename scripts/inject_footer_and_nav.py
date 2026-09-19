@@ -23,6 +23,7 @@ PAGE_CONFIG = [
     {"file": "tell-show-do-apply.html", "name": "🎧 Tell-Show-Do-Apply"},
     {"file": "sanity-check.html", "name": "🩺 Sanity Check"},
     {"file": "generated-code.html", "name": "💻 Generated Code"},
+    {"file": "model-selection.html", "name": "🧠 Model Selection"},
 ]
 
 FOOTER_CSS = """
@@ -150,6 +151,7 @@ FOOTER_HTML = """  <!-- Global Footer -->
         <div class="footer-heading">Pipeline &amp; Scaling</div>
         <ul class="footer-links-list">
           <li><a href="./production-cost.html">💰 Production Cost Model</a></li>
+          <li><a href="./model-selection.html">🧠 Model Selection &amp; Rationale</a></li>
           <li><a href="./youtube-vs-adwords.html">📊 Shorts vs AdWords CAC</a></li>
           <li><a href="./execution-logic.html">🚀 Two-Stage Execution Logic</a></li>
           <li><a href="./sanity-check.html">🩺 Sanity Check Audit</a></li>
@@ -162,17 +164,20 @@ FOOTER_HTML = """  <!-- Global Footer -->
       <div>
         <div class="footer-heading">Community &amp; Code</div>
         <ul class="footer-links-list">
+          <li><a href="https://rifaterdemsahin.github.io/ai-dictionary-timeline/" target="_blank" style="color: var(--cyan); font-weight: 700;">🌐 GitHub Pages Live Site ↗</a></li>
           <li><a href="https://www.skool.com/delivery-pilot-8938" target="_blank" style="color: var(--accent); font-weight: 600;">👥 Delivery Pilot Skool ↗</a></li>
           <li><a href="https://www.youtube.com/shorts/KVKJRdkH-B8" target="_blank">🎥 Audited YouTube Short (KVKJRdkH-B8) ↗</a></li>
           <li><a href="https://github.com/rifaterdemsahin/ai-dictionary-timeline" target="_blank">🐙 GitHub Repository ↗</a></li>
-          <li><a href="https://rifaterdemsahin.github.io/ai-dictionary-timeline/" target="_blank">🌐 GitHub Pages Live Site ↗</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom-bar">
       <div>&copy; 2026 Rifat Erdem Sahin &bull; Delivery Pilot AI Systems Architecture</div>
-      <div style="color: var(--muted);">Built with Fal.ai &bull; Seedream &bull; Kling 1.6 &bull; ElevenLabs &bull; Remotion</div>
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+        <span style="color: var(--muted);">Live on GitHub Pages:</span>
+        <a href="https://rifaterdemsahin.github.io/ai-dictionary-timeline/" target="_blank" style="color: var(--cyan); text-decoration: underline; font-weight: 600;">https://rifaterdemsahin.github.io/ai-dictionary-timeline/ ↗</a>
+      </div>
     </div>
   </footer>
 """
@@ -184,6 +189,7 @@ def generate_nav_html(active_file):
         f'<a href="./slideshow.html" class="nav-link{" active" if active_file == "slideshow.html" else ""}">🎬 Keyframe Slideshow</a>',
         f'<a href="./prompts.html" class="nav-link{" active" if active_file == "prompts.html" else ""}">📜 Prompts Log</a>',
         f'<a href="./production-cost.html" class="nav-link{" active" if active_file == "production-cost.html" else ""}">💰 Production Cost</a>',
+        f'<a href="./model-selection.html" class="nav-link{" active" if active_file == "model-selection.html" else ""}">🧠 Model Selection</a>',
         f'<a href="./youtube-vs-adwords.html" class="nav-link{" active" if active_file == "youtube-vs-adwords.html" else ""}">📊 Shorts vs AdWords</a>',
         f'<a href="./execution-logic.html" class="nav-link{" active" if active_file == "execution-logic.html" else ""}">🚀 Execution Logic</a>',
         f'<a href="./tell-show-do-apply.html" class="nav-link{" active" if active_file == "tell-show-do-apply.html" else ""}">🎧 Tell-Show-Do-Apply</a>',
