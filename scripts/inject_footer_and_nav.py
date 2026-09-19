@@ -25,6 +25,7 @@ PAGE_CONFIG = [
     {"file": "generated-code.html", "name": "💻 Generated Code"},
     {"file": "model-selection.html", "name": "🧠 Model Selection"},
     {"file": "voice-selection.html", "name": "🎙️ Voice Selection"},
+    {"file": "architecture.html", "name": "🏛️ Architecture"},
 ]
 
 FOOTER_CSS = """
@@ -154,6 +155,7 @@ FOOTER_HTML = """  <!-- Global Footer -->
           <li><a href="./production-cost.html">💰 Production Cost Model</a></li>
           <li><a href="./model-selection.html">🧠 Model Selection &amp; Rationale</a></li>
           <li><a href="./voice-selection.html">🎙️ ElevenLabs Voice Architecture</a></li>
+          <li><a href="./architecture.html">🏛️ System Architecture &amp; UML</a></li>
           <li><a href="./youtube-vs-adwords.html">📊 Shorts vs AdWords CAC</a></li>
           <li><a href="./execution-logic.html">🚀 Two-Stage Execution Logic</a></li>
           <li><a href="./sanity-check.html">🩺 Sanity Check Audit</a></li>
@@ -193,6 +195,7 @@ def generate_nav_html(active_file):
         f'<a href="./production-cost.html" class="nav-link{" active" if active_file == "production-cost.html" else ""}">💰 Production Cost</a>',
         f'<a href="./model-selection.html" class="nav-link{" active" if active_file == "model-selection.html" else ""}">🧠 Model Selection</a>',
         f'<a href="./voice-selection.html" class="nav-link{" active" if active_file == "voice-selection.html" else ""}">🎙️ Voice Selection</a>',
+        f'<a href="./architecture.html" class="nav-link{" active" if active_file == "architecture.html" else ""}">🏛️ Architecture</a>',
         f'<a href="./youtube-vs-adwords.html" class="nav-link{" active" if active_file == "youtube-vs-adwords.html" else ""}">📊 Shorts vs AdWords</a>',
         f'<a href="./execution-logic.html" class="nav-link{" active" if active_file == "execution-logic.html" else ""}">🚀 Execution Logic</a>',
         f'<a href="./tell-show-do-apply.html" class="nav-link{" active" if active_file == "tell-show-do-apply.html" else ""}">🎧 Tell-Show-Do-Apply</a>',
