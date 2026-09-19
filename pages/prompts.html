@@ -303,6 +303,8 @@
         <a href="./model-selection.html" class="nav-link">🧠 Model Selection</a>
         <a href="./voice-selection.html" class="nav-link">🎙️ Voice Selection</a>
         <a href="./architecture.html" class="nav-link">🏛️ Architecture</a>
+        <a href="./parameters.html" class="nav-link">⚙️ Parameters</a>
+        <a href="./json-viewer.html" class="nav-link">🔍 JSON Viewer</a>
         <a href="./youtube-vs-adwords.html" class="nav-link">📊 Shorts vs AdWords</a>
         <a href="./execution-logic.html" class="nav-link">🚀 Execution Logic</a>
         <a href="./tell-show-do-apply.html" class="nav-link">🎧 Tell-Show-Do-Apply</a>
@@ -564,9 +566,27 @@ Design a production-ready, step-by-step technical blueprint and architecture for
         </div>
       </div>
 
+      <!-- Prompt 19 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <span class="prompt-num">Prompt 19 &bull; Architecture Fix, Parameters Matrix &amp; Interactive JSON Viewer</span>
+          <span class="prompt-outcome">Status: Complete &amp; Deployed</span>
+        </div>
+        <div class="prompt-content">not all architecture documents are working fix them and create a parameters page for all the parametersn that is used / task : place this in a json viewer page &gt; http://localhost:30085/data/claude-associate-terms.json</div>
+        <div class="prompt-summary-box">
+          <strong>Built / Delivered:</strong>
+          <ul style="margin: 6px 0 0 18px; line-height: 1.6;">
+            <li><strong>Architecture Fix:</strong> Fixed all 5 Mermaid diagrams in <code>pages/architecture.html</code> by resolving hidden tab zero-dimension rendering collisions (replaced <code>display: none</code> with off-screen dimensional positioning <code>left: -99999px; height: 0;</code> so SVG bounding boxes compute reliably) and corrected class syntax errors.</li>
+            <li><strong>Parameters Page:</strong> Created <code>pages/parameters.html</code> cataloging all 38 pipeline parameters across fal.ai Keyframe (Seedream 4.0), fal.ai Kling 1.6 Pro video interpolation, ElevenLabs Brian TTS (112 Hz, 165 WPM), Remotion 30 FPS composition (-18 dB ducking), Claude 3.5 Sonnet curriculum prompts, and Azure Key Vault secrets. Included interactive Parameter Calibration Sandbox.</li>
+            <li><strong>Interactive JSON Viewer:</strong> Created <code>pages/json-viewer.html</code> directly fetching from <code>http://localhost:30085/data/claude-associate-terms.json</code> with collapsible DOM tree view, live keyword search, domain filtering pills, 24-term quick selector, full inspector card with 16s video blueprints and exam traps, and 1-click Raw/Minified JSON copying &amp; downloading.</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
 
     <!-- Global Footer -->
+  <!-- Global Footer -->
   <footer class="global-footer">
     <div class="footer-inner">
       <!-- Col 1: Brand & Overview -->
@@ -591,6 +611,7 @@ Design a production-ready, step-by-step technical blueprint and architecture for
           <li><a href="./flashcards.html">⚡ Exam Flashcards</a></li>
           <li><a href="./slideshow.html">🎬 Keyframe Slideshow</a></li>
           <li><a href="./tell-show-do-apply.html">🎧 Tell-Show-Do-Apply</a></li>
+          <li><a href="./json-viewer.html">🔍 Interactive JSON Viewer</a></li>
           <li><a href="../data/claude-associate-terms.json" target="_blank">🔗 Raw Terms JSON</a></li>
         </ul>
       </div>
@@ -599,6 +620,7 @@ Design a production-ready, step-by-step technical blueprint and architecture for
       <div>
         <div class="footer-heading">Pipeline &amp; Scaling</div>
         <ul class="footer-links-list">
+          <li><a href="./parameters.html">⚙️ System Parameters</a></li>
           <li><a href="./production-cost.html">💰 Production Cost Model</a></li>
           <li><a href="./model-selection.html">🧠 Model Selection &amp; Rationale</a></li>
           <li><a href="./voice-selection.html">🎙️ ElevenLabs Voice Architecture</a></li>

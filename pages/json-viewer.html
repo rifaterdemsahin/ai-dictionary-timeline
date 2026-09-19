@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive JSON Viewer & Schema Inspector — Claude Associate Terms</title>
+  <style>
+    :root {
+      --bg: #09090b;
+      --card-bg: #18181b;
+      --card-hover: #222226;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --accent: #cc785c;
+      --accent-glow: rgba(204, 120, 92, 0.4);
+      --border: #27272a;
+      --cyan: #38bdf8;
+      --gold: #fbbf24;
+      --green: #4ade80;
+      --red: #f87171;
+      --purple: #c084fc;
+      --terminal-bg: #000000;
+      --tree-hover: rgba(255, 255, 255, 0.04);
+      --key-color: #38bdf8;
+      --string-color: #a7f3d0;
+      --num-color: #fde047;
+      --bool-color: #f472b6;
+      --null-color: #94a3b8;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 0 60px 0;
+    }
+
+    /* Top Navigation Bar */
+    .top-nav {
+      background: rgba(24, 24, 27, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .nav-brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #fafafa;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .nav-link.active {
+      color: var(--accent);
+      border: 1px solid rgba(204, 120, 92, 0.3);
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 36px auto 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .header-section {
+      margin-bottom: 30px;
+    }
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--cyan);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 880px;
+      line-height: 1.6;
+    }
+
+    /* Source Endpoint Card */
+    .endpoint-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .endpoint-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .http-badge {
+      background: #064e3b;
+      color: #34d399;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+    .endpoint-url {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 14px;
+      color: #38bdf8;
+      word-break: break-all;
+    }
+    .endpoint-stats {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .stat-pill {
+      font-size: 12.5px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 5px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    .stat-pill strong {
+      color: #fafafa;
+    }
+
+    /* Toolbar */
+    .viewer-toolbar {
+      background: #121215;
+      border: 1px solid var(--border);
+      border-radius: 12px 12px 0 0;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .toolbar-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .search-input {
+      background: #18181b;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 7px 12px 7px 32px;
+      border-radius: 6px;
+      font-size: 13px;
+      width: 260px;
+      outline: none;
+      transition: border-color 0.2s ease;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%23a1a1aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>');
+      background-repeat: no-repeat;
+      background-position: 10px center;
+    }
+    .search-input:focus {
+      border-color: var(--accent);
+    }
+    .select-dropdown {
+      background: #18181b;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 7px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      outline: none;
+      cursor: pointer;
+    }
+    .btn {
+      background: #27272a;
+      color: #fafafa;
+      border: 1px solid #3f3f46;
+      padding: 7px 12px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn:hover {
+      background: #3f3f46;
+      border-color: #52525b;
+    }
+    .btn-accent {
+      background: var(--accent);
+      border-color: #d97706;
+      color: #ffffff;
+    }
+    .btn-accent:hover {
+      background: #b45309;
+    }
+    .btn-group {
+      display: flex;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #3f3f46;
+    }
+    .btn-group .btn {
+      border-radius: 0;
+      border: none;
+      border-right: 1px solid #3f3f46;
+    }
+    .btn-group .btn:last-child {
+      border-right: none;
+    }
+    .btn-group .btn.active {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Main Workspace Layout */
+    .viewer-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      overflow: hidden;
+      background: #000000;
+      min-height: 650px;
+    }
+    @media (max-width: 1024px) {
+      .viewer-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Left Pane: JSON Tree / Raw */
+    .tree-pane {
+      padding: 20px;
+      overflow: auto;
+      max-height: 800px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .raw-pane {
+      display: none;
+      padding: 20px;
+      overflow: auto;
+      max-height: 800px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: #e2e8f0;
+    }
+
+    /* JSON Tree Elements */
+    .tree-node {
+      margin-left: 18px;
+      position: relative;
+    }
+    .tree-toggle {
+      cursor: pointer;
+      user-select: none;
+      color: var(--muted);
+      display: inline-block;
+      width: 16px;
+      text-align: center;
+      margin-right: 4px;
+      font-size: 10px;
+      transition: transform 0.15s ease;
+    }
+    .tree-toggle.collapsed {
+      transform: rotate(-90deg);
+    }
+    .tree-key {
+      color: var(--key-color);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .tree-key:hover {
+      text-decoration: underline;
+    }
+    .tree-colon {
+      color: var(--muted);
+      margin-right: 6px;
+    }
+    .tree-string {
+      color: var(--string-color);
+      word-break: break-word;
+    }
+    .tree-number {
+      color: var(--num-color);
+      font-weight: 500;
+    }
+    .tree-boolean {
+      color: var(--bool-color);
+      font-weight: 600;
+    }
+    .tree-null {
+      color: var(--null-color);
+      font-style: italic;
+    }
+    .tree-badge {
+      display: inline-block;
+      font-size: 11px;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      margin-left: 6px;
+      user-select: none;
+    }
+    .tree-highlight {
+      background: rgba(251, 191, 36, 0.35);
+      color: #ffffff;
+      padding: 1px 2px;
+      border-radius: 2px;
+    }
+    .tree-selected {
+      background: rgba(204, 120, 92, 0.2);
+      border-radius: 4px;
+      outline: 1px solid var(--accent);
+    }
+
+    /* Right Pane: Inspector Card */
+    .inspector-pane {
+      background: #111114;
+      border-left: 1px solid var(--border);
+      padding: 20px;
+      overflow-y: auto;
+      max-height: 800px;
+    }
+    .inspector-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+    }
+    .inspector-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fafafa;
+    }
+    .inspector-domain-pill {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--cyan);
+      margin-top: 6px;
+    }
+    .inspector-section {
+      margin-bottom: 20px;
+    }
+    .inspector-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .inspector-value {
+      font-size: 13.5px;
+      color: #e4e4e7;
+      line-height: 1.5;
+      background: #18181b;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .blueprint-grid {
+      display: grid;
+      gap: 8px;
+      font-size: 12.5px;
+    }
+    .blueprint-step {
+      background: #18181b;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border-left: 3px solid var(--accent);
+    }
+    .blueprint-time {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 11px;
+    }
+    .trap-box {
+      background: rgba(248, 113, 113, 0.08);
+      border: 1px solid rgba(248, 113, 113, 0.25);
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+    .trap-box strong {
+      color: var(--red);
+    }
+    .prompt-box {
+      font-family: ui-monospace, monospace;
+      font-size: 11.5px;
+      background: #000;
+      border: 1px solid #333;
+      padding: 10px;
+      border-radius: 6px;
+      color: #a7f3d0;
+      line-height: 1.4;
+      max-height: 160px;
+      overflow-y: auto;
+    }
+    .skool-cta-box {
+      background: rgba(204, 120, 92, 0.1);
+      border: 1px solid rgba(204, 120, 92, 0.3);
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 12.5px;
+    }
+    .skool-cta-box a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .skool-cta-box a:hover {
+      text-decoration: underline;
+    }
+
+    /* Domain Jump Navigation Bar */
+    .domain-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .domain-pill {
+      background: #18181b;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12.5px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .domain-pill:hover, .domain-pill.active {
+      color: #fafafa;
+      border-color: var(--cyan);
+      background: rgba(56, 189, 248, 0.1);
+    }
+    .domain-pill.active {
+      font-weight: 600;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10b981;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Comprehensive Global Footer */
+    .global-footer {
+      background: #000000;
+      border-top: 1px solid var(--border);
+      padding: 60px 20px 30px 20px;
+      color: var(--muted);
+      font-size: 13.5px;
+      margin-top: 60px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 900px) {
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fafafa;
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: 12px;
+    }
+    .footer-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 380px;
+      margin-bottom: 16px;
+    }
+    .footer-heading {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+    }
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-links-list a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-links-list a:hover {
+      color: var(--accent);
+    }
+    .footer-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(74, 222, 128, 0.1);
+      border: 1px solid rgba(74, 222, 128, 0.25);
+      color: var(--green);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    .footer-bottom-bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">
+        <div class="nav-brand-dot"></div>
+        <span>Claude Associate Curriculum</span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">📖 Terms Dictionary</a>
+        <a href="./flashcards.html" class="nav-link">⚡ Flashcards</a>
+        <a href="./slideshow.html" class="nav-link">🎬 Keyframe Slideshow</a>
+        <a href="./prompts.html" class="nav-link">📜 Prompts Log</a>
+        <a href="./production-cost.html" class="nav-link">💰 Production Cost</a>
+        <a href="./model-selection.html" class="nav-link">🧠 Model Selection</a>
+        <a href="./voice-selection.html" class="nav-link">🎙️ Voice Selection</a>
+        <a href="./architecture.html" class="nav-link">🏛️ Architecture</a>
+        <a href="./parameters.html" class="nav-link">⚙️ Parameters</a>
+        <a href="./json-viewer.html" class="nav-link active">🔍 JSON Viewer</a>
+        <a href="./youtube-vs-adwords.html" class="nav-link">📊 Shorts vs AdWords</a>
+        <a href="./execution-logic.html" class="nav-link">🚀 Execution Logic</a>
+        <a href="./tell-show-do-apply.html" class="nav-link">🎧 Tell-Show-Do-Apply</a>
+        <a href="./sanity-check.html" class="nav-link">🩺 Sanity Check</a>
+        <a href="./generated-code.html" class="nav-link">💻 Generated Code</a>
+        <a href="../data/claude-associate-terms.json" target="_blank" class="nav-link">🔗 Terms JSON</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header-section">
+      <div class="badge-tag">
+        <span>🔍</span> Live JSON Schema & Data Inspector
+      </div>
+      <h1>Interactive JSON Viewer & Curriculum Explorer</h1>
+      <p class="subtitle">
+        Direct live-inspection and deep DOM tree navigation of the Claude Associate curriculum dataset.
+        Explore all 24 certified terms, domain taxonomies, 16s video blueprints, keyframe visual prompt specs, and audio foley cues.
+      </p>
+    </div>
+
+    <!-- Active Endpoint Status Banner -->
+    <div class="endpoint-card">
+      <div class="endpoint-left">
+        <span class="http-badge">GET 200 OK</span>
+        <span class="endpoint-url" id="endpointUrlDisplay">http://localhost:30085/data/claude-associate-terms.json</span>
+      </div>
+      <div class="endpoint-stats">
+        <div class="stat-pill">Terms: <strong id="statTerms">24</strong></div>
+        <div class="stat-pill">Domains: <strong id="statDomains">6</strong></div>
+        <div class="stat-pill">Size: <strong id="statSize">190.6 KB</strong></div>
+        <div class="stat-pill">Nodes: <strong id="statNodes">3,281</strong></div>
+      </div>
+    </div>
+
+    <!-- Quick Domain Category Pills -->
+    <div class="domain-pills" id="domainPills">
+      <div class="domain-pill active" onclick="filterDomain('all')">🌐 All Domains (24)</div>
+      <div class="domain-pill" onclick="filterDomain('Output Formats & Feature Selection')">📦 Output Formats (4)</div>
+      <div class="domain-pill" onclick="filterDomain('Prompting & Task Decomposition')">✍️ Prompting (4)</div>
+      <div class="domain-pill" onclick="filterDomain('Model Selection & Context Management')">🧠 Model Selection (4)</div>
+      <div class="domain-pill" onclick="filterDomain('Evaluation, Fact-Checking & Safety')">🛡️ Safety & Eval (4)</div>
+      <div class="domain-pill" onclick="filterDomain('Projects & Knowledge Management')">📁 Projects & Knowledge (4)</div>
+      <div class="domain-pill" onclick="filterDomain('API Mechanics & Tool Use')">⚙️ API & Tool Use (4)</div>
+    </div>
+
+    <!-- Main Toolbar -->
+    <div class="viewer-toolbar">
+      <div class="toolbar-group">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search terms, traps, prompts..." oninput="handleSearch()">
+        <select id="termSelector" class="select-dropdown" onchange="jumpToTerm(this.value)">
+          <option value="">Jump to specific term (24)...</option>
+        </select>
+      </div>
+
+      <div class="toolbar-group">
+        <div class="btn-group">
+          <button class="btn active" id="treeViewBtn" onclick="switchView('tree')">🌳 Tree View</button>
+          <button class="btn" id="rawViewBtn" onclick="switchView('raw')">📄 Formatted JSON</button>
+        </div>
+        <button class="btn" onclick="expandAll()">Expand All</button>
+        <button class="btn" onclick="collapseAll()">Collapse All</button>
+        <button class="btn btn-accent" onclick="copyRawJSON()">📋 Copy Raw</button>
+        <button class="btn" onclick="downloadJSON()">💾 Download</button>
+      </div>
+    </div>
+
+    <!-- Viewer & Inspector Layout -->
+    <div class="viewer-layout">
+      <!-- Left: Tree / Raw Pane -->
+      <div id="treePane" class="tree-pane">
+        <div style="color: var(--muted); padding: 20px;">Loading JSON from endpoint...</div>
+      </div>
+      <pre id="rawPane" class="raw-pane"></pre>
+
+      <!-- Right: Inspector Sidebar -->
+      <div class="inspector-pane" id="inspectorPane">
+        <div class="inspector-header">
+          <div>
+            <div class="inspector-title" id="inspTitle">Artifacts</div>
+            <div class="inspector-domain-pill" id="inspDomain">Output Formats & Feature Selection</div>
+          </div>
+          <span style="font-size: 11px; color: var(--gold); font-weight: 700;">TIER: ASSOCIATE</span>
+        </div>
+
+        <div class="inspector-section">
+          <div class="inspector-label">📖 Definition</div>
+          <div class="inspector-value" id="inspDef">Loading definition...</div>
+        </div>
+
+        <div class="inspector-section">
+          <div class="inspector-label">🎬 16-Second Video Blueprint</div>
+          <div class="blueprint-grid" id="inspBlueprint">
+            <div class="blueprint-step"><span class="blueprint-time">00-03s Hook:</span> <span id="inspHook">...</span></div>
+            <div class="blueprint-step"><span class="blueprint-time">03-08s Concept:</span> <span id="inspConcept">...</span></div>
+            <div class="blueprint-step"><span class="blueprint-time">08-12s Pitfall:</span> <span id="inspPitfall">...</span></div>
+            <div class="blueprint-step"><span class="blueprint-time">12-16s CTA Tip:</span> <span id="inspCta">...</span></div>
+          </div>
+        </div>
+
+        <div class="inspector-section">
+          <div class="inspector-label">⚠️ Key Exam Trap</div>
+          <div class="trap-box" id="inspTrap">
+            <div><strong>Myth:</strong> <span id="inspMyth">...</span></div>
+            <div style="margin-top: 4px;"><strong>Reality:</strong> <span id="inspReality">...</span></div>
+          </div>
+        </div>
+
+        <div class="inspector-section">
+          <div class="inspector-label">🎨 Fal.ai Keyframe Visual Prompt</div>
+          <div class="prompt-box" id="inspPrompt">Loading prompt...</div>
+        </div>
+
+        <div class="inspector-section">
+          <div class="inspector-label">👥 Pinned Skool CTA</div>
+          <div class="skool-cta-box" id="inspSkool">
+            Loading Skool community pinned CTA...
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">Copied to clipboard!</div>
+
+  <!-- Global Footer -->
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="footer-inner">
+      <!-- Col 1: Brand & Overview -->
+      <div>
+        <div class="footer-brand">
+          <div class="nav-brand-dot"></div>
+          <span>Claude Associate Engine</span>
+        </div>
+        <p class="footer-desc">
+          Automated media architecture and 16-second vertical video generation engine for the Anthropic Claude Certified Associate examination.
+        </p>
+        <div class="footer-badge-pill">
+          <span>●</span> Port 30085 Active &bull; All 7 Gating Stages Passing
+        </div>
+      </div>
+
+      <!-- Col 2: Learning & Study Tools -->
+      <div>
+        <div class="footer-heading">Curriculum Tools</div>
+        <ul class="footer-links-list">
+          <li><a href="../index.html">📖 Terms Dictionary</a></li>
+          <li><a href="./flashcards.html">⚡ Exam Flashcards</a></li>
+          <li><a href="./slideshow.html">🎬 Keyframe Slideshow</a></li>
+          <li><a href="./tell-show-do-apply.html">🎧 Tell-Show-Do-Apply</a></li>
+          <li><a href="./json-viewer.html">🔍 Interactive JSON Viewer</a></li>
+          <li><a href="../data/claude-associate-terms.json" target="_blank">🔗 Raw Terms JSON</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Economics & Operations -->
+      <div>
+        <div class="footer-heading">Pipeline &amp; Scaling</div>
+        <ul class="footer-links-list">
+          <li><a href="./parameters.html">⚙️ System Parameters</a></li>
+          <li><a href="./production-cost.html">💰 Production Cost Model</a></li>
+          <li><a href="./model-selection.html">🧠 Model Selection &amp; Rationale</a></li>
+          <li><a href="./voice-selection.html">🎙️ ElevenLabs Voice Architecture</a></li>
+          <li><a href="./architecture.html">🏛️ System Architecture &amp; UML</a></li>
+          <li><a href="./youtube-vs-adwords.html">📊 Shorts vs AdWords CAC</a></li>
+          <li><a href="./execution-logic.html">🚀 Two-Stage Execution Logic</a></li>
+          <li><a href="./sanity-check.html">🩺 Sanity Check Audit</a></li>
+          <li><a href="./generated-code.html">💻 Generated Codebase</a></li>
+          <li><a href="./prompts.html">📜 Prompt History Log</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Ecosystem & External -->
+      <div>
+        <div class="footer-heading">Community &amp; Code</div>
+        <ul class="footer-links-list">
+          <li><a href="https://rifaterdemsahin.github.io/ai-dictionary-timeline/" target="_blank" style="color: var(--cyan); font-weight: 700;">🌐 GitHub Pages Live Site ↗</a></li>
+          <li><a href="https://www.skool.com/delivery-pilot-8938" target="_blank" style="color: var(--accent); font-weight: 600;">👥 Delivery Pilot Skool ↗</a></li>
+          <li><a href="https://www.youtube.com/shorts/KVKJRdkH-B8" target="_blank">🎥 Audited YouTube Short (KVKJRdkH-B8) ↗</a></li>
+          <li><a href="https://github.com/rifaterdemsahin/ai-dictionary-timeline" target="_blank">🐙 GitHub Repository ↗</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>&copy; 2026 Rifat Erdem Sahin &bull; Delivery Pilot AI Systems Architecture</div>
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+        <span style="color: var(--muted);">Live on GitHub Pages:</span>
+        <a href="https://rifaterdemsahin.github.io/ai-dictionary-timeline/" target="_blank" style="color: var(--cyan); text-decoration: underline; font-weight: 600;">https://rifaterdemsahin.github.io/ai-dictionary-timeline/ ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let jsonData = null;
+    let selectedTermId = "artifacts";
+    let activeFilterDomain = "all";
+
+    // Primary JSON fetch with localhost:30085 and fallback to relative path
+    async function loadJson() {
+      const pathsToTry = [
+        "../data/claude-associate-terms.json",
+        "http://localhost:30085/data/claude-associate-terms.json",
+        "/data/claude-associate-terms.json"
+      ];
+
+      for (const p of pathsToTry) {
+        try {
+          const res = await fetch(p);
+          if (res.ok) {
+            jsonData = await res.json();
+            document.getElementById('endpointUrlDisplay').textContent = (p.startsWith('http') ? p : (window.location.origin + window.location.pathname.replace('/pages/json-viewer.html', '') + '/data/claude-associate-terms.json'));
+            initViewer();
+            return;
+          }
+        } catch (e) {
+          console.warn("Could not load from", p, e);
+        }
+      }
+      document.getElementById('treePane').innerHTML = `<div style="color: var(--red); padding: 20px;">Failed to load JSON data from server. Please ensure port 30085 is running.</div>`;
+    }
+
+    function initViewer() {
+      if (!jsonData) return;
+
+      // Populate Quick Jump Dropdown
+      const selector = document.getElementById('termSelector');
+      selector.innerHTML = '<option value="">Jump to specific term (24)...</option>';
+      if (jsonData.terms) {
+        jsonData.terms.forEach(t => {
+          const opt = document.createElement('option');
+          opt.value = t.id;
+          opt.textContent = `${t.term} (${t.domain.split(' ')[0]})`;
+          selector.appendChild(opt);
+        });
+      }
+
+      // Populate Raw formatted JSON
+      document.getElementById('rawPane').textContent = JSON.stringify(jsonData, null, 2);
+
+      // Render Tree
+      renderTree();
+
+      // Show First Term in Inspector
+      if (jsonData.terms && jsonData.terms.length > 0) {
+        inspectTerm(jsonData.terms[0].id);
+      }
+    }
+
+    function renderTree(searchQuery = "") {
+      const treeContainer = document.getElementById('treePane');
+      treeContainer.innerHTML = '';
+      
+      const rootDom = buildJsonTree(jsonData, "root", searchQuery);
+      treeContainer.appendChild(rootDom);
+    }
+
+    function buildJsonTree(data, keyName = "", search = "") {
+      const container = document.createElement('div');
+      container.className = 'tree-node';
+
+      const type = Array.isArray(data) ? 'array' : (data === null ? 'null' : typeof data);
+
+      if (type === 'object' || type === 'array') {
+        const isArr = type === 'array';
+        const keys = Object.keys(data);
+        const count = keys.length;
+
+        const header = document.createElement('div');
+        header.style.whiteSpace = 'nowrap';
+
+        const toggle = document.createElement('span');
+        toggle.className = 'tree-toggle';
+        toggle.textContent = '▼';
+        header.appendChild(toggle);
+
+        if (keyName !== "") {
+          const keySpan = document.createElement('span');
+          keySpan.className = 'tree-key';
+          keySpan.textContent = `"${keyName}"`;
+          
+          // Check if this object is a term object and allow direct inspector opening
+          if (data && data.id && data.term) {
+            keySpan.onclick = (e) => {
+              e.stopPropagation();
+              inspectTerm(data.id);
+            };
+            keySpan.title = "Click to inspect " + data.term;
+          }
+
+          header.appendChild(keySpan);
+          const colon = document.createElement('span');
+          colon.className = 'tree-colon';
+          colon.textContent = ': ';
+          header.appendChild(colon);
+        }
+
+        const openBracket = document.createElement('span');
+        openBracket.textContent = isArr ? '[' : '{';
+        openBracket.style.color = 'var(--muted)';
+        header.appendChild(openBracket);
+
+        const badge = document.createElement('span');
+        badge.className = 'tree-badge';
+        badge.textContent = `${count} ${isArr ? 'items' : 'keys'}`;
+        header.appendChild(badge);
+
+        container.appendChild(header);
+
+        const childrenContainer = document.createElement('div');
+        childrenContainer.style.display = 'block';
+
+        keys.forEach(k => {
+          // Domain filtering if active on terms array
+          if (keyName === 'terms' && activeFilterDomain !== 'all') {
+            const item = data[k];
+            if (item && item.domain !== activeFilterDomain) {
+              return;
+            }
+          }
+          const childNode = buildJsonTree(data[k], k, search);
+          childrenContainer.appendChild(childNode);
+        });
+
+        const closeBracket = document.createElement('div');
+        closeBracket.style.marginLeft = '18px';
+        closeBracket.style.color = 'var(--muted)';
+        closeBracket.textContent = isArr ? ']' : '}';
+
+        container.appendChild(childrenContainer);
+        container.appendChild(closeBracket);
+
+        // Toggle collapsing
+        toggle.onclick = (e) => {
+          e.stopPropagation();
+          const isCollapsed = childrenContainer.style.display === 'none';
+          childrenContainer.style.display = isCollapsed ? 'block' : 'none';
+          closeBracket.style.display = isCollapsed ? 'block' : 'none';
+          toggle.textContent = isCollapsed ? '▼' : '▶';
+          toggle.classList.toggle('collapsed', !isCollapsed);
+        };
+
+      } else {
+        // Primitive value
+        const line = document.createElement('div');
+        line.style.whiteSpace = 'pre-wrap';
+
+        if (keyName !== "") {
+          const keySpan = document.createElement('span');
+          keySpan.className = 'tree-key';
+          keySpan.textContent = `"${keyName}"`;
+          line.appendChild(keySpan);
+
+          const colon = document.createElement('span');
+          colon.className = 'tree-colon';
+          colon.textContent = ': ';
+          line.appendChild(colon);
+        }
+
+        const valSpan = document.createElement('span');
+        valSpan.className = `tree-${type}`;
+
+        let strVal = String(data);
+        if (type === 'string') {
+          strVal = `"${data}"`;
+        }
+
+        if (search && strVal.toLowerCase().includes(search.toLowerCase())) {
+          const regex = new RegExp(`(${search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+          valSpan.innerHTML = strVal.replace(regex, `<span class="tree-highlight">$1</span>`);
+        } else {
+          valSpan.textContent = strVal;
+        }
+
+        line.appendChild(valSpan);
+        container.appendChild(line);
+      }
+
+      return container;
+    }
+
+    function inspectTerm(termId) {
+      if (!jsonData || !jsonData.terms) return;
+      const term = jsonData.terms.find(t => t.id === termId);
+      if (!term) return;
+
+      selectedTermId = termId;
+
+      document.getElementById('inspTitle').textContent = term.term;
+      document.getElementById('inspDomain').textContent = term.domain;
+      document.getElementById('inspDef').textContent = term.shortDefinition || "No definition available.";
+
+      // Video Blueprint
+      if (term.video16sBlueprint) {
+        document.getElementById('inspHook').textContent = term.video16sBlueprint.hook || "";
+        document.getElementById('inspConcept').textContent = term.video16sBlueprint.conceptPart1 || "";
+        document.getElementById('inspPitfall').textContent = term.video16sBlueprint.conceptPart2 || "";
+        document.getElementById('inspCta').textContent = term.video16sBlueprint.ctaExamTip || "";
+      }
+
+      // Exam Trap
+      if (term.keyExamTrap) {
+        document.getElementById('inspMyth').textContent = term.keyExamTrap.myth || "";
+        document.getElementById('inspReality').textContent = term.keyExamTrap.reality || "";
+      }
+
+      // Prompt
+      if (term.keyframeVisualSpec) {
+        document.getElementById('inspPrompt').textContent = term.keyframeVisualSpec.falPromptSeedream || term.keyframeVisualSpec.description || "";
+      }
+
+      // Skool CTA
+      if (term.pinnedComment) {
+        document.getElementById('inspSkool').innerHTML = term.pinnedComment.replace(/(https:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+      }
+
+      // Sync dropdown
+      document.getElementById('termSelector').value = termId;
+    }
+
+    function jumpToTerm(termId) {
+      if (!termId) return;
+      inspectTerm(termId);
+      
+      // Auto-search term to spotlight it in tree
+      document.getElementById('searchInput').value = termId;
+      handleSearch();
+    }
+
+    function filterDomain(domain) {
+      activeFilterDomain = domain;
+      document.querySelectorAll('.domain-pill').forEach(pill => {
+        pill.classList.remove('active');
+        if (domain === 'all' && pill.textContent.includes('All Domains')) {
+          pill.classList.add('active');
+        } else if (pill.textContent.includes(domain.split(' ')[0])) {
+          pill.classList.add('active');
+        }
+      });
+      renderTree(document.getElementById('searchInput').value.trim());
+    }
+
+    function handleSearch() {
+      const q = document.getElementById('searchInput').value.trim();
+      renderTree(q);
+    }
+
+    function switchView(mode) {
+      const treePane = document.getElementById('treePane');
+      const rawPane = document.getElementById('rawPane');
+      const treeBtn = document.getElementById('treeViewBtn');
+      const rawBtn = document.getElementById('rawViewBtn');
+
+      if (mode === 'tree') {
+        treePane.style.display = 'block';
+        rawPane.style.display = 'none';
+        treeBtn.classList.add('active');
+        rawBtn.classList.remove('active');
+      } else {
+        treePane.style.display = 'none';
+        rawPane.style.display = 'block';
+        rawBtn.classList.add('active');
+        treeBtn.classList.remove('active');
+      }
+    }
+
+    function expandAll() {
+      document.querySelectorAll('.tree-node').forEach(node => {
+        const toggle = node.querySelector(':scope > div > .tree-toggle');
+        const childContainer = node.querySelector(':scope > div:nth-child(2)');
+        const closeBracket = node.querySelector(':scope > div:nth-child(3)');
+        if (toggle && childContainer) {
+          childContainer.style.display = 'block';
+          if (closeBracket) closeBracket.style.display = 'block';
+          toggle.textContent = '▼';
+          toggle.classList.remove('collapsed');
+        }
+      });
+    }
+
+    function collapseAll() {
+      document.querySelectorAll('.tree-node').forEach(node => {
+        const toggle = node.querySelector(':scope > div > .tree-toggle');
+        const childContainer = node.querySelector(':scope > div:nth-child(2)');
+        const closeBracket = node.querySelector(':scope > div:nth-child(3)');
+        if (toggle && childContainer) {
+          childContainer.style.display = 'none';
+          if (closeBracket) closeBracket.style.display = 'none';
+          toggle.textContent = '▶';
+          toggle.classList.add('collapsed');
+        }
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    function copyRawJSON() {
+      if (!jsonData) return;
+      navigator.clipboard.writeText(JSON.stringify(jsonData, null, 2)).then(() => {
+        showToast("✓ Complete raw JSON copied to clipboard!");
+      });
+    }
+
+    function downloadJSON() {
+      if (!jsonData) return;
+      const blob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'claude-associate-terms.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast("✓ JSON file downloaded!");
+    }
+
+    // Launch
+    window.addEventListener('DOMContentLoaded', loadJson);
+  </script>
+</body>
+</html>

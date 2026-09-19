@@ -33,6 +33,8 @@ PAGES = [
     "pages/model-selection.html",
     "pages/voice-selection.html",
     "pages/architecture.html",
+    "pages/parameters.html",
+    "pages/json-viewer.html",
 ]
 
 DATA_FILES = [
