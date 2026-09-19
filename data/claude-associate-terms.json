@@ -67,7 +67,9 @@
         "endFramePrompt": "Resolved target state for 'Artifacts' concept: Conversational replies and quick 3-line snippets always stay inline to avoid cluttering your workspace.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: Candidates failed this at 0%! Remember: standalone and reusable equals Artifact, quick explanation equals inline!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Mastered Artifacts vs Inline Markdown? Don't let this trick question cost you points on the Claude Certified Associate Exam! \ud83c\udfaf Grab the full interactive 24-term exam blueprint and flashcards free inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Quick Quiz: Would you put a 25-line React component or a 3-line curl command in an Artifact window? Drop your answer below!",
+      "pinnedCommentHookTopic": "Artifacts vs Inline Markdown Decision Matrix"
     },
     {
       "id": "inline-markdown",
@@ -98,7 +100,9 @@
         "endFramePrompt": "Resolved target state for 'Inline Markdown' concept: Creating an Artifact for a short response interrupts the user's flow and wastes layout real estate.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Associate Exam Rule: If the user doesn't need to export, compile, or iterate on the code as a file, keep it inline!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Should Claude open a side Artifact or stay directly in chat? Keeping conversational replies and short snippets inline protects user workflow! \u26a1 Master all Claude UI mechanics and exam blueprints inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 When do you prefer inline chat over an Artifact window? Let's discuss in the comments!",
+      "pinnedCommentHookTopic": "Inline Chat Flow & Workspace Ergonomics"
     },
     {
       "id": "task-decomposition",
@@ -131,7 +135,9 @@
         "endFramePrompt": "Resolved target state for 'Task Decomposition' concept: Task decomposition forces Claude to execute Step 1, verify the intermediate state, then proceed to Step 2.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: For multi-step enterprise workflows, always decompose complex instructions into numbered sequential stages!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Single giant prompts hallucinate\u2014deconstructed sequential steps succeed! \ud83d\udee0\ufe0f Want our plug-and-play task decomposition prompts and Claude Associate study guide? Join 100+ AI builders free in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What complex prompt are you trying to break down right now? Drop it below!",
+      "pinnedCommentHookTopic": "Task Decomposition & Multi-Step Prompts"
     },
     {
       "id": "xml-tagging",
@@ -164,7 +170,9 @@
         "endFramePrompt": "Resolved target state for 'XML Tagging in Prompts' concept: This prevents prompt injection and stops Claude from confusing your example data with actual user instructions.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Anthropic Associate Exam Gold: Always use semantic XML tags to wrap input documents and reference criteria!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Why does Anthropic demand XML tags instead of markdown headers? It mathematically prevents prompt injection and separates instructions from untrusted data! \ud83d\udee1\ufe0f Grab our production XML template library inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Do you use <instructions> and <context> tags in your production prompts yet? Vote yes or no below!",
+      "pinnedCommentHookTopic": "XML Tagging & Injection Defense"
     },
     {
       "id": "system-prompts",
@@ -197,7 +205,9 @@
         "endFramePrompt": "Resolved target state for 'System Prompts' concept: Even across 50 multi-turn conversation exchanges, the system prompt retains maximum steering priority.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: Use the top-level 'system' parameter for persistent role definitions and security boundaries!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc System prompts define the model's immutable boundary rules. Never leak role instructions into user turns! \ud83d\udd12 Grab our battle-tested system prompt architectures for Claude 3.5 Sonnet inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What's your number one rule inside your Claude system prompt? Share it below!",
+      "pinnedCommentHookTopic": "System Prompts & Boundary Architecture"
     },
     {
       "id": "model-tier-tradeoffs",
@@ -229,7 +239,9 @@
         "endFramePrompt": "Resolved target state for 'Claude Model Family (Haiku vs Sonnet vs Opus)' concept: Sonnet 3.5 is the enterprise workhorse with frontier coding and vision, while Opus tackles the deepest multi-step research.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Question Alert: Never default to the largest model! Always match volume, latency SLA, and token cost to the tier!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Haiku vs Sonnet vs Opus: Picking Opus for high-volume routing will destroy your monthly cloud bill! \ud83d\udcb8 Grab our model selection decision tree and Claude Associate prep deck in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Haiku 3.5 for speed or Sonnet 3.5 for code? Which model is your default workhorse?",
+      "pinnedCommentHookTopic": "Claude Model Family Selection"
     },
     {
       "id": "context-window",
@@ -261,7 +273,9 @@
         "endFramePrompt": "Resolved target state for '200k Context Window Management' concept: Long contexts increase time-to-first-token and cost. Pruning and summarizing keeps responses sharp.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Associate Exam Rule: When a conversation shifts topics, restart or summarize rather than dragging the entire historical context!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Having a 200,000-token context window doesn't mean you should dump raw unindexed garbage into it! Learn context hygiene, prompt caching, and cost control inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What's the biggest context window payload you've ever sent to an LLM? Let me know below!",
+      "pinnedCommentHookTopic": "200k Context Window Management"
     },
     {
       "id": "prompt-caching",
@@ -294,7 +308,9 @@
         "endFramePrompt": "Resolved target state for 'Prompt Caching' concept: Subsequent API calls read from memory instead of recalculating, reducing latency by up to 85%.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: Minimum cacheable prompt size is 1,024 tokens. Look for 'cache_control: ephemeral' on the exam!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc 90% cost reduction and 85% lower latency on static context! But remember: the 1,024-token minimum threshold trips up most exam takers. \ud83d\udca1 Get our caching cost calculator & code templates in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Are you caching your system prompts and documentation yet? Drop your setup below!",
+      "pinnedCommentHookTopic": "Prompt Caching & 1024-Token Thresholds"
     },
     {
       "id": "tool-use-stop-reason",
@@ -327,7 +343,9 @@
         "endFramePrompt": "Resolved target state for 'Tool Use & Stop Reason ('tool_use')' concept: Your client application executes the database query or API, then feeds the result back to Claude.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Certification Golden Rule: Claude decides WHEN to call and outputs parameters; your client application does the actual execution!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc The #1 exam trap: Claude DOES NOT run your database queries! It pauses with stop_reason='tool_use' and waits for your client loop. \u2699\ufe0f Get the complete Python/TypeScript tool-use loop code inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Have you built an external tool execution loop with Claude Messages API? Share your use case below!",
+      "pinnedCommentHookTopic": "stop_reason='tool_use' Loop Mechanics"
     },
     {
       "id": "mcp-protocol",
@@ -358,7 +376,9 @@
         "endFramePrompt": "Resolved target state for 'Model Context Protocol (MCP)' concept: Instead of writing bespoke API glue for every tool, MCP provides universal client-server connectors.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: Think of MCP like USB-C for AI\u2014one standard protocol for data resources, prompts, and tools!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Model Context Protocol (MCP) is the universal USB-C standard for AI agents and enterprise tools. Connect local files, databases, and APIs effortlessly! \ud83d\udd0c Join our MCP builder sessions in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What MCP server do you use most: filesystem, git, or database? Let us know below!",
+      "pinnedCommentHookTopic": "Model Context Protocol (MCP) Integration"
     },
     {
       "id": "claude-projects",
@@ -390,7 +410,9 @@
         "endFramePrompt": "Resolved target state for 'Claude Projects' concept: Your uploaded style guides and code repos are dynamically retrieved to frame answers in team chats.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Question Alert: Projects provide in-context reference and team workspaces, never fine-tuning or weight modification!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Custom project instructions + uploaded grounding files = team-wide consistency. Avoid context bloat by pruning outdated project docs! \ud83d\udcc1 Grab our Project setup guide & Claude Associate cards inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 How many custom Projects do you have active in Claude right now?",
+      "pinnedCommentHookTopic": "Claude Projects & Team Knowledge Bases"
     },
     {
       "id": "chain-of-thought",
@@ -423,7 +445,9 @@
         "endFramePrompt": "Resolved target state for 'Chain-of-Thought (CoT) Prompting' concept: Asking Claude to think inside <thinking> tags decouples internal scratchpad reasoning from the polished output.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Certification Tip: Use Chain-of-Thought whenever tasks require multi-step math, policy verification, or complex deduction!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Force Claude to show its work! Wrapping complex multi-step reasoning in <thinking> tags cuts math and logic hallucinations by over 70%. \ud83e\udde0 Grab our full Chain-of-Thought prompting guide inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Do you use scratchpad <thinking> tags in your API calls? Drop your thoughts below!",
+      "pinnedCommentHookTopic": "Chain-of-Thought (<thinking>) Scratchpads"
     },
     {
       "id": "few-shot-prompting",
@@ -456,7 +480,9 @@
         "endFramePrompt": "Resolved target state for 'Few-Shot Prompting' concept: Claude mirrors the syntax, tone, and edge-case decisions demonstrated in your examples.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Strategy: When zero-shot instructions fail on schema edge cases, few-shot examples are the proven fix!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Don't just explain what you want\u2014show 2 to 3 pristine input/output examples! Few-shot prompting calibrates edge cases better than paragraphs of text. \ud83d\udcda Get our few-shot templates inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Zero-shot or Few-shot: Which one solved your hardest prompt bug? Tell us below!",
+      "pinnedCommentHookTopic": "Few-Shot Prompt Engineering"
     },
     {
       "id": "hallucination-mitigation",
@@ -489,7 +515,9 @@
         "endFramePrompt": "Resolved target state for 'Hallucination Mitigation & Grounding' concept: Real grounding requires negative constraints: instruct Claude to quote source documents directly and say 'I don't know' if missing.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Rule: Always give Claude an explicit 'escape hatch' instruction to state when context does not contain the answer!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Always provide a safe 'I don't know' exit hatch! Unconstrained LLMs will invent plausible falsehoods when grounding data is missing. \ud83d\udee1\ufe0f Download our Hallucination Defense Playbook in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What's the funniest or worst hallucination an AI model ever gave you? Share below!",
+      "pinnedCommentHookTopic": "Hallucination Defense & Grounding Hatches"
     },
     {
       "id": "human-in-the-loop",
@@ -520,7 +548,9 @@
         "endFramePrompt": "Resolved target state for 'Human-in-the-Loop (HITL) Verification' concept: Human-in-the-loop architectures allow Claude to draft and analyze, but require human confirmation before triggering final actions.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Associate Exam Tip: In high-stakes regulatory environments, always place human review between AI proposals and live execution!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Autonomous agents must never commit destructive database writes or trigger financial transactions without a human approval step! \ud83d\uded1 Get our HITL architecture diagrams inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 At what risk level do you require manual human sign-off in your AI pipelines?",
+      "pinnedCommentHookTopic": "Human-in-the-Loop (HITL) Guardrails"
     },
     {
       "id": "temperature",
@@ -551,7 +581,9 @@
         "endFramePrompt": "Resolved target state for 'Temperature & Top_p Parameters' concept: High temperature introduces creative diversity, perfect for brainstorming and narrative generation.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Takeaway: For JSON schemas, math, and data extraction, always configure temperature close to 0!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Temperature = 0.0 for deterministic JSON schemas and code; Temperature = 0.7 for creative copywriting. Never mix them up on the exam! \ud83c\udf21\ufe0f Grab our complete parameter calibration cheat sheet inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What temperature setting do you use for code generation: 0.0, 0.2, or higher?",
+      "pinnedCommentHookTopic": "Temperature & Top-p Calibration"
     },
     {
       "id": "json-schema-tools",
@@ -583,7 +615,9 @@
         "endFramePrompt": "Resolved target state for 'JSON Schema Tool Definitions' concept: Always specify types, required fields, and clear format guidance inside your tool's input_schema.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Associate Exam Tip: Rich parameter descriptions and strict 'required' arrays prevent faulty tool calls!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Valid JSON schemas guarantee clean tool parsing. Always specify 'required' arrays and explicit field descriptions! \ud83d\udcc4 Get our production JSON schema validator and templates in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What is your biggest challenge when writing JSON schemas for function calling?",
+      "pinnedCommentHookTopic": "JSON Schema Tool Declarations"
     },
     {
       "id": "research-mode",
@@ -614,7 +648,9 @@
         "endFramePrompt": "Resolved target state for 'Research Mode & Web Connectors' concept: To fetch live pricing or news, integrate external search tools or knowledge connectors.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Alert: Distinguish between the frozen base model knowledge and live retrieval through tools and connectors!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Research mode transforms Claude into an autonomous multi-source investigator. Always verify citation timestamps against authoritative ground truth! \ud83c\udf10 Join our AI research workflow community in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What is your favorite live connector in Claude: web search, Google Docs, or GitHub?",
+      "pinnedCommentHookTopic": "Research Mode & Grounded Web Connectors"
     },
     {
       "id": "prompt-iteration",
@@ -646,7 +682,9 @@
         "endFramePrompt": "Resolved target state for 'Prompt Iteration Cycle' concept: When Claude fails on an edge case, they inspect the failure mode and add explicit negative constraints or examples.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: Prompt development is an empirical testing cycle, not a one-off writing exercise!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Never optimize prompts based on gut feeling! Build a golden evaluation set of 20 edge-case test queries and measure regression systematically. \ud83d\udd04 Get our prompt testing workbook inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 How many prompt iterations does it usually take you to reach production quality?",
+      "pinnedCommentHookTopic": "Systematic Prompt Iteration & Regression Testing"
     },
     {
       "id": "evaluation-metrics",
@@ -677,7 +715,9 @@
         "endFramePrompt": "Resolved target state for 'Evaluation & LLM Benchmark Metrics' concept: Run systematic test suites measuring accuracy, latency, and format compliance against golden answer benchmarks.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Associate Exam Rule: Always validate system changes against structured eval datasets before production rollout!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc LLM-as-a-judge vs deterministic exact match: how do you grade your agent outputs? \ud83d\udcca Download our Claude Associate evaluation rubric and benchmark guide inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Do you use programmatic assertions or human grading for your AI apps?",
+      "pinnedCommentHookTopic": "Evaluation & LLM Benchmarking"
     },
     {
       "id": "stakeholder-value-communication",
@@ -708,7 +748,9 @@
         "endFramePrompt": "Resolved target state for 'Communicating AI Value & Limitations' concept: Set realistic stakeholder expectations: highlight immense speed and scale, but establish clear review guardrails for high-risk data.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Exam Tip: Always pair AI capability demonstrations with honest communication of latency, probabilistic variance, and safety boundaries!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc The hardest part of AI engineering isn't the code\u2014it's communicating realistic ROI, latency SLAs, and safety guardrails to non-technical executives! \ud83d\udcbc Download our executive AI slide deck inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 How do you explain LLM hallucinations to leadership? Drop your best analogy below!",
+      "pinnedCommentHookTopic": "Executive AI Communication & Value Delivery"
     },
     {
       "id": "task-alignment-model-fit",
@@ -739,7 +781,9 @@
         "endFramePrompt": "Resolved target state for 'Task-to-Model Alignment Matrix' concept: Reserve Sonnet 3.5 for complex code generation and multi-step reasoning.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Certification Golden Rule: Multi-agent architectures should always route cheap classification to Haiku and heavy logic to Sonnet!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Right-sizing models: Pair Haiku for high-concurrency ingestion, Sonnet for tool execution, and Opus for multi-perspective synthesis. \ud83d\udcd0 Grab our Task-to-Model alignment matrix inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What percentage of your production traffic goes to Haiku vs Sonnet?",
+      "pinnedCommentHookTopic": "Task-to-Model Alignment Matrix"
     },
     {
       "id": "token-budgeting",
@@ -770,7 +814,9 @@
         "endFramePrompt": "Resolved target state for 'Token Budgeting & Rate Limit Management' concept: Implement exponential backoff with jitter to pause and retry progressively without overwhelming the gateway.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Associate Exam Alert: Handle 429 rate limits using exponential backoff, prompt caching, and token budgeting!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Day 1 of understanding LLMs: How AI models read text! Tokenization, token IDs, and context budgets dictate your cloud bill. \ud83e\udde0 Grab the interactive Tokenization & Claude Associate cheat sheet free inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Question: What\u2019s your biggest struggle with LLM context windows or token limits? Let me know below!",
+      "pinnedCommentHookTopic": "Tokenization, Token IDs & Context Budgets (KVKJRdkH-B8)"
     },
     {
       "id": "output-formatting",
@@ -803,7 +849,9 @@
         "endFramePrompt": "Resolved target state for 'Output Format Curation (JSON, Markdown, CSV)' concept: Pair this with an exact JSON schema in your prompt to prevent parse errors in your code.. Translucent illuminated 3D glass data nodes connecting into a glowing gold Anthropic verification badge, crystal-clear code pathways, Curriculum Gap Alert: Master output curation\u2014prefilling and strict schemas ensure pure machine-parseable data!, 3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio",
         "cameraMotion": "Cinematic slow forward dolly zoom with subtle 15-degree lateral orbit, smooth depth-of-field transition focusing on illuminated data flows",
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
-      }
+      },
+      "pinnedComment": "\ud83d\udccc Need guaranteed JSON outputs with zero conversational filler like 'Sure! Here is the JSON:'? Use prefill assistant turns or tool schemas! \ud83d\udce6 Grab our zero-chatter JSON prompt templates in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Do you use prefilled assistant turns like '{' to force Claude to return valid JSON? Let us know below!",
+      "pinnedCommentHookTopic": "Strict Output Formatting & Zero-Chatter JSON"
     }
   ]
 }

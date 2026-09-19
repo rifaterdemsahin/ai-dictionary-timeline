@@ -258,6 +258,59 @@
       color: var(--muted);
       margin-top: 4px;
     }
+    .pinned-comment-box {
+      margin-top: 14px;
+      background: linear-gradient(180deg, rgba(204, 120, 92, 0.08) 0%, rgba(24, 24, 27, 0.6) 100%);
+      border: 1px solid rgba(204, 120, 92, 0.3);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .pinned-comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pinned-comment-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .copy-comment-btn {
+      background: rgba(204, 120, 92, 0.2);
+      border: 1px solid var(--accent);
+      color: #fafafa;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .copy-comment-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+    .copy-comment-btn.copied {
+      background: #16a34a;
+      border-color: #22c55e;
+      color: white;
+    }
+    .pinned-comment-content {
+      font-family: inherit;
+      font-size: 13px;
+      color: #e4e4e7;
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.5;
+    }
     /* Cost & Economics Bottom Section */
     .economics-section {
       background: var(--card-bg);
@@ -692,8 +745,34 @@
               </div>
             </div>
           </div>
+
+          ${term.pinnedComment ? `
+          <div class="pinned-comment-box">
+            <div class="pinned-comment-header">
+              <div class="pinned-comment-tag">
+                <span>📌</span>
+                <span>YouTube Pinned Comment &bull; Skool Community CTA</span>
+              </div>
+              <button class="copy-comment-btn" onclick="copyPinnedComment(this, '${term.id}')">📋 Copy Comment</button>
+            </div>
+            <div class="pinned-comment-content" id="comment-${term.id}">${term.pinnedComment}</div>
+          </div>` : ''}
         </div>
       `).join('');
+    }
+
+    function copyPinnedComment(btn, termId) {
+      const el = document.getElementById('comment-' + termId);
+      if (!el) return;
+      navigator.clipboard.writeText(el.innerText).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = '✅ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
     }
 
     document.getElementById('searchInput').addEventListener('input', (e) => {

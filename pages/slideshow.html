@@ -329,6 +329,61 @@
       margin-top: 4px;
     }
 
+    /* Pinned Comment Box */
+    .pinned-comment-box {
+      margin-top: 20px;
+      background: linear-gradient(180deg, rgba(204, 120, 92, 0.08) 0%, rgba(24, 24, 27, 0.6) 100%);
+      border: 1px solid rgba(204, 120, 92, 0.3);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+    .pinned-comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .pinned-comment-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .copy-comment-btn {
+      background: rgba(204, 120, 92, 0.2);
+      border: 1px solid var(--accent);
+      color: #fafafa;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .copy-comment-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+    .copy-comment-btn.copied {
+      background: #16a34a;
+      border-color: #22c55e;
+      color: white;
+    }
+    .pinned-comment-content {
+      font-family: inherit;
+      font-size: 13.5px;
+      color: #e4e4e7;
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.5;
+    }
+
     /* Jump Bar */
     .jump-bar {
       display: flex;
@@ -601,6 +656,18 @@
         </div>
       </div>
 
+      <!-- Pinned Comment for YouTube Shorts & Skool -->
+      <div class="pinned-comment-box">
+        <div class="pinned-comment-header">
+          <div class="pinned-comment-tag">
+            <span>📌</span>
+            <span>YouTube Pinned Comment &bull; Skool Community Lead Magnet</span>
+          </div>
+          <button class="copy-comment-btn" id="copySlideCommentBtn" onclick="copySlideComment()">📋 Copy Pinned Comment</button>
+        </div>
+        <div class="pinned-comment-content" id="slidePinnedComment">Loading pinned comment...</div>
+      </div>
+
       <!-- Jump dropdown -->
       <div class="jump-bar">
         <span class="jump-label">Jump to Slide:</span>
@@ -834,10 +901,27 @@
       document.getElementById('scriptArch').textContent = t.video16sBlueprint.conceptPart2;
       document.getElementById('scriptTip').textContent = t.video16sBlueprint.ctaExamTip;
 
+      // Pinned Comment
+      document.getElementById('slidePinnedComment').textContent = t.pinnedComment || 'No pinned comment generated.';
+
       // UI updates
       document.getElementById('prevBtn').disabled = (currentIndex === 0);
       document.getElementById('nextBtn').disabled = (currentIndex === terms.length - 1);
       document.getElementById('termSelect').value = currentIndex;
+    }
+
+    function copySlideComment() {
+      const text = document.getElementById('slidePinnedComment').innerText;
+      const btn = document.getElementById('copySlideCommentBtn');
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = '✅ Copied to Clipboard!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
     }
 
     document.getElementById('prevBtn').addEventListener('click', () => showSlide(currentIndex - 1));

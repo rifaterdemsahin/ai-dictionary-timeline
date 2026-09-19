@@ -446,6 +446,75 @@
       line-height: 1.5;
     }
 
+    /* Pinned Comment Vault Styles */
+    .copy-comment-btn {
+      background: rgba(204, 120, 92, 0.2);
+      border: 1px solid var(--accent);
+      color: #fafafa;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .copy-comment-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+    .copy-comment-btn.copied {
+      background: #16a34a;
+      border-color: #22c55e;
+      color: white;
+    }
+    .vault-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .vault-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .vault-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+    .vault-term-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .vault-domain-badge {
+      font-size: 11px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .vault-comment-body {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #e4e4e7;
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      flex-grow: 1;
+    }
+
     footer {
       text-align: center;
       color: var(--muted);
@@ -506,6 +575,23 @@
           Target Skool Community ↗
         </a>
       </div>
+    </div>
+
+    <!-- Active Video Pinned Comment Box for KVKJRdkH-B8 -->
+    <div style="background: linear-gradient(135deg, rgba(204, 120, 92, 0.15) 0%, rgba(24, 24, 27, 0.95) 100%); border: 1px solid var(--accent); border-radius: 12px; padding: 20px 24px; margin-bottom: 36px; box-shadow: 0 0 25px rgba(204, 120, 92, 0.15);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 20px;">📌</span>
+          <div>
+            <span style="font-size: 13px; font-weight: 800; color: #fb923c; text-transform: uppercase; letter-spacing: 0.8px;">Ready-to-Paste Pinned Comment for Short KVKJRdkH-B8</span>
+            <div style="font-size: 12px; color: var(--muted);">Direct lead magnet CTA driving viewers into Delivery Pilot Skool Community</div>
+          </div>
+        </div>
+        <button class="copy-comment-btn" style="background: var(--accent); color: white; padding: 8px 18px; font-size: 13px; border-radius: 6px;" onclick="copyActiveShortComment(this)">📋 Copy Pinned Comment</button>
+      </div>
+      <div id="activeShortCommentBox" style="background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); padding: 14px 18px; border-radius: 8px; font-size: 13.5px; color: #f4f4f5; white-space: pre-wrap; line-height: 1.6;">📌 Day 1 of understanding LLMs: How AI models read text! Tokenization, token IDs, and context budgets dictate your cloud bill. 🧠 Grab the interactive Tokenization &amp; Claude Associate cheat sheet free inside Delivery Pilot: 👉 https://www.skool.com/delivery-pilot-8938
+
+👇 Question: What’s your biggest struggle with LLM context windows or token limits? Let me know below!</div>
     </div>
 
     <!-- Metric High-Level Comparison Cards -->
@@ -837,12 +923,119 @@
       </div>
     </div>
 
+    <!-- Section 6: Master Pinned Comment Vault -->
+    <div class="section-box" id="pinnedCommentVault">
+      <div class="section-heading">
+        <span>📌</span> Master Pinned Comment Vault (All 24 Curriculum Videos)
+      </div>
+      <div class="section-sub">
+        Production-ready pinned comments for each 16-second Short. Formatted with high-conversion exam hooks, links to <a href="https://www.skool.com/delivery-pilot-8938" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">skool.com/delivery-pilot-8938</a>, and algorithmic engagement questions.
+      </div>
+
+      <!-- Search & Filters -->
+      <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+        <input type="text" id="vaultSearch" placeholder="🔍 Search by term, concept or domain..." style="flex: 1; min-width: 250px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); color: var(--text); padding: 10px 14px; border-radius: 6px; font-size: 14px; outline: none;">
+        <span id="vaultCount" style="display: flex; align-items: center; font-size: 13px; color: var(--muted);">Loading 24 comments...</span>
+      </div>
+
+      <div class="vault-grid" id="vaultGrid">
+        <!-- Injected via JavaScript from data/claude-associate-terms.json -->
+      </div>
+    </div>
+
     <footer>
       Delivery Pilot Growth Modeling &bull; Claude Associate Certification &bull; Local server port 30085
     </footer>
   </div>
 
   <script>
+    let vaultTerms = [];
+
+    async function loadVault() {
+      try {
+        const res = await fetch('../data/claude-associate-terms.json');
+        const data = await res.json();
+        vaultTerms = data.terms;
+        renderVault(vaultTerms);
+      } catch (err) {
+        console.error('Error loading vault terms:', err);
+      }
+    }
+
+    function renderVault(terms) {
+      const grid = document.getElementById('vaultGrid');
+      const countEl = document.getElementById('vaultCount');
+      if (countEl) countEl.innerText = `Showing ${terms.length} of ${vaultTerms.length} comments`;
+
+      if (terms.length === 0) {
+        grid.innerHTML = '<div style="color: var(--muted); padding: 20px;">No matching pinned comments found.</div>';
+        return;
+      }
+
+      grid.innerHTML = terms.map((t, idx) => `
+        <div class="vault-card">
+          <div class="vault-card-header">
+            <div>
+              <div class="vault-term-name">#${idx + 1}. ${t.term} ${t.acronym ? '(' + t.acronym + ')' : ''}</div>
+              <div style="font-size: 12px; color: var(--accent); margin-top: 2px;">${t.pinnedCommentHookTopic || t.term}</div>
+            </div>
+            <span class="vault-domain-badge">${t.domain}</span>
+          </div>
+          <div class="vault-comment-body" id="vault-text-${t.id}">${escapeHtml(t.pinnedComment || '')}</div>
+          <div style="display: flex; justify-content: flex-end;">
+            <button class="copy-comment-btn" onclick="copyVaultComment(this, '${t.id}')">📋 Copy Pinned Comment</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function copyVaultComment(btn, termId) {
+      const el = document.getElementById('vault-text-' + termId);
+      if (!el) return;
+      navigator.clipboard.writeText(el.innerText).then(() => {
+        const original = btn.innerText;
+        btn.innerText = '✅ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    function copyActiveShortComment(btn) {
+      const el = document.getElementById('activeShortCommentBox');
+      if (!el) return;
+      navigator.clipboard.writeText(el.innerText).then(() => {
+        const original = btn.innerText;
+        btn.innerText = '✅ Copied to Clipboard!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    document.getElementById('vaultSearch')?.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      const filtered = vaultTerms.filter(t => 
+        t.term.toLowerCase().includes(q) ||
+        (t.acronym && t.acronym.toLowerCase().includes(q)) ||
+        (t.domain && t.domain.toLowerCase().includes(q)) ||
+        (t.pinnedComment && t.pinnedComment.toLowerCase().includes(q))
+      );
+      renderVault(filtered);
+    });
+
+    loadVault();
     function calculateAcquisition() {
       const targetJoins = parseFloat(document.getElementById('targetJoins').value) || 100;
       const avgViews = parseFloat(document.getElementById('avgViews').value) || 800;
