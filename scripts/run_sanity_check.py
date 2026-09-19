@@ -21,6 +21,10 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 
 PAGES = [
     "index.html",
+    "pages/research.html",
+    "pages/script.html",
+    "pages/design.html",
+    "pages/previz.html",
     "pages/flashcards.html",
     "pages/slideshow.html",
     "pages/prompts.html",

@@ -18,7 +18,9 @@ NAV_GROUPS = [
         "id": "research",
         "title": "🔬 Research",
         "badge": "Analysis & Economics",
+        "hubFile": "research.html",
         "items": [
+            {"file": "research.html", "name": "🧭 Research Hub", "desc": "Strategic rationale, unit economics & gating"},
             {"file": "flashcards.html", "name": "⚡ Exam Flashcards", "desc": "Interactive flip-card study deck"},
             {"file": "youtube-vs-adwords.html", "name": "📊 Shorts vs AdWords", "desc": "Empirical CAC & traffic analysis"},
             {"file": "production-cost.html", "name": "💰 Production Cost", "desc": "Granular $0.63 unit economics"},
@@ -30,19 +32,23 @@ NAV_GROUPS = [
         "id": "script",
         "title": "✍️ Script",
         "badge": "Curriculum & Prompts",
+        "hubFile": "script.html",
         "items": [
+            {"file": "script.html", "name": "🧭 Script Hub", "desc": "16s narrative pacing & educational mechanics"},
             {"file": "index.html", "name": "📖 Terms Dictionary", "desc": "24 certified curriculum terms"},
             {"file": "json-viewer.html", "name": "🔍 JSON Viewer", "desc": "Live schema explorer & DOM inspector"},
             {"file": "voice-selection.html", "name": "🎙️ Voice Selection", "desc": "ElevenLabs Brian (112Hz / 165 WPM)"},
             {"file": "execution-logic.html", "name": "🚀 Execution Logic", "desc": "Two-stage calibration calendar"},
-            {"file": "prompts.html", "name": "📜 Prompts Log", "desc": "22 prompt session creation history"}
+            {"file": "prompts.html", "name": "📜 Prompts Log", "desc": "24 prompt session creation history"}
         ]
     },
     {
         "id": "design",
         "title": "🎨 Design",
         "badge": "Architecture & Parameters",
+        "hubFile": "design.html",
         "items": [
+            {"file": "design.html", "name": "🧭 Design Hub", "desc": "Architecture rationale, UML & parameters"},
             {"file": "architecture.html", "name": "🏛️ System Architecture", "desc": "5 UML diagrams with Excalidraw pan/zoom"},
             {"file": "parameters.html", "name": "⚙️ System Parameters", "desc": "38 engine parameters & sandbox"},
             {"file": "generated-code.html", "name": "💻 Generated Code", "desc": "Full repository filesystem explorer"}
@@ -52,7 +58,9 @@ NAV_GROUPS = [
         "id": "previz",
         "title": "🎬 Previz",
         "badge": "Storyboard & Pre-visualization",
+        "hubFile": "previz.html",
         "items": [
+            {"file": "previz.html", "name": "🧭 Previz Hub", "desc": "Pre-visualization rationale & visual pipeline"},
             {"file": "slideshow.html", "name": "🎬 Keyframe Slideshow", "desc": "Seedream 4.0 9:16 visual gallery"},
             {"file": "tell-show-do-apply.html", "name": "🎧 Tell-Show-Do-Apply", "desc": "4-phase audio-visual storyboard & SFX"},
             {"file": "specs.html", "name": "📋 Production Spec", "desc": "Anchor Video #01 master executable spec"}
@@ -61,6 +69,10 @@ NAV_GROUPS = [
 ]
 
 PAGE_CONFIG = [
+    {"file": "research.html", "name": "🔬 Research Hub"},
+    {"file": "script.html", "name": "✍️ Script Hub"},
+    {"file": "design.html", "name": "🎨 Design Hub"},
+    {"file": "previz.html", "name": "🎬 Previz Hub"},
     {"file": "flashcards.html", "name": "⚡ Flashcards"},
     {"file": "slideshow.html", "name": "🎬 Keyframe Slideshow"},
     {"file": "prompts.html", "name": "📜 Prompts Log"},
@@ -98,6 +110,7 @@ GLOBAL_CSS = """
       gap: 6px;
       transition: all 0.2s ease;
       font-family: inherit;
+      text-decoration: none;
     }
     .nav-dropdown:hover .nav-dropdown-btn,
     .nav-dropdown-btn:hover {
@@ -317,6 +330,8 @@ def generate_footer_html(is_root=False):
       <div>
         <div class="footer-heading">🔬 Research &amp; ✍️ Script</div>
         <ul class="footer-links-list">
+          <li><a href="{prefix}research.html" style="font-weight: 700; color: #fafafa;">🧭 Research Hub</a></li>
+          <li><a href="{prefix}script.html" style="font-weight: 700; color: #fafafa;">🧭 Script Hub</a></li>
           <li><a href="{root_link}">📖 Terms Dictionary</a></li>
           <li><a href="{prefix}json-viewer.html">🔍 Interactive JSON Viewer</a></li>
           <li><a href="{prefix}flashcards.html">⚡ Exam Flashcards</a></li>
@@ -332,6 +347,8 @@ def generate_footer_html(is_root=False):
       <div>
         <div class="footer-heading">🎨 Design &amp; 🎬 Previz</div>
         <ul class="footer-links-list">
+          <li><a href="{prefix}design.html" style="font-weight: 700; color: #fafafa;">🧭 Design Hub</a></li>
+          <li><a href="{prefix}previz.html" style="font-weight: 700; color: #fafafa;">🧭 Previz Hub</a></li>
           <li><a href="{prefix}slideshow.html">🎬 Keyframe Slideshow</a></li>
           <li><a href="{prefix}tell-show-do-apply.html">🎧 Tell-Show-Do-Apply</a></li>
           <li><a href="{prefix}specs.html">📋 Production Video Spec</a></li>
@@ -375,11 +392,11 @@ def generate_nav_html(active_file, is_root=False):
     is_home_active = active_file == "index.html"
     nav_elements.append(f'<a href="{root_link}" class="nav-link{" active" if is_home_active else ""}">📖 Dictionary</a>')
 
-    # Three groups: Research, Script, Design
+    # Four groups: Research, Script, Design, Previz
     for group in NAV_GROUPS:
         # Check if active file is in this group
         group_files = [it["file"] for it in group["items"]]
-        is_group_active = active_file in group_files
+        is_group_active = active_file in group_files or active_file == group.get("hubFile")
 
         items_html = []
         items_html.append(f'<div class="dropdown-header-badge"><span>{group["badge"]}</span><span>{len(group["items"])} Pages</span></div>')
@@ -399,12 +416,13 @@ def generate_nav_html(active_file, is_root=False):
             )
 
         dropdown_menu = '\n            '.join(items_html)
+        hub_href = f"{prefix}{group['hubFile']}"
         group_html = (
             f'<div class="nav-dropdown">\n'
-            f'          <button class="nav-dropdown-btn{" active" if is_group_active else ""}">\n'
+            f'          <a href="{hub_href}" class="nav-dropdown-btn{" active" if is_group_active else ""}">\n'
             f'            <span>{group["title"]}</span>\n'
             f'            <span class="dropdown-chevron">▾</span>\n'
-            f'          </button>\n'
+            f'          </a>\n'
             f'          <div class="nav-dropdown-menu">\n'
             f'            {dropdown_menu}\n'
             f'          </div>\n'
