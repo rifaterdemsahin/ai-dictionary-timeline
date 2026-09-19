@@ -69,7 +69,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Mastered Artifacts vs Inline Markdown? Don't let this trick question cost you points on the Claude Certified Associate Exam! \ud83c\udfaf Grab the full interactive 24-term exam blueprint and flashcards free inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Quick Quiz: Would you put a 25-line React component or a 3-line curl command in an Artifact window? Drop your answer below!",
-      "pinnedCommentHookTopic": "Artifacts vs Inline Markdown Decision Matrix"
+      "pinnedCommentHookTopic": "Artifacts vs Inline Markdown Decision Matrix",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Why does Claude put some code in a side window?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "That's an Artifact! It's for standalone, reusable code over 15 lines.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Quick answers and 3-line scripts always stay inline in chat.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Standalone files equal Artifacts, quick chat stays inline!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "inline-markdown",
@@ -102,7 +203,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Should Claude open a side Artifact or stay directly in chat? Keeping conversational replies and short snippets inline protects user workflow! \u26a1 Master all Claude UI mechanics and exam blueprints inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 When do you prefer inline chat over an Artifact window? Let's discuss in the comments!",
-      "pinnedCommentHookTopic": "Inline Chat Flow & Workspace Ergonomics"
+      "pinnedCommentHookTopic": "Inline Chat Flow & Workspace Ergonomics",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Should Claude open an Artifact or stay in chat?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "Inline Markdown is for conversation flow, explanations, and quick terminal snippets.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Creating an Artifact for short text interrupts user flow.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: If code doesn't need file export, keep it inline!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "task-decomposition",
@@ -137,7 +339,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Single giant prompts hallucinate\u2014deconstructed sequential steps succeed! \ud83d\udee0\ufe0f Want our plug-and-play task decomposition prompts and Claude Associate study guide? Join 100+ AI builders free in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What complex prompt are you trying to break down right now? Drop it below!",
-      "pinnedCommentHookTopic": "Task Decomposition & Multi-Step Prompts"
+      "pinnedCommentHookTopic": "Task Decomposition & Multi-Step Prompts",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Why does Claude fail on three complex jobs at once?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "Single prompts overload reasoning. Decomposing breaks tasks into numbered stages.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Claude computes intermediate states, reducing compounding errors.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Decompose complex prompts into sequential steps!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "xml-tagging",
@@ -172,7 +475,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Why does Anthropic demand XML tags instead of markdown headers? It mathematically prevents prompt injection and separates instructions from untrusted data! \ud83d\udee1\ufe0f Grab our production XML template library inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Do you use <instructions> and <context> tags in your production prompts yet? Vote yes or no below!",
-      "pinnedCommentHookTopic": "XML Tagging & Injection Defense"
+      "pinnedCommentHookTopic": "XML Tagging & Injection Defense",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "What is Anthropic's top prompt structure recommendation?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "XML tags! Semantic tags separate instructions from untrusted user data.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "This eliminates prompt injection and ambiguous instruction parsing.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Rule: Always wrap context and rules in XML tags!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "system-prompts",
@@ -207,7 +611,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc System prompts define the model's immutable boundary rules. Never leak role instructions into user turns! \ud83d\udd12 Grab our battle-tested system prompt architectures for Claude 3.5 Sonnet inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What's your number one rule inside your Claude system prompt? Share it below!",
-      "pinnedCommentHookTopic": "System Prompts & Boundary Architecture"
+      "pinnedCommentHookTopic": "System Prompts & Boundary Architecture",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Where should you lock in Claude's persona?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "In the System Prompt parameter! Not in the user message.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "It persists behavioral boundaries and guardrails across 50 turns.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Use top-level 'system' parameter for persistent role definitions!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "model-tier-tradeoffs",
@@ -241,7 +746,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Haiku vs Sonnet vs Opus: Picking Opus for high-volume routing will destroy your monthly cloud bill! \ud83d\udcb8 Grab our model selection decision tree and Claude Associate prep deck in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Haiku 3.5 for speed or Sonnet 3.5 for code? Which model is your default workhorse?",
-      "pinnedCommentHookTopic": "Claude Model Family Selection"
+      "pinnedCommentHookTopic": "Claude Model Family Selection",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Haiku, Sonnet, or Opus: Which should you deploy?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "Haiku delivers low latency at minimum cost for routing.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Sonnet 3.5 is the enterprise workhorse for code and tools.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Never default to the largest model\u2014match latency and cost!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "context-window",
@@ -275,7 +881,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Having a 200,000-token context window doesn't mean you should dump raw unindexed garbage into it! Learn context hygiene, prompt caching, and cost control inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What's the biggest context window payload you've ever sent to an LLM? Let me know below!",
-      "pinnedCommentHookTopic": "200k Context Window Management"
+      "pinnedCommentHookTopic": "200k Context Window Management",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Claude has 200,000 tokens\u2014should you ever reset chat?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "Yes! Huge contexts increase latency and cost on every turn.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Summarizing previous turns keeps responses fast and accurate.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: When conversation shifts, restart or summarize context!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "prompt-caching",
@@ -310,7 +1017,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc 90% cost reduction and 85% lower latency on static context! But remember: the 1,024-token minimum threshold trips up most exam takers. \ud83d\udca1 Get our caching cost calculator & code templates in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Are you caching your system prompts and documentation yet? Drop your setup below!",
-      "pinnedCommentHookTopic": "Prompt Caching & 1024-Token Thresholds"
+      "pinnedCommentHookTopic": "Prompt Caching & 1024-Token Thresholds",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "How do you slash Claude API costs by 90%?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "Prompt Caching! Set ephemeral cache breakpoints on static prefixes.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Subsequent calls read memory, reducing latency by 85%.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Minimum cache size is 1,024 tokens with cache_control!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "tool-use-stop-reason",
@@ -345,7 +1153,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc The #1 exam trap: Claude DOES NOT run your database queries! It pauses with stop_reason='tool_use' and waits for your client loop. \u2699\ufe0f Get the complete Python/TypeScript tool-use loop code inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Have you built an external tool execution loop with Claude Messages API? Share your use case below!",
-      "pinnedCommentHookTopic": "stop_reason='tool_use' Loop Mechanics"
+      "pinnedCommentHookTopic": "stop_reason='tool_use' Loop Mechanics",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Does Claude actually run tools on your server?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "No! Claude returns stop_reason='tool_use' with structured JSON arguments.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Your client application executes the tool and returns results.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Golden Rule: Claude decides parameters; client code executes!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "mcp-protocol",
@@ -378,7 +1287,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Model Context Protocol (MCP) is the universal USB-C standard for AI agents and enterprise tools. Connect local files, databases, and APIs effortlessly! \ud83d\udd0c Join our MCP builder sessions in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What MCP server do you use most: filesystem, git, or database? Let us know below!",
-      "pinnedCommentHookTopic": "Model Context Protocol (MCP) Integration"
+      "pinnedCommentHookTopic": "Model Context Protocol (MCP) Integration",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "What is Anthropic's Model Context Protocol?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "MCP is an open standard connecting AI to local files and tools.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "It replaces custom glue code with universal client-server connectors.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Think of MCP like USB-C for AI integrations!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "claude-projects",
@@ -412,7 +1422,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Custom project instructions + uploaded grounding files = team-wide consistency. Avoid context bloat by pruning outdated project docs! \ud83d\udcc1 Grab our Project setup guide & Claude Associate cards inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 How many custom Projects do you have active in Claude right now?",
-      "pinnedCommentHookTopic": "Claude Projects & Team Knowledge Bases"
+      "pinnedCommentHookTopic": "Claude Projects & Team Knowledge Bases",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Does Claude Projects fine-tune the base model?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "No! Projects does not train weights. It provides in-context grounding.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Team instructions and uploaded docs guide chats dynamically.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Projects provide in-context reference, never model fine-tuning!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "chain-of-thought",
@@ -447,7 +1558,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Force Claude to show its work! Wrapping complex multi-step reasoning in <thinking> tags cuts math and logic hallucinations by over 70%. \ud83e\udde0 Grab our full Chain-of-Thought prompting guide inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Do you use scratchpad <thinking> tags in your API calls? Drop your thoughts below!",
-      "pinnedCommentHookTopic": "Chain-of-Thought (<thinking>) Scratchpads"
+      "pinnedCommentHookTopic": "Chain-of-Thought (<thinking>) Scratchpads",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Why do thinking tags make Claude smarter?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "Chain-of-Thought gives the model token space to calculate intermediate states.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Reasoning inside thinking tags decouples internal scratchpads from output.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Use Chain-of-Thought for multi-step logic and math!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "few-shot-prompting",
@@ -482,7 +1694,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Don't just explain what you want\u2014show 2 to 3 pristine input/output examples! Few-shot prompting calibrates edge cases better than paragraphs of text. \ud83d\udcda Get our few-shot templates inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Zero-shot or Few-shot: Which one solved your hardest prompt bug? Tell us below!",
-      "pinnedCommentHookTopic": "Few-Shot Prompt Engineering"
+      "pinnedCommentHookTopic": "Few-Shot Prompt Engineering",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Tired of prompts that Claude still misinterprets?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "Switch to Few-Shot! Show 2 to 3 pristine input-output examples.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Claude mirrors demonstrated schema and edge-case decisions.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Few-shot examples beat paragraphs of instructions!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "hallucination-mitigation",
@@ -517,7 +1830,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Always provide a safe 'I don't know' exit hatch! Unconstrained LLMs will invent plausible falsehoods when grounding data is missing. \ud83d\udee1\ufe0f Download our Hallucination Defense Playbook in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What's the funniest or worst hallucination an AI model ever gave you? Share below!",
-      "pinnedCommentHookTopic": "Hallucination Defense & Grounding Hatches"
+      "pinnedCommentHookTopic": "Hallucination Defense & Grounding Hatches",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Does temperature 0 stop Claude from hallucinating?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "No! Temperature 0 makes outputs deterministic, not factual.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Factual grounding requires negative constraints and source citations.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Rule: Always give Claude an explicit 'I don't know' escape hatch!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "human-in-the-loop",
@@ -550,7 +1964,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Autonomous agents must never commit destructive database writes or trigger financial transactions without a human approval step! \ud83d\uded1 Get our HITL architecture diagrams inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 At what risk level do you require manual human sign-off in your AI pipelines?",
-      "pinnedCommentHookTopic": "Human-in-the-Loop (HITL) Guardrails"
+      "pinnedCommentHookTopic": "Human-in-the-Loop (HITL) Guardrails",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "When should an AI agent NEVER act alone?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "When financial transfers, medical advice, or legal contracts are executed.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Human-in-the-loop requires human approval before live actions.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Place human verification between AI drafts and execution!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "temperature",
@@ -583,7 +2098,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Temperature = 0.0 for deterministic JSON schemas and code; Temperature = 0.7 for creative copywriting. Never mix them up on the exam! \ud83c\udf21\ufe0f Grab our complete parameter calibration cheat sheet inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What temperature setting do you use for code generation: 0.0, 0.2, or higher?",
-      "pinnedCommentHookTopic": "Temperature & Top-p Calibration"
+      "pinnedCommentHookTopic": "Temperature & Top-p Calibration",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "What happens when temperature is 0 versus 1?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "Temperature controls randomness. Low temperature enforces precision.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "High temperature drives creative divergence for brainstorming.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Takeaway: For code and JSON extraction, set temperature near 0!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "json-schema-tools",
@@ -617,7 +2233,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Valid JSON schemas guarantee clean tool parsing. Always specify 'required' arrays and explicit field descriptions! \ud83d\udcc4 Get our production JSON schema validator and templates in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What is your biggest challenge when writing JSON schemas for function calling?",
-      "pinnedCommentHookTopic": "JSON Schema Tool Declarations"
+      "pinnedCommentHookTopic": "JSON Schema Tool Declarations",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Why did Claude pass the wrong parameter to your tool?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "Your JSON Schema was vague! Claude relies on property descriptions.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Always specify parameter types and required constraints explicitly.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Rich parameter descriptions prevent broken tool calls!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "research-mode",
@@ -650,7 +2367,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Research mode transforms Claude into an autonomous multi-source investigator. Always verify citation timestamps against authoritative ground truth! \ud83c\udf10 Join our AI research workflow community in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What is your favorite live connector in Claude: web search, Google Docs, or GitHub?",
-      "pinnedCommentHookTopic": "Research Mode & Grounded Web Connectors"
+      "pinnedCommentHookTopic": "Research Mode & Grounded Web Connectors",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Does Claude know yesterday's breaking tech news?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "Not without tools! Claude's base knowledge is frozen at cut-off.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Live search and connectors fetch real-time information dynamically.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Distinguish frozen training data from live tool retrieval!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "prompt-iteration",
@@ -684,7 +2502,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Never optimize prompts based on gut feeling! Build a golden evaluation set of 20 edge-case test queries and measure regression systematically. \ud83d\udd04 Get our prompt testing workbook inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 How many prompt iterations does it usually take you to reach production quality?",
-      "pinnedCommentHookTopic": "Systematic Prompt Iteration & Regression Testing"
+      "pinnedCommentHookTopic": "Systematic Prompt Iteration & Regression Testing",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "How do top AI engineers write production prompts?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "They test and iterate! They benchmark against edge-case test sets.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "When failures occur, they refine constraints and add examples.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Prompt development is an empirical testing cycle!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "evaluation-metrics",
@@ -717,7 +2636,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc LLM-as-a-judge vs deterministic exact match: how do you grade your agent outputs? \ud83d\udcca Download our Claude Associate evaluation rubric and benchmark guide inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Do you use programmatic assertions or human grading for your AI apps?",
-      "pinnedCommentHookTopic": "Evaluation & LLM Benchmarking"
+      "pinnedCommentHookTopic": "Evaluation & LLM Benchmarking",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Did your prompt change make Claude better or worse?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "Don't guess\u2014evaluate! Test against structured benchmark datasets.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Measure accuracy, latency, and format compliance against golden answers.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Rule: Always test prompt updates against eval datasets!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "stakeholder-value-communication",
@@ -750,7 +2770,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc The hardest part of AI engineering isn't the code\u2014it's communicating realistic ROI, latency SLAs, and safety guardrails to non-technical executives! \ud83d\udcbc Download our executive AI slide deck inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 How do you explain LLM hallucinations to leadership? Drop your best analogy below!",
-      "pinnedCommentHookTopic": "Executive AI Communication & Value Delivery"
+      "pinnedCommentHookTopic": "Executive AI Communication & Value Delivery",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "What is the biggest mistake when pitching AI?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "Promising 100% perfection! LLMs are probabilistic, not deterministic.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Highlight speed, but establish transparent error-mitigation policies.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Pair AI capability demos with honest error boundaries!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "task-alignment-model-fit",
@@ -783,7 +2904,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Right-sizing models: Pair Haiku for high-concurrency ingestion, Sonnet for tool execution, and Opus for multi-perspective synthesis. \ud83d\udcd0 Grab our Task-to-Model alignment matrix inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 What percentage of your production traffic goes to Haiku vs Sonnet?",
-      "pinnedCommentHookTopic": "Task-to-Model Alignment Matrix"
+      "pinnedCommentHookTopic": "Task-to-Model Alignment Matrix",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "Are you wasting 80% of your AI cloud budget?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "Simple routing and filters belong on Haiku for low cost.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Reserve Sonnet 3.5 for heavy code and reasoning.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Rule: Route classification to Haiku and deep logic to Sonnet!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "token-budgeting",
@@ -816,7 +3038,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Day 1 of understanding LLMs: How AI models read text! Tokenization, token IDs, and context budgets dictate your cloud bill. \ud83e\udde0 Grab the interactive Tokenization & Claude Associate cheat sheet free inside Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Question: What\u2019s your biggest struggle with LLM context windows or token limits? Let me know below!",
-      "pinnedCommentHookTopic": "Tokenization, Token IDs & Context Budgets (KVKJRdkH-B8)"
+      "pinnedCommentHookTopic": "Tokenization, Token IDs & Context Budgets (KVKJRdkH-B8)",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "What should your app do on HTTP 429 rate limit?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "429 means Rate Limit Exceeded! Never retry in a tight loop.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Use exponential backoff with jitter and leverage prompt caching.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Handle 429 errors using exponential backoff with jitter!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     },
     {
       "id": "output-formatting",
@@ -851,7 +3174,108 @@
         "styleAnchor": "3D isometric glassmorphic interface, Anthropic terracotta accents (#CC785C) and deep obsidian (#18181B) metallic chassis, clean octane render, studio lighting, hyper-realistic, vertical 9:16 aspect ratio"
       },
       "pinnedComment": "\ud83d\udccc Need guaranteed JSON outputs with zero conversational filler like 'Sure! Here is the JSON:'? Use prefill assistant turns or tool schemas! \ud83d\udce6 Grab our zero-chatter JSON prompt templates in Delivery Pilot: \ud83d\udc49 https://www.skool.com/delivery-pilot-8938\n\n\ud83d\udc47 Do you use prefilled assistant turns like '{' to force Claude to return valid JSON? Let us know below!",
-      "pinnedCommentHookTopic": "Strict Output Formatting & Zero-Chatter JSON"
+      "pinnedCommentHookTopic": "Strict Output Formatting & Zero-Chatter JSON",
+      "tellShowDoApply": {
+        "framework": "Tell-Show-Do-Apply (Micro-learning Mastery)",
+        "tell": {
+          "phase": "TELL",
+          "timecode": "00:00 - 00:04",
+          "title": "State the Rule & Hook",
+          "content": "How do you stop Claude from saying 'Here is your JSON'?",
+          "pedagogyObjective": "Break viewer trance, state the core concept thesis, and prime cognitive curiosity."
+        },
+        "show": {
+          "phase": "SHOW",
+          "timecode": "00:04 - 00:08",
+          "title": "Visual Architecture Demonstration",
+          "content": "Prefill the assistant response! Ending turns with '{' forces raw JSON.",
+          "pedagogyObjective": "Ground the abstract concept in visible 3D system architecture and UI state transitions."
+        },
+        "do": {
+          "phase": "DO",
+          "timecode": "00:08 - 00:12",
+          "title": "Hands-on Scenario & Exam Trap",
+          "content": "Pair prefilling with strict JSON schemas to eliminate backticks.",
+          "pedagogyObjective": "Confront the learner with a realistic misapplication scenario or high-failure exam trap."
+        },
+        "apply": {
+          "phase": "APPLY",
+          "timecode": "00:12 - 00:16",
+          "title": "Definitive Rule & Skool CTA",
+          "content": "Exam Tip: Use assistant prefill to enforce pure machine-readable JSON!",
+          "pedagogyObjective": "Deliver the test-day recall trigger and channel learner to Delivery Pilot for interactive practice."
+        }
+      },
+      "soundAndTransitions": {
+        "sfxTimeline": [
+          {
+            "timecode": "00:00.2",
+            "phase": "TELL",
+            "sfxName": "Sub-Bass Drop + Fast Whoosh",
+            "category": "Hook Impact",
+            "targetVolumeDb": -6.0,
+            "duckingRule": "Punches on initial visual pop before primary voiceover begins"
+          },
+          {
+            "timecode": "00:04.1",
+            "phase": "SHOW",
+            "sfxName": "Hologram UI Chirp & Data Stream Hum",
+            "category": "Visual Reveal",
+            "targetVolumeDb": -14.0,
+            "duckingRule": "Side-chained dynamically behind ElevenLabs voiceover (-12dB duck)"
+          },
+          {
+            "timecode": "00:08.3",
+            "phase": "DO",
+            "sfxName": "Alert Ping & Low Frequency Tension Sweep",
+            "category": "Exam Trap Warning",
+            "targetVolumeDb": -9.0,
+            "duckingRule": "Sharp stinger punctuates the negative trap reveal"
+          },
+          {
+            "timecode": "00:13.0",
+            "phase": "APPLY",
+            "sfxName": "Gold Certification Chime + Sub Hit",
+            "category": "Victory & Resolution",
+            "targetVolumeDb": -7.0,
+            "duckingRule": "Resonant metallic sustain underneath final Skool community CTA callout"
+          }
+        ],
+        "transitionsTimeline": [
+          {
+            "timecode": "00:00 - 00:04",
+            "phase": "TELL",
+            "transitionType": "Kinetic Snap Zoom",
+            "cameraDirective": "1.2x scale snap with micro camera shake on first spoken hook keyword"
+          },
+          {
+            "timecode": "00:04 - 00:08",
+            "phase": "SHOW",
+            "transitionType": "Kling Morph & Lateral Whip Pan",
+            "cameraDirective": "15-degree lateral orbit smoothly blurring UI wireframe into illuminated 3D glass nodes"
+          },
+          {
+            "timecode": "00:08 - 00:12",
+            "phase": "DO",
+            "transitionType": "Split-Screen Comparison Wipe",
+            "cameraDirective": "Fast horizontal wipe cutting from production success flow to red-tinted failure trap"
+          },
+          {
+            "timecode": "00:12 - 00:16",
+            "phase": "APPLY",
+            "transitionType": "Cross-Dissolve & Badge Flare",
+            "cameraDirective": "Cinematic slow pull-back revealing Anthropic Terracotta badge and persistent Skool link overlay"
+          }
+        ],
+        "remotionAudioMixConfig": {
+          "sampleRate": 48000,
+          "voiceoverGainDb": 0.0,
+          "sfxMasterGainDb": -3.5,
+          "musicBedGainDb": -22.0,
+          "autoDuckingDb": -14.0,
+          "crossfadeDurationMs": 150
+        }
+      }
     }
   ]
 }
