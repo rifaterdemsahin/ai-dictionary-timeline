@@ -35,11 +35,11 @@ NAV_GROUPS = [
         "hubFile": "script.html",
         "items": [
             {"file": "script.html", "name": "🧭 Script Hub", "desc": "16s narrative pacing & educational mechanics"},
-            {"file": "index.html", "name": "📖 Terms Dictionary", "desc": "24 certified curriculum terms"},
+            {"file": "dictionary.html", "name": "📖 Terms Dictionary", "desc": "24 certified curriculum terms"},
             {"file": "json-viewer.html", "name": "🔍 JSON Viewer", "desc": "Live schema explorer & DOM inspector"},
             {"file": "voice-selection.html", "name": "🎙️ Voice Selection", "desc": "ElevenLabs Brian (112Hz / 165 WPM)"},
             {"file": "execution-logic.html", "name": "🚀 Execution Logic", "desc": "Two-stage calibration calendar"},
-            {"file": "prompts.html", "name": "📜 Prompts Log", "desc": "24 prompt session creation history"}
+            {"file": "prompts.html", "name": "📜 Prompts Log", "desc": "25 prompt session creation history"}
         ]
     },
     {
@@ -73,6 +73,7 @@ PAGE_CONFIG = [
     {"file": "script.html", "name": "✍️ Script Hub"},
     {"file": "design.html", "name": "🎨 Design Hub"},
     {"file": "previz.html", "name": "🎬 Previz Hub"},
+    {"file": "dictionary.html", "name": "📖 Terms Dictionary"},
     {"file": "flashcards.html", "name": "⚡ Flashcards"},
     {"file": "slideshow.html", "name": "🎬 Keyframe Slideshow"},
     {"file": "prompts.html", "name": "📜 Prompts Log"},
@@ -330,9 +331,10 @@ def generate_footer_html(is_root=False):
       <div>
         <div class="footer-heading">🔬 Research &amp; ✍️ Script</div>
         <ul class="footer-links-list">
+          <li><a href="{root_link}" style="font-weight: 700; color: var(--cyan);">🌐 Global Navigation Portal</a></li>
           <li><a href="{prefix}research.html" style="font-weight: 700; color: #fafafa;">🧭 Research Hub</a></li>
           <li><a href="{prefix}script.html" style="font-weight: 700; color: #fafafa;">🧭 Script Hub</a></li>
-          <li><a href="{root_link}">📖 Terms Dictionary</a></li>
+          <li><a href="{prefix}dictionary.html">📖 Terms Dictionary</a></li>
           <li><a href="{prefix}json-viewer.html">🔍 Interactive JSON Viewer</a></li>
           <li><a href="{prefix}flashcards.html">⚡ Exam Flashcards</a></li>
           <li><a href="{prefix}voice-selection.html">🎙️ Voice Selection</a></li>
@@ -381,20 +383,18 @@ def generate_footer_html(is_root=False):
     </div>
   </footer>"""
 
-def generate_nav_html(active_file, is_root=False):
+def generate_nav_bar(active_file, is_root=False):
     prefix = "./pages/" if is_root else "./"
     root_link = "./index.html" if is_root else "../index.html"
-    json_link = f"{prefix}json-viewer.html"
 
     nav_elements = []
 
-    # Home dictionary link
-    is_home_active = active_file == "index.html"
-    nav_elements.append(f'<a href="{root_link}" class="nav-link{" active" if is_home_active else ""}">📖 Dictionary</a>')
+    # Global Navigation link to index.html
+    is_global_active = active_file == "index.html"
+    nav_elements.append(f'<a href="{root_link}" class="nav-link{" active" if is_global_active else ""}">🌐 Global Navigation</a>')
 
-    # Four groups: Research, Script, Design, Previz
+    # Four pillar groups: Research, Script, Design, Previz
     for group in NAV_GROUPS:
-        # Check if active file is in this group
         group_files = [it["file"] for it in group["items"]]
         is_group_active = active_file in group_files or active_file == group.get("hubFile")
 
@@ -402,10 +402,7 @@ def generate_nav_html(active_file, is_root=False):
         items_html.append(f'<div class="dropdown-header-badge"><span>{group["badge"]}</span><span>{len(group["items"])} Pages</span></div>')
 
         for it in group["items"]:
-            if it["file"] == "index.html":
-                href = root_link
-            else:
-                href = f"{prefix}{it['file']}"
+            href = f"{prefix}{it['file']}"
             is_item_active = active_file == it["file"]
             active_class = " active" if is_item_active else ""
             items_html.append(
@@ -430,11 +427,20 @@ def generate_nav_html(active_file, is_root=False):
         )
         nav_elements.append(group_html)
 
-    # Direct JSON Viewer quick action pill
-    is_json_active = active_file == "json-viewer.html"
-    nav_elements.append(f'<a href="{json_link}" class="nav-action-pill{" active" if is_json_active else ""}">🔍 JSON Viewer</a>')
+    nav_links_inner = '\n        '.join(nav_elements)
 
-    return '\n        '.join(nav_elements)
+    return f"""  <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="{root_link}" class="nav-brand">
+        <div class="nav-brand-dot"></div>
+        <span>Claude Associate Engine</span>
+      </a>
+      <div class="nav-links">
+        {nav_links_inner}
+      </div>
+    </div>
+  </nav>"""
 
 def update_file(fpath, filename, is_root=False):
     if not fpath.exists():
@@ -444,14 +450,17 @@ def update_file(fpath, filename, is_root=False):
     with open(fpath, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # 1. Update navigation links inside <div class="nav-links">...</div>
-    new_nav_links = generate_nav_html(filename, is_root=is_root)
-    content = re.sub(
-        r'<div class="nav-links">[\s\S]*?</div>',
-        f'<div class="nav-links">\n        {new_nav_links}\n      </div>',
-        content,
-        count=1
-    )
+    # 1. Update navigation bar atomically
+    nav_bar_html = generate_nav_bar(filename, is_root=is_root)
+    if '<nav class="top-nav">' in content:
+        content = re.sub(
+            r'<nav class="top-nav">[\s\S]*?</nav>',
+            nav_bar_html,
+            content,
+            count=1
+        )
+    else:
+        content = content.replace("<body>", f"<body>\n\n{nav_bar_html}", 1)
 
     # 2. Ensure Global CSS is present
     if ".nav-dropdown" not in content:

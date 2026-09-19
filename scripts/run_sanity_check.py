@@ -25,6 +25,7 @@ PAGES = [
     "pages/script.html",
     "pages/design.html",
     "pages/previz.html",
+    "pages/dictionary.html",
     "pages/flashcards.html",
     "pages/slideshow.html",
     "pages/prompts.html",

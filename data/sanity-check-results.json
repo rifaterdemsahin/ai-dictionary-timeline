@@ -10,102 +10,107 @@
         {
           "item": "index.html",
           "passed": true,
-          "details": "Size: 63231 bytes"
+          "details": "Size: 47794 bytes"
         },
         {
           "item": "pages/research.html",
           "passed": true,
-          "details": "Size: 33485 bytes"
+          "details": "Size: 29102 bytes"
         },
         {
           "item": "pages/script.html",
           "passed": true,
-          "details": "Size: 33421 bytes"
+          "details": "Size: 29031 bytes"
         },
         {
           "item": "pages/design.html",
           "passed": true,
-          "details": "Size: 31758 bytes"
+          "details": "Size: 27368 bytes"
         },
         {
           "item": "pages/previz.html",
           "passed": true,
-          "details": "Size: 31811 bytes"
+          "details": "Size: 27421 bytes"
+        },
+        {
+          "item": "pages/dictionary.html",
+          "passed": true,
+          "details": "Size: 43885 bytes"
         },
         {
           "item": "pages/flashcards.html",
           "passed": true,
-          "details": "Size: 48726 bytes"
+          "details": "Size: 29675 bytes"
         },
         {
           "item": "pages/slideshow.html",
           "passed": true,
-          "details": "Size: 68499 bytes"
+          "details": "Size: 49413 bytes"
         },
         {
           "item": "pages/prompts.html",
           "passed": true,
-          "details": "Size: 57748 bytes"
+          "details": "Size: 56001 bytes"
         },
         {
           "item": "pages/production-cost.html",
           "passed": true,
-          "details": "Size: 46998 bytes"
+          "details": "Size: 27947 bytes"
         },
         {
           "item": "pages/youtube-vs-adwords.html",
           "passed": true,
-          "details": "Size: 74859 bytes"
+          "details": "Size: 55808 bytes"
         },
         {
           "item": "pages/execution-logic.html",
           "passed": true,
-          "details": "Size: 62205 bytes"
+          "details": "Size: 43119 bytes"
         },
         {
           "item": "pages/tell-show-do-apply.html",
           "passed": true,
-          "details": "Size: 65936 bytes"
+          "details": "Size: 46850 bytes"
         },
         {
           "item": "pages/sanity-check.html",
           "passed": true,
-          "details": "Size: 48481 bytes"
+          "details": "Size: 29430 bytes"
         },
         {
           "item": "pages/generated-code.html",
           "passed": true,
-          "details": "Size: 75291 bytes"
+          "details": "Size: 56205 bytes"
         },
         {
           "item": "pages/model-selection.html",
           "passed": true,
-          "details": "Size: 78436 bytes"
+          "details": "Size: 59385 bytes"
         },
         {
           "item": "pages/voice-selection.html",
           "passed": true,
-          "details": "Size: 64915 bytes"
+          "details": "Size: 45829 bytes"
         },
         {
           "item": "pages/architecture.html",
           "passed": true,
-          "details": "Size: 74678 bytes"
+          "details": "Size: 55592 bytes"
         },
         {
           "item": "pages/parameters.html",
           "passed": true,
-          "details": "Size: 60821 bytes"
+          "details": "Size: 41735 bytes"
         },
         {
           "item": "pages/specs.html",
           "passed": true,
-          "details": "Size: 67413 bytes"
+          "details": "Size: 48323 bytes"
         },
         {
           "item": "pages/json-viewer.html",
           "passed": true,
-          "details": "Size: 71425 bytes"
+          "details": "Size: 52293 bytes"
         },
         {
           "item": ".nojekyll",
