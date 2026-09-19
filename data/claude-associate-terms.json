@@ -52,10 +52,10 @@
       },
       "codeOrSyntaxSnippet": "<antArtifact identifier=\"dashboard-component\" type=\"application/vnd.ant.react\" title=\"Analytics Dashboard\">",
       "video16sBlueprint": {
-        "hook": "Why does Claude put some code in a side window and some directly in chat?",
-        "conceptPart1": "That side window is an Artifact! Reserved for standalone, reusable code, SVGs, or documents over 15 lines long.",
-        "conceptPart2": "Conversational replies and quick 3-line snippets always stay inline to avoid cluttering your workspace.",
-        "ctaExamTip": "Exam Tip: Candidates failed this at 0%! Remember: standalone and reusable equals Artifact, quick explanation equals inline!"
+        "hook": "Why does Claude put some code in a side window?",
+        "conceptPart1": "That's an Artifact! It's for standalone, reusable code over 15 lines.",
+        "conceptPart2": "Quick answers and 3-line scripts always stay inline in chat.",
+        "ctaExamTip": "Exam Tip: Standalone files equal Artifacts, quick chat stays inline!"
       },
       "relatedTermIds": [
         "inline-markdown",
@@ -84,10 +84,10 @@
         "examClue": "Questions emphasizing rapid back-and-forth iteration without standalone document extraction."
       },
       "video16sBlueprint": {
-        "hook": "Should Claude generate an Artifact or stay inline in the chat?",
-        "conceptPart1": "Inline Markdown is for conversational continuity: explanations, quick terminal commands, and reading flow.",
-        "conceptPart2": "Creating an Artifact for a short response interrupts the user's flow and wastes layout real estate.",
-        "ctaExamTip": "Associate Exam Rule: If the user doesn't need to export, compile, or iterate on the code as a file, keep it inline!"
+        "hook": "Should Claude open an Artifact or stay in chat?",
+        "conceptPart1": "Inline Markdown is for conversation flow, explanations, and quick terminal snippets.",
+        "conceptPart2": "Creating an Artifact for short text interrupts user flow.",
+        "ctaExamTip": "Exam Tip: If code doesn't need file export, keep it inline!"
       },
       "relatedTermIds": [
         "artifacts",
@@ -116,10 +116,10 @@
       },
       "codeOrSyntaxSnippet": "Step 1: Extract entities.\nStep 2: Compare against compliance checklist.\nStep 3: Output final discrepancy table.",
       "video16sBlueprint": {
-        "hook": "Why does Claude hallucinate when you ask it to do three complex jobs at once?",
-        "conceptPart1": "LLMs suffer from cognitive overload when solving chained logic in a single shot without intermediate tokens.",
-        "conceptPart2": "Task decomposition forces Claude to execute Step 1, verify the intermediate state, then proceed to Step 2.",
-        "ctaExamTip": "Exam Tip: For multi-step enterprise workflows, always decompose complex instructions into numbered sequential stages!"
+        "hook": "Why does Claude fail on three complex jobs at once?",
+        "conceptPart1": "Single prompts overload reasoning. Decomposing breaks tasks into numbered stages.",
+        "conceptPart2": "Claude computes intermediate states, reducing compounding errors.",
+        "ctaExamTip": "Exam Tip: Decompose complex prompts into sequential steps!"
       },
       "relatedTermIds": [
         "chain-of-thought",
@@ -149,10 +149,10 @@
       },
       "codeOrSyntaxSnippet": "<instructions>\nSummarize the text in <source_document>.\n</instructions>\n<source_document>\n{{DOCUMENT_TEXT}}\n</source_document>",
       "video16sBlueprint": {
-        "hook": "What is Anthropic's secret weapon for structuring complex prompts?",
-        "conceptPart1": "XML tags! Wrapping sections in tags like <context> and <instructions> gives Claude mathematical clarity on where data ends and commands begin.",
-        "conceptPart2": "This prevents prompt injection and stops Claude from confusing your example data with actual user instructions.",
-        "ctaExamTip": "Anthropic Associate Exam Gold: Always use semantic XML tags to wrap input documents and reference criteria!"
+        "hook": "What is Anthropic's top prompt structure recommendation?",
+        "conceptPart1": "XML tags! Semantic tags separate instructions from untrusted user data.",
+        "conceptPart2": "This eliminates prompt injection and ambiguous instruction parsing.",
+        "ctaExamTip": "Exam Rule: Always wrap context and rules in XML tags!"
       },
       "relatedTermIds": [
         "system-prompts",
@@ -182,10 +182,10 @@
       },
       "codeOrSyntaxSnippet": "client.messages.create(\n  model=\"claude-3-5-sonnet-20241022\",\n  system=\"You are a senior compliance auditor. Never output PII.\",\n  messages=[{\"role\": \"user\", \"content\": \"Analyze this claim.\"}]\n)",
       "video16sBlueprint": {
-        "hook": "Where should you lock in Claude's persona so it never forgets its instructions?",
-        "conceptPart1": "In the System Prompt parameter! Not in the first user message. It sets the overarching role, security guardrails, and tone.",
-        "conceptPart2": "Even across 50 multi-turn conversation exchanges, the system prompt retains maximum steering priority.",
-        "ctaExamTip": "Exam Tip: Use the top-level 'system' parameter for persistent role definitions and security boundaries!"
+        "hook": "Where should you lock in Claude's persona?",
+        "conceptPart1": "In the System Prompt parameter! Not in the user message.",
+        "conceptPart2": "It persists behavioral boundaries and guardrails across 50 turns.",
+        "ctaExamTip": "Exam Tip: Use top-level 'system' parameter for persistent role definitions!"
       },
       "relatedTermIds": [
         "xml-tagging",
@@ -214,10 +214,10 @@
         "examClue": "High-volume classification vs real-time coding vs edge low-latency batch processing."
       },
       "video16sBlueprint": {
-        "hook": "Haiku, Sonnet, or Opus: Which Claude model should you deploy in production?",
-        "conceptPart1": "Haiku delivers near-instant speed at minimal cost for classification and routing.",
-        "conceptPart2": "Sonnet 3.5 is the enterprise workhorse with frontier coding and vision, while Opus tackles the deepest multi-step research.",
-        "ctaExamTip": "Exam Question Alert: Never default to the largest model! Always match volume, latency SLA, and token cost to the tier!"
+        "hook": "Haiku, Sonnet, or Opus: Which should you deploy?",
+        "conceptPart1": "Haiku delivers low latency at minimum cost for routing.",
+        "conceptPart2": "Sonnet 3.5 is the enterprise workhorse for code and tools.",
+        "ctaExamTip": "Exam Tip: Never default to the largest model\u2014match latency and cost!"
       },
       "relatedTermIds": [
         "context-window",
@@ -246,10 +246,10 @@
         "examClue": "When to clear context, summarize previous turns, or spin up a new session."
       },
       "video16sBlueprint": {
-        "hook": "Claude can handle 200,000 tokens\u2014so should you ever reset the chat?",
-        "conceptPart1": "Yes! Just because Claude can read 500 pages doesn't mean your budget and latency want to pay for 500 pages on every turn.",
-        "conceptPart2": "Long contexts increase time-to-first-token and cost. Pruning and summarizing keeps responses sharp.",
-        "ctaExamTip": "Associate Exam Rule: When a conversation shifts topics, restart or summarize rather than dragging the entire historical context!"
+        "hook": "Claude has 200,000 tokens\u2014should you ever reset chat?",
+        "conceptPart1": "Yes! Huge contexts increase latency and cost on every turn.",
+        "conceptPart2": "Summarizing previous turns keeps responses fast and accurate.",
+        "ctaExamTip": "Exam Tip: When conversation shifts, restart or summarize context!"
       },
       "relatedTermIds": [
         "prompt-caching",
@@ -279,10 +279,10 @@
       },
       "codeOrSyntaxSnippet": "{\n  \"type\": \"text\",\n  \"text\": largeDocumentationText,\n  \"cache_control\": {\"type\": \"ephemeral\"}\n}",
       "video16sBlueprint": {
-        "hook": "How do you slash your Claude API costs by 90% in large context applications?",
-        "conceptPart1": "Prompt Caching! Set an ephemeral cache breakpoint on your static documents or huge system prompts.",
-        "conceptPart2": "Subsequent API calls read from memory instead of recalculating, reducing latency by up to 85%.",
-        "ctaExamTip": "Exam Tip: Minimum cacheable prompt size is 1,024 tokens. Look for 'cache_control: ephemeral' on the exam!"
+        "hook": "How do you slash Claude API costs by 90%?",
+        "conceptPart1": "Prompt Caching! Set ephemeral cache breakpoints on static prefixes.",
+        "conceptPart2": "Subsequent calls read memory, reducing latency by 85%.",
+        "ctaExamTip": "Exam Tip: Minimum cache size is 1,024 tokens with cache_control!"
       },
       "relatedTermIds": [
         "context-window",
@@ -312,10 +312,10 @@
       },
       "codeOrSyntaxSnippet": "{\n  \"stop_reason\": \"tool_use\",\n  \"content\": [\n    {\n      \"type\": \"tool_use\",\n      \"id\": \"toolu_01A09q90\",\n      \"name\": \"get_weather\",\n      \"input\": {\"location\": \"San Francisco, CA\"}\n    }\n  ]\n}",
       "video16sBlueprint": {
-        "hook": "Does Claude actually run the tools you give it in the API?",
-        "conceptPart1": "No! Claude does NOT execute code on your server. It returns a stop_reason called 'tool_use' with structured JSON parameters.",
-        "conceptPart2": "Your client application executes the database query or API, then feeds the result back to Claude.",
-        "ctaExamTip": "Certification Golden Rule: Claude decides WHEN to call and outputs parameters; your client application does the actual execution!"
+        "hook": "Does Claude actually run tools on your server?",
+        "conceptPart1": "No! Claude returns stop_reason='tool_use' with structured JSON arguments.",
+        "conceptPart2": "Your client application executes the tool and returns results.",
+        "ctaExamTip": "Exam Golden Rule: Claude decides parameters; client code executes!"
       },
       "relatedTermIds": [
         "mcp-protocol",
@@ -344,10 +344,10 @@
         "examClue": "Standardized tool integration across multiple tools without bespoke point-to-point wrappers."
       },
       "video16sBlueprint": {
-        "hook": "What is Anthropic's Model Context Protocol, and why does every developer need it?",
-        "conceptPart1": "MCP is an open standard that connects AI models to local files, databases, and enterprise tools.",
-        "conceptPart2": "Instead of writing bespoke API glue for every tool, MCP provides universal client-server connectors.",
-        "ctaExamTip": "Exam Tip: Think of MCP like USB-C for AI\u2014one standard protocol for data resources, prompts, and tools!"
+        "hook": "What is Anthropic's Model Context Protocol?",
+        "conceptPart1": "MCP is an open standard connecting AI to local files and tools.",
+        "conceptPart2": "It replaces custom glue code with universal client-server connectors.",
+        "ctaExamTip": "Exam Tip: Think of MCP like USB-C for AI integrations!"
       },
       "relatedTermIds": [
         "tool-use-stop-reason",
@@ -375,10 +375,10 @@
         "examClue": "Questions regarding team workspace setup, persistent instructions, and document grounding without API development."
       },
       "video16sBlueprint": {
-        "hook": "Does uploading PDF files into Claude Projects fine-tune the model?",
-        "conceptPart1": "No! Claude Projects does NOT fine-tune model weights. It provides persistent in-context grounding and custom instructions.",
-        "conceptPart2": "Your uploaded style guides and code repos are dynamically retrieved to frame answers in team chats.",
-        "ctaExamTip": "Exam Question Alert: Projects provide in-context reference and team workspaces, never fine-tuning or weight modification!"
+        "hook": "Does Claude Projects fine-tune the base model?",
+        "conceptPart1": "No! Projects does not train weights. It provides in-context grounding.",
+        "conceptPart2": "Team instructions and uploaded docs guide chats dynamically.",
+        "ctaExamTip": "Exam Tip: Projects provide in-context reference, never model fine-tuning!"
       },
       "relatedTermIds": [
         "artifacts",
@@ -408,10 +408,10 @@
       },
       "codeOrSyntaxSnippet": "<instructions>\nBefore answering, reason through each constraint step-by-step inside <thinking> tags.\n</instructions>",
       "video16sBlueprint": {
-        "hook": "Why do thinking tags make Claude dramatically smarter at logic problems?",
-        "conceptPart1": "Chain-of-Thought prompts give the model token workspace to compute intermediate states before committing to a final answer.",
-        "conceptPart2": "Asking Claude to think inside <thinking> tags decouples internal scratchpad reasoning from the polished output.",
-        "ctaExamTip": "Certification Tip: Use Chain-of-Thought whenever tasks require multi-step math, policy verification, or complex deduction!"
+        "hook": "Why do thinking tags make Claude smarter?",
+        "conceptPart1": "Chain-of-Thought gives the model token space to calculate intermediate states.",
+        "conceptPart2": "Reasoning inside thinking tags decouples internal scratchpads from output.",
+        "ctaExamTip": "Exam Tip: Use Chain-of-Thought for multi-step logic and math!"
       },
       "relatedTermIds": [
         "task-decomposition",
@@ -441,10 +441,10 @@
       },
       "codeOrSyntaxSnippet": "<example>\n<input>Invoice #402 missing VAT</input>\n<output>{\"status\": \"REJECTED\", \"code\": \"ERR_NO_VAT\"}</output>\n</example>",
       "video16sBlueprint": {
-        "hook": "Tired of writing 5-paragraph prompts that Claude still misinterprets?",
-        "conceptPart1": "Switch to Few-Shot Prompting! Show, don't just tell. Providing 2 to 3 pristine input-output examples anchors output format instantly.",
-        "conceptPart2": "Claude mirrors the syntax, tone, and edge-case decisions demonstrated in your examples.",
-        "ctaExamTip": "Exam Strategy: When zero-shot instructions fail on schema edge cases, few-shot examples are the proven fix!"
+        "hook": "Tired of prompts that Claude still misinterprets?",
+        "conceptPart1": "Switch to Few-Shot! Show 2 to 3 pristine input-output examples.",
+        "conceptPart2": "Claude mirrors demonstrated schema and edge-case decisions.",
+        "ctaExamTip": "Exam Tip: Few-shot examples beat paragraphs of instructions!"
       },
       "relatedTermIds": [
         "xml-tagging",
@@ -474,10 +474,10 @@
       },
       "codeOrSyntaxSnippet": "<instruction>\nAnswer strictly using <context>. If the answer is not explicitly stated, reply exactly: 'Information not available in source'. Cite direct quotes.\n</instruction>",
       "video16sBlueprint": {
-        "hook": "Does setting temperature to 0 stop Claude from hallucinating?",
-        "conceptPart1": "No! Temperature 0 makes responses deterministic, but the model can still confidently generate false facts.",
-        "conceptPart2": "Real grounding requires negative constraints: instruct Claude to quote source documents directly and say 'I don't know' if missing.",
-        "ctaExamTip": "Exam Rule: Always give Claude an explicit 'escape hatch' instruction to state when context does not contain the answer!"
+        "hook": "Does temperature 0 stop Claude from hallucinating?",
+        "conceptPart1": "No! Temperature 0 makes outputs deterministic, not factual.",
+        "conceptPart2": "Factual grounding requires negative constraints and source citations.",
+        "ctaExamTip": "Exam Rule: Always give Claude an explicit 'I don't know' escape hatch!"
       },
       "relatedTermIds": [
         "human-in-the-loop",
@@ -506,10 +506,10 @@
         "examClue": "Scenarios where Claude processes insurance claims, medical records, or contractual signatures."
       },
       "video16sBlueprint": {
-        "hook": "When should you NEVER let an AI agent act fully autonomously?",
-        "conceptPart1": "Whenever financial transfers, contract signing, or high-liability decisions are at stake.",
-        "conceptPart2": "Human-in-the-loop architectures allow Claude to draft and analyze, but require human confirmation before triggering final actions.",
-        "ctaExamTip": "Associate Exam Tip: In high-stakes regulatory environments, always place human review between AI proposals and live execution!"
+        "hook": "When should an AI agent NEVER act alone?",
+        "conceptPart1": "When financial transfers, medical advice, or legal contracts are executed.",
+        "conceptPart2": "Human-in-the-loop requires human approval before live actions.",
+        "ctaExamTip": "Exam Tip: Place human verification between AI drafts and execution!"
       },
       "relatedTermIds": [
         "hallucination-mitigation",
@@ -537,10 +537,10 @@
         "examClue": "Choosing parameters for structured JSON extraction vs creative brainstorming."
       },
       "video16sBlueprint": {
-        "hook": "What happens when you set Claude's temperature to 0 versus 1?",
-        "conceptPart1": "Temperature controls randomness. Low temperature makes Claude focused and analytical\u2014ideal for code and extraction.",
-        "conceptPart2": "High temperature introduces creative diversity, perfect for brainstorming and narrative generation.",
-        "ctaExamTip": "Exam Takeaway: For JSON schemas, math, and data extraction, always configure temperature close to 0!"
+        "hook": "What happens when temperature is 0 versus 1?",
+        "conceptPart1": "Temperature controls randomness. Low temperature enforces precision.",
+        "conceptPart2": "High temperature drives creative divergence for brainstorming.",
+        "ctaExamTip": "Exam Takeaway: For code and JSON extraction, set temperature near 0!"
       },
       "relatedTermIds": [
         "model-tier-tradeoffs",
@@ -569,10 +569,10 @@
       },
       "codeOrSyntaxSnippet": "{\n  \"name\": \"lookup_customer\",\n  \"description\": \"Fetch customer record by UUID\",\n  \"input_schema\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"customerId\": {\"type\": \"string\", \"description\": \"UUID v4 string\"}\n    },\n    \"required\": [\"customerId\"]\n  }\n}",
       "video16sBlueprint": {
-        "hook": "Why did Claude pass the wrong parameter format to your API tool?",
-        "conceptPart1": "Because your JSON Schema description was vague! Claude uses property descriptions to understand exact formatting requirements.",
-        "conceptPart2": "Always specify types, required fields, and clear format guidance inside your tool's input_schema.",
-        "ctaExamTip": "Associate Exam Tip: Rich parameter descriptions and strict 'required' arrays prevent faulty tool calls!"
+        "hook": "Why did Claude pass the wrong parameter to your tool?",
+        "conceptPart1": "Your JSON Schema was vague! Claude relies on property descriptions.",
+        "conceptPart2": "Always specify parameter types and required constraints explicitly.",
+        "ctaExamTip": "Exam Tip: Rich parameter descriptions prevent broken tool calls!"
       },
       "relatedTermIds": [
         "tool-use-stop-reason",
@@ -600,10 +600,10 @@
         "examClue": "When to recommend web search tool integration vs standard chat."
       },
       "video16sBlueprint": {
-        "hook": "Does Claude know what happened in the tech world yesterday?",
-        "conceptPart1": "Not unless you provide external research connectors or tools! Claude's base model knowledge is frozen at its training cut-off.",
-        "conceptPart2": "To fetch live pricing or news, integrate external search tools or knowledge connectors.",
-        "ctaExamTip": "Exam Alert: Distinguish between the frozen base model knowledge and live retrieval through tools and connectors!"
+        "hook": "Does Claude know yesterday's breaking tech news?",
+        "conceptPart1": "Not without tools! Claude's base knowledge is frozen at cut-off.",
+        "conceptPart2": "Live search and connectors fetch real-time information dynamically.",
+        "ctaExamTip": "Exam Tip: Distinguish frozen training data from live tool retrieval!"
       },
       "relatedTermIds": [
         "claude-projects",
@@ -631,10 +631,10 @@
         "examClue": "How to handle recurring prompt failures on edge case customer inquiries."
       },
       "video16sBlueprint": {
-        "hook": "How do elite AI engineers write production-ready prompts?",
-        "conceptPart1": "They don't guess\u2014they iterate! They test baseline prompts against diverse edge-case test sets.",
-        "conceptPart2": "When Claude fails on an edge case, they inspect the failure mode and add explicit negative constraints or examples.",
-        "ctaExamTip": "Exam Tip: Prompt development is an empirical testing cycle, not a one-off writing exercise!"
+        "hook": "How do top AI engineers write production prompts?",
+        "conceptPart1": "They test and iterate! They benchmark against edge-case test sets.",
+        "conceptPart2": "When failures occur, they refine constraints and add examples.",
+        "ctaExamTip": "Exam Tip: Prompt development is an empirical testing cycle!"
       },
       "relatedTermIds": [
         "task-decomposition",
@@ -663,10 +663,10 @@
         "examClue": "Questions on how to validate prompt updates before promoting to production."
       },
       "video16sBlueprint": {
-        "hook": "How do you know if your prompt change actually made Claude better or worse?",
-        "conceptPart1": "By testing against an evaluation dataset! Never promote a prompt change based on just 2 manual chats.",
-        "conceptPart2": "Run systematic test suites measuring accuracy, latency, and format compliance against golden answer benchmarks.",
-        "ctaExamTip": "Associate Exam Rule: Always validate system changes against structured eval datasets before production rollout!"
+        "hook": "Did your prompt change make Claude better or worse?",
+        "conceptPart1": "Don't guess\u2014evaluate! Test against structured benchmark datasets.",
+        "conceptPart2": "Measure accuracy, latency, and format compliance against golden answers.",
+        "ctaExamTip": "Exam Rule: Always test prompt updates against eval datasets!"
       },
       "relatedTermIds": [
         "hallucination-mitigation",
@@ -694,10 +694,10 @@
         "examClue": "Managing leadership expectations regarding AI operational risk and SLA guarantees."
       },
       "video16sBlueprint": {
-        "hook": "What is the biggest mistake engineers make when pitching AI to executives?",
-        "conceptPart1": "Promising 100% perfection! Claude is a probabilistic model, not a deterministic rule engine.",
-        "conceptPart2": "Set realistic stakeholder expectations: highlight immense speed and scale, but establish clear review guardrails for high-risk data.",
-        "ctaExamTip": "Exam Tip: Always pair AI capability demonstrations with honest communication of latency, probabilistic variance, and safety boundaries!"
+        "hook": "What is the biggest mistake when pitching AI?",
+        "conceptPart1": "Promising 100% perfection! LLMs are probabilistic, not deterministic.",
+        "conceptPart2": "Highlight speed, but establish transparent error-mitigation policies.",
+        "ctaExamTip": "Exam Tip: Pair AI capability demos with honest error boundaries!"
       },
       "relatedTermIds": [
         "human-in-the-loop",
@@ -725,10 +725,10 @@
         "examClue": "Optimizing cloud architectural cost across a multi-tier agent router."
       },
       "video16sBlueprint": {
-        "hook": "Are you wasting 80% of your AI budget on the wrong model tier?",
-        "conceptPart1": "Simple tasks like routing, filtering, and short extractions belong on Haiku for maximum speed and lowest cost.",
-        "conceptPart2": "Reserve Sonnet 3.5 for complex code generation and multi-step reasoning.",
-        "ctaExamTip": "Certification Golden Rule: Multi-agent architectures should always route cheap classification to Haiku and heavy logic to Sonnet!"
+        "hook": "Are you wasting 80% of your AI cloud budget?",
+        "conceptPart1": "Simple routing and filters belong on Haiku for low cost.",
+        "conceptPart2": "Reserve Sonnet 3.5 for heavy code and reasoning.",
+        "ctaExamTip": "Exam Rule: Route classification to Haiku and deep logic to Sonnet!"
       },
       "relatedTermIds": [
         "model-tier-tradeoffs",
@@ -756,10 +756,10 @@
         "examClue": "Handling API rate limit errors (HTTP 429) gracefully in client applications."
       },
       "video16sBlueprint": {
-        "hook": "What should your application do when Claude returns an HTTP 429 error?",
-        "conceptPart1": "HTTP 429 means Rate Limit Exceeded! Never hammer the API with an immediate loop retry.",
-        "conceptPart2": "Implement exponential backoff with jitter to pause and retry progressively without overwhelming the gateway.",
-        "ctaExamTip": "Associate Exam Alert: Handle 429 rate limits using exponential backoff, prompt caching, and token budgeting!"
+        "hook": "What should your app do on HTTP 429 rate limit?",
+        "conceptPart1": "429 means Rate Limit Exceeded! Never retry in a tight loop.",
+        "conceptPart2": "Use exponential backoff with jitter and leverage prompt caching.",
+        "ctaExamTip": "Exam Tip: Handle 429 errors using exponential backoff with jitter!"
       },
       "relatedTermIds": [
         "prompt-caching",
@@ -788,10 +788,10 @@
       },
       "codeOrSyntaxSnippet": "Assistant prefill: {\n// Forces Claude to continue strictly as raw JSON",
       "video16sBlueprint": {
-        "hook": "How do you stop Claude from saying 'Here is your JSON' before the code?",
-        "conceptPart1": "Prefill the assistant response! In the API, ending the assistant turn with an opening brace '{' forces Claude to output pure JSON.",
-        "conceptPart2": "Pair this with an exact JSON schema in your prompt to prevent parse errors in your code.",
-        "ctaExamTip": "Curriculum Gap Alert: Master output curation\u2014prefilling and strict schemas ensure pure machine-parseable data!"
+        "hook": "How do you stop Claude from saying 'Here is your JSON'?",
+        "conceptPart1": "Prefill the assistant response! Ending turns with '{' forces raw JSON.",
+        "conceptPart2": "Pair prefilling with strict JSON schemas to eliminate backticks.",
+        "ctaExamTip": "Exam Tip: Use assistant prefill to enforce pure machine-readable JSON!"
       },
       "relatedTermIds": [
         "artifacts",
