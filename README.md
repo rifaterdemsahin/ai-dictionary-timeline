@@ -1,3 +1,5 @@
+> https://rifaterdemsahin.github.io/ai-dictionary-timeline/
+
 # ai-dictionary-timeline
 
 Programmatic 16-Second AI Short Pipeline for Claude Associate Certification concepts using Fal.ai, MCP, and Remotion.
